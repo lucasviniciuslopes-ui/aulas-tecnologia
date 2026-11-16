@@ -465,6 +465,141 @@
     .card, .define, .fig, table, .steps li, .flow-box, .note, .summary { break-inside: avoid; }
     a { color: inherit; text-decoration: none; }
   }
+
+  /* Desenhos simplificados das telas */
+  .mock-fig { gap: 12px; }
+  .mock { --m-line: #dadce0; --m-ink: #202124; --m-mut: #5f6368; --m-soft: #f1f3f4; --m-blue: #1a73e8; background: #fff; color: var(--m-ink); border: 1.5px solid #c9d6ec; border-radius: 12px; overflow: hidden; font-family: Arial, Helvetica, sans-serif; font-size: clamp(8.5px, 2.25vw, 14px); line-height: 1.3; width: 100%; max-width: 780px; margin: 0 auto; box-shadow: 0 6px 20px rgba(15, 35, 71, 0.14); text-align: left; }
+  .mock * { box-sizing: border-box; }
+  .m-bar { display: flex; align-items: center; gap: 0.8em; background: #e8eaed; padding: 0.5em 0.8em; }
+  .m-dots i { display: inline-block; width: 0.7em; height: 0.7em; border-radius: 50%; background: #bdc1c6; margin-right: 0.3em; }
+  .m-url { flex: 1; background: #fff; border-radius: 999px; padding: 0.3em 0.9em; color: var(--m-mut); white-space: nowrap; overflow: hidden; }
+  .m-row { display: flex; align-items: center; gap: 0.7em; padding: 0.6em 0.9em; border-bottom: 1px solid var(--m-line); }
+  .m-row.small { font-size: 0.9em; gap: 1.1em; color: var(--m-mut); padding-top: 0.3em; padding-bottom: 0.3em; }
+  .m-row.tools { background: #edf2fa; gap: 0.9em; margin: 0.3em 0.6em; border-radius: 999px; border: 0; }
+  .m-sp { flex: 1; }
+  .m-title { font-size: 1.15em; }
+  .m-mut { color: var(--m-mut); }
+  .m-app { width: 1.8em; height: 1.8em; border-radius: 0.3em; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: bold; flex: none; }
+  .m-title-box { font-size: 1.15em; padding: 0.1em 0.4em; border-radius: 4px; }
+  .m-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.35em; padding: 0.45em 1em; border-radius: 999px; border: 1px solid var(--m-line); background: #fff; white-space: nowrap; }
+  .m-btn.pri { background: var(--m-blue); color: #fff; border-color: var(--m-blue); }
+  .m-btn.big { border-radius: 1em; padding: 0.9em 1.2em; box-shadow: 0 1px 4px rgba(0,0,0,0.25); align-self: flex-start; background: #c2e7ff; border: 0; font-weight: bold; }
+  .m-tool { display: inline-flex; align-items: center; gap: 0.25em; padding: 0.15em 0.4em; border-radius: 4px; white-space: nowrap; }
+  .m-sel { border: 1px solid var(--m-line); border-radius: 4px; padding: 0.2em 0.6em; background: #fff; white-space: nowrap; }
+  .m-field { display: inline-flex; align-items: center; border: 1px solid var(--m-line); border-radius: 8px; padding: 0.5em 0.8em; background: #fff; color: var(--m-mut); white-space: nowrap; }
+  .m-field.wide { flex: 1; min-width: 0; }
+  .m-body { display: flex; min-height: 13em; }
+  .m-body.tall { min-height: 17em; }
+  .m-body.short { min-height: 0; }
+  .m-side { width: 30%; padding: 0.8em; display: flex; flex-direction: column; gap: 0.45em; border-right: 1px solid var(--m-line); flex: none; position: relative; }
+  .m-side > span:not(.hl) { padding: 0.3em 0.7em; border-radius: 999px; white-space: nowrap; }
+  .m-side .on { background: #d3e3fd; font-weight: bold; }
+  .m-main { flex: 1; padding: 0.9em; background: var(--m-soft); display: flex; flex-direction: column; gap: 0.6em; position: relative; min-width: 0; }
+  .m-main.white { background: #fff; }
+  .m-main.center { align-items: center; }
+  .m-page { background: #fff; border: 1px solid var(--m-line); padding: 1.4em 1.6em; flex: 1; display: flex; flex-direction: column; gap: 0.6em; max-width: 30em; width: 100%; align-self: center; }
+  .m-l { display: block; height: 0.55em; background: #e3e6ea; border-radius: 4px; }
+  .m-tabs { display: flex; gap: 1.4em; padding: 0 0.9em; border-bottom: 1px solid var(--m-line); }
+  .m-tabs > span { padding: 0.6em 0.1em; }
+  .m-tabs .on { color: var(--m-blue); border-bottom: 3px solid var(--m-blue); font-weight: bold; }
+  .hl { position: relative; outline: 3px solid #ffc629; outline-offset: 2px; }
+  .pin { position: absolute; top: -1em; right: -1em; z-index: 2; width: 1.8em; height: 1.8em; border-radius: 50%; background: #ffc629; color: #3a2a00; border: 2px solid #fff; font: bold 1em/1 Arial, sans-serif; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,0.35); font-style: normal; text-decoration: none; }
+  .hl.pl > .pin { right: auto; left: -1em; }
+  .mock-legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 8px 16px; }
+  .mock-legend li { display: flex; gap: 10px; align-items: flex-start; }
+  .mock-legend li b { flex: none; width: 1.7em; height: 1.7em; border-radius: 50%; background: #ffc629; color: #3a2a00; display: inline-flex; align-items: center; justify-content: center; }
+  .mock-note { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  /* peças de cada tela */
+  .m-login { background: linear-gradient(160deg, #dfe9fb, #f5f8fe); padding: 1.6em 1em 0; display: flex; flex-direction: column; align-items: center; gap: 1.4em; }
+  .m-card-login { background: #fff; border-radius: 1.2em; padding: 1.6em; width: min(100%, 26em); display: flex; flex-direction: column; gap: 0.8em; box-shadow: 0 2px 10px rgba(0,0,0,0.12); }
+  .m-logo { font: bold 1.6em Arial; color: #4285f4; }
+  .m-link { color: var(--m-blue); font-size: 0.9em; }
+  .m-row-end { display: flex; justify-content: flex-end; gap: 1em; align-items: center; }
+  .m-row-end.left { justify-content: flex-start; }
+  .m-shelf { align-self: stretch; display: flex; padding: 0.4em 0.8em; background: rgba(32,33,36,0.85); margin: 0 -1em; }
+  .m-clock { color: #fff; padding: 0.2em 0.7em; border-radius: 999px; background: rgba(255,255,255,0.15); }
+  .m-task { font-weight: bold; font-size: 1.1em; align-self: flex-start; padding: 0.1em 0.3em; }
+  .m-aside { width: 36%; padding: 0.9em; flex: none; }
+  .m-work { border: 1px solid var(--m-line); border-radius: 0.8em; padding: 0.9em; display: flex; flex-direction: column; gap: 0.7em; box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+  .m-grid { border-collapse: collapse; width: 100%; font-size: 1em; }
+  .m-grid th, .m-grid td { border: 1px solid var(--m-line); padding: 0.35em 0.6em; text-align: left; font-weight: normal; }
+  .m-grid th { background: var(--m-soft); color: var(--m-mut); text-align: center; width: 2.2em; }
+  .m-grid tr:first-child th { width: auto; }
+  .m-cell-sel { outline: 2px solid var(--m-blue); outline-offset: -2px; position: relative; background: #e8f0fe; }
+  .m-cell-sel .pin { top: -1.1em; right: -0.9em; }
+  .m-map { position: relative; height: 17em; background: #e9efe4; background-image: linear-gradient(90deg, transparent 47%, #fff 47%, #fff 50%, transparent 50%), linear-gradient(0deg, transparent 60%, #fff 60%, #fff 63%, transparent 63%), linear-gradient(35deg, transparent 70%, #fdf3c4 70%, #fdf3c4 73%, transparent 73%); background-size: 7em 6em, 9em 7em, 100% 100%; }
+  .m-route { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .m-mark { position: absolute; font-size: 1.4em; }
+  .m-mark.a { left: 13%; bottom: 10%; color: #1a73e8; } .m-mark.b { right: 10%; top: 10%; }
+  .m-float { position: absolute; left: 0.9em; top: 0.9em; width: min(70%, 24em); display: flex; flex-direction: column; gap: 0.7em; }
+  .m-searchrow { display: flex; gap: 0.6em; }
+  .m-searchrow .m-field { box-shadow: 0 1px 4px rgba(0,0,0,0.25); border: 0; }
+  .m-modes { align-self: flex-start; background: #fff; border-radius: 999px; padding: 0.4em 0.9em; box-shadow: 0 1px 4px rgba(0,0,0,0.25); }
+  .m-info { position: absolute; right: 0.9em; bottom: 0.9em; background: #fff; border-radius: 0.6em; padding: 0.5em 0.9em; box-shadow: 0 1px 4px rgba(0,0,0,0.25); color: #188038; }
+  .m-space { position: relative; height: 17em; background: radial-gradient(circle at 70% 20%, #1b2a4e, #05070f 70%); display: flex; align-items: center; justify-content: center; }
+  .m-vbar { position: absolute; left: 0; top: 0; bottom: 0; width: 3.4em; background: rgba(32,33,36,0.92); display: flex; flex-direction: column; align-items: center; gap: 0.9em; padding-top: 0.9em; }
+  .m-ico { width: 2.4em; height: 2.4em; border-radius: 50%; background: #3c4043; color: #fff; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .m-ico.red { background: #ea4335; width: 3.4em; border-radius: 999px; }
+  .m-globe-wrap { border-radius: 50%; outline-offset: 4px; }
+  .m-globe { display: block; width: 11em; height: 11em; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #8fd18a 0 12%, transparent 13%), radial-gradient(circle at 62% 58%, #6dbb6a 0 16%, transparent 17%), radial-gradient(circle at 30% 70%, #9ccc65 0 9%, transparent 10%), radial-gradient(circle at 40% 35%, #4a90e2, #134a9c 75%); box-shadow: inset -1.5em -1em 2.5em rgba(0,0,0,0.5), 0 0 2em rgba(120,170,255,0.35); }
+  .m-zoom { position: absolute; right: 1em; bottom: 1em; display: flex; flex-direction: column; gap: 0.6em; }
+  .m-zoombtn { background: #fff; border-radius: 0.5em; padding: 0.4em 0.7em; text-align: center; font-weight: bold; line-height: 1.4; }
+  .m-call { background: #202124; padding: 0.9em; display: flex; flex-direction: column; gap: 0.9em; }
+  .m-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7em; }
+  .m-tile { background: #3c4043; border-radius: 0.8em; height: 9em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5em; color: #fff; }
+  .m-av { width: 3.4em; height: 3.4em; border-radius: 50%; color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 1.3em; font-weight: bold; }
+  .m-callbar { display: flex; justify-content: center; gap: 0.9em; padding: 0.4em 0 0.3em; }
+  .m-form { background: #f0ebf8; padding: 1em; display: flex; flex-direction: column; gap: 0.8em; align-items: center; }
+  .m-fcard { background: #fff; border-radius: 0.6em; padding: 1em 1.2em; width: min(100%, 30em); display: flex; flex-direction: column; gap: 0.5em; border: 1px solid var(--m-line); }
+  .m-fcard.top { border-top: 0.6em solid #673ab7; }
+  .m-req { color: #d93025; font-size: 0.9em; align-self: flex-start; padding: 0 0.3em; }
+  .m-q { align-self: flex-start; padding: 0.1em 0.3em; }
+  .m-star { color: #d93025; }
+  .m-opt { color: var(--m-ink); padding-left: 0.4em; }
+  .m-form .m-row-end { width: min(100%, 30em); }
+  .m-btn.form { background: #673ab7; border-color: #673ab7; border-radius: 0.3em; }
+  .m-mailrow { padding: 0.45em 0.6em; border-bottom: 1px solid var(--m-line); white-space: nowrap; overflow: hidden; }
+  .m-compose { position: absolute; right: 0.8em; bottom: 0; width: min(78%, 22em); background: #fff; border-radius: 0.6em 0.6em 0 0; box-shadow: 0 2px 14px rgba(0,0,0,0.3); display: flex; flex-direction: column; }
+  .m-chead { background: #f2f6fc; padding: 0.5em 0.8em; border-radius: 0.6em 0.6em 0 0; font-weight: bold; }
+  .m-cfield { display: block; padding: 0.45em 0.8em; border-bottom: 1px solid var(--m-line); color: var(--m-mut); margin: 0.15em 0.4em; }
+  .m-cbody { padding: 0.7em 0.8em; display: flex; flex-direction: column; gap: 0.5em; min-height: 3em; }
+  .m-cfoot { display: flex; gap: 0.9em; align-items: center; padding: 0.6em 0.8em; }
+  .m-pop { background: #fff; border-radius: 0.5em; box-shadow: 0 2px 10px rgba(0,0,0,0.25); display: flex; flex-direction: column; padding: 0.4em 0; margin: -0.2em 0 0.3em 1em; }
+  .m-pop > span { padding: 0.4em 0.8em; white-space: nowrap; }
+  .m-popitem { background: #e8f0fe; }
+  .m-files { display: grid; grid-template-columns: repeat(auto-fill, minmax(8em, 1fr)); gap: 0.6em; }
+  .m-file { background: #fff; border-radius: 0.6em; padding: 0.7em; border: 1px solid var(--m-line); white-space: nowrap; overflow: hidden; }
+  .m-thumbs { width: 20%; flex: none; padding: 0.8em; display: flex; flex-direction: column; gap: 0.6em; border-right: 1px solid var(--m-line); }
+  .m-thumb { display: block; aspect-ratio: 16/9; border: 1px solid var(--m-line); border-radius: 3px; background: #fff; }
+  .m-thumb.on { border: 2px solid #f4b400; }
+  .m-thumbwrap { display: block; }
+  .m-slide { background: #fff; aspect-ratio: 16/9; max-height: 11em; align-self: center; width: auto; border: 1px solid var(--m-line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.3em; padding: 1em 3em; }
+  .m-slide b { font-size: 1.5em; }
+  .m-notes { background: #fff; border: 1px solid var(--m-line); padding: 0.5em 0.8em; color: var(--m-mut); display: block; }
+  .m-minical { display: block; height: 6em; border-radius: 0.5em; background: repeating-linear-gradient(90deg, #f1f3f4 0 1.2em, #fff 1.2em 1.5em); }
+  .m-week { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; flex: 1; border-left: 1px solid var(--m-line); }
+  .m-day { border-right: 1px solid var(--m-line); padding: 0.3em; display: flex; flex-direction: column; gap: 0.5em; color: var(--m-mut); min-height: 12em; }
+  .m-ev { background: #039be5; color: #fff; border-radius: 0.3em; padding: 0.3em; font-size: 0.85em; margin-top: 2em; }
+  .m-evpop { position: absolute; right: 0.9em; bottom: 0.9em; width: min(72%, 18em); background: #fff; border-radius: 0.7em; box-shadow: 0 2px 14px rgba(0,0,0,0.3); padding: 0.8em; display: flex; flex-direction: column; gap: 0.6em; align-items: flex-start; }
+  .m-evpop .m-cfield { align-self: stretch; margin: 0; font-size: 1.1em; }
+  .m-keepbar { display: flex; gap: 0.5em; align-items: center; width: min(100%, 28em); box-shadow: 0 1px 4px rgba(0,0,0,0.25); border-radius: 0.6em; padding: 0.2em 0.4em; }
+  .m-keepbar .m-field { border: 0; }
+  .m-notesgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7em; width: 100%; margin-top: 0.6em; }
+  .m-knote { border-radius: 0.6em; padding: 0.7em; display: flex; flex-direction: column; gap: 0.3em; border: 1px solid var(--m-line); position: relative; min-height: 6em; }
+  .m-knote > .hl { position: absolute; right: 0.5em; bottom: 0.5em; }
+  .m-trad { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; padding: 0.9em; }
+  .m-tbox { display: flex; flex-direction: column; justify-content: space-between; min-height: 9em; border: 1px solid var(--m-line); border-radius: 0.6em; padding: 0.9em; font-size: 1.15em; }
+  .m-tbox.out { background: var(--m-soft); }
+  .m-tfoot { display: flex; gap: 0.8em; font-size: 0.9em; }
+  @media (max-width: 560px) {
+    .m-aside { width: 44%; padding: 0.6em; }
+    .m-side { width: 36%; padding: 0.6em; }
+    .m-notesgrid { grid-template-columns: 1fr 1fr; }
+    .m-notesgrid .m-knote:nth-child(2) { display: none; }
+    .m-thumbs { width: 24%; }
+    .m-slide { padding: 0.8em 1.2em; }
+  }
+  @media print { .mock-fig { break-inside: avoid; } .mock { box-shadow: none; } }
 </style>
 </head>
 <body>
@@ -2183,6 +2318,27 @@
         <p><strong>Não empreste</strong> a sua senha para os colegas. Quem entra na sua conta vê as suas atividades e os seus e-mails.</p>
       </article>
     </div>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Chromebook (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela de login do Chromebook com campo de e-mail e botão Avançar">
+        <div class="m-login">
+          <div class="m-card-login">
+            <span class="m-logo">G</span>
+            <b class="m-title">Fazer login no Chromebook</b>
+            <span class="m-field wide hl">E-mail ou telefone<span class="pin" aria-hidden="true">1</span></span>
+            <span class="m-link">Esqueceu o e-mail?</span>
+            <div class="m-row-end"><span class="m-btn pri hl">Avançar<span class="pin" aria-hidden="true">2</span></span></div>
+          </div>
+          <div class="m-shelf"><span class="m-sp"></span><span class="m-clock hl pl">10:30 📶 🔋<span class="pin" aria-hidden="true">3</span></span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Digite o seu e-mail do colégio aqui.</span></li>
+        <li><b>2</b><span>Clique em <strong>Avançar</strong>. Na próxima tela, digite a senha e clique em Avançar de novo.</span></li>
+        <li><b>3</b><span>Ao terminar a aula, clique no <strong>relógio</strong> e depois em Sair.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="cb-depois">
@@ -2674,6 +2830,34 @@
         <div class="twin-box"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"></path></svg></span><b>Anexos</b><small>São os arquivos e links que o professor colocou para você abrir.</small></div>
       </div>
     </figure>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Sala de Aula (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela de uma atividade no Google Sala de Aula, com a aba Atividades, o botão Adicionar ou criar e o botão Entregar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">classroom.google.com</span></div>
+        <div class="m-row"><span>☰</span><b class="m-title">Tecnologia · 2º ano</b></div>
+        <div class="m-tabs"><span>Mural</span><span class="on hl">Atividades<span class="pin" aria-hidden="true">1</span></span><span>Pessoas</span><span>Notas</span></div>
+        <div class="m-body">
+          <div class="m-main white">
+            <span class="m-task hl">📝 Trabalho: Google Maps<span class="pin" aria-hidden="true">2</span></span>
+            <small class="m-mut">Prof. Lucas Vinicius · Data de entrega: amanhã</small>
+            <span class="m-l" style="width:95%"></span><span class="m-l" style="width:88%"></span><span class="m-l" style="width:70%"></span>
+          </div>
+          <div class="m-aside">
+            <div class="m-work"><b>Seu trabalho</b><small class="m-mut">Atribuído</small>
+              <span class="m-btn hl">+ Adicionar ou criar<span class="pin" aria-hidden="true">3</span></span>
+              <span class="m-btn pri hl">Entregar<span class="pin" aria-hidden="true">4</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique na aba <strong>Atividades</strong>.</span></li>
+        <li><b>2</b><span>Clique na atividade e leia as instruções.</span></li>
+        <li><b>3</b><span>Use <strong>Adicionar ou criar</strong> para anexar o seu arquivo.</span></li>
+        <li><b>4</b><span>Clique em <strong>Entregar</strong>.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="gsa-depois">
@@ -2866,6 +3050,23 @@
         </tbody>
       </table>
     </div>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Docs (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Docs com o nome do documento, a barra de ferramentas e o botão Compartilhar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">docs.google.com</span></div>
+        <div class="m-row"><span class="m-app" style="background:#4285f4">≡</span><span class="m-title-box hl">Documento sem título<span class="pin" aria-hidden="true">1</span></span><span class="m-sp"></span><span class="m-btn pri hl pl">Compartilhar<span class="pin" aria-hidden="true">4</span></span></div>
+        <div class="m-row small"><span>Arquivo</span><span>Editar</span><span>Ver</span><span>Inserir</span><span>Formatar</span></div>
+        <div class="m-row tools"><span>↶ ↷</span><span class="m-sel">Arial ▾</span><span class="m-sel">11</span><span class="m-tool hl"><b>B</b> <i>I</i> <u>U</u><span class="pin" aria-hidden="true">2</span></span><span>A</span><span class="m-tool hl">≡ ☰<span class="pin" aria-hidden="true">3</span></span></div>
+        <div class="m-body"><div class="m-main"><div class="m-page"><span class="m-l" style="width:92%"></span><span class="m-l" style="width:85%"></span><span class="m-l" style="width:96%"></span><span class="m-l" style="width:60%"></span><span class="m-l" style="width:0%"></span></div></div></div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique aqui para dar um <strong>nome</strong> ao documento.</span></li>
+        <li><b>2</b><span>Negrito, itálico e sublinhado.</span></li>
+        <li><b>3</b><span>Alinhamento e listas.</span></li>
+        <li><b>4</b><span>O botão <strong>Compartilhar</strong> envia o documento para outras pessoas.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section class="summary" id="resumo-12">
@@ -3034,6 +3235,22 @@
       <li><div><b>Escreva a conta com os endereços das células.</b><span>Exemplo: B2*C2.</span></div></li>
       <li><div><b>Aperte Enter.</b><span>O resultado aparece na célula.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Planilhas (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Planilhas com uma célula selecionada, a barra de fórmulas e o menu Inserir">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">sheets.google.com</span></div>
+        <div class="m-row"><span class="m-app" style="background:#0f9d58">▦</span><span class="m-title">Gastos da semana</span><span class="m-sp"></span><span class="m-btn pri">Compartilhar</span></div>
+        <div class="m-row small"><span>Arquivo</span><span>Editar</span><span>Ver</span><span class="m-tool hl">Inserir<span class="pin" aria-hidden="true">3</span></span><span>Formatar</span><span>Dados</span></div>
+        <div class="m-row"><span class="m-field wide hl pl"><i>fx</i>&nbsp; =B2+B3<span class="pin" aria-hidden="true">2</span></span></div>
+        <div class="m-body short"><div class="m-main white"><table class="m-grid"><tr><th></th><th>A</th><th>B</th><th>C</th></tr><tr><th>1</th><td><b>Item</b></td><td><b>Gasto</b></td><td></td></tr><tr><th>2</th><td>Lanche</td><td>12</td><td></td></tr><tr><th>3</th><td>Ônibus</td><td>9</td><td></td></tr><tr><th>4</th><td><b>Total</b></td><td class="m-cell-sel">21<span class="pin" aria-hidden="true">1</span></td><td></td></tr><tr><th>5</th><td></td><td></td><td></td></tr></table></div></div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>A <strong>célula selecionada</strong>, onde o resultado aparece (B4).</span></li>
+        <li><b>2</b><span>A <strong>barra de fórmulas</strong> mostra a conta que está dentro da célula.</span></li>
+        <li><b>3</b><span>No menu <strong>Inserir</strong> fica a opção Gráfico.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="plan-funcoes">
@@ -3222,6 +3439,27 @@
         <div class="flow-box"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512.509 192.001c-16.373-.064-32.03 2.955-46.436 8.495l-77.68-125.153A24 24 0 0 0 368.001 64h-64c-8.837 0-16 7.163-16 16v16c0 8.837 7.163 16 16 16h50.649l14.896 24H256.002v-16c0-8.837-7.163-16-16-16h-87.459c-13.441 0-24.777 10.999-24.536 24.437.232 13.044 10.876 23.563 23.995 23.563h48.726l-29.417 47.52c-13.433-4.83-27.904-7.483-42.992-7.52C58.094 191.83.412 249.012.002 319.236-.413 390.279 57.055 448 128.002 448c59.642 0 109.758-40.793 123.967-96h52.033a24 24 0 0 0 20.406-11.367L410.37 201.77l14.938 24.067c-25.455 23.448-41.385 57.081-41.307 94.437.145 68.833 57.899 127.051 126.729 127.719 70.606.685 128.181-55.803 129.255-125.996 1.086-70.941-56.526-129.72-127.476-129.996zM186.75 265.772c9.727 10.529 16.673 23.661 19.642 38.228h-43.306l23.664-38.228zM128.002 400c-44.112 0-80-35.888-80-80s35.888-80 80-80c5.869 0 11.586.653 17.099 1.859l-45.505 73.509C89.715 331.327 101.213 352 120.002 352h81.3c-12.37 28.225-40.562 48-73.3 48zm162.63-96h-35.624c-3.96-31.756-19.556-59.894-42.383-80.026L237.371 184h127.547l-74.286 120zm217.057 95.886c-41.036-2.165-74.049-35.692-75.627-76.755-.812-21.121 6.633-40.518 19.335-55.263l44.433 71.586c4.66 7.508 14.524 9.816 22.032 5.156l13.594-8.437c7.508-4.66 9.817-14.524 5.156-22.032l-44.468-71.643a79.901 79.901 0 0 1 19.858-2.497c44.112 0 80 35.888 80 80-.001 45.54-38.252 82.316-84.313 79.885z"></path></svg></span><b>Bicicleta</b><small>Mostra ruas e ciclovias</small></div>
       </div>
     </figure>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Maps (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Maps com barra de pesquisa, botão Rotas e opções de transporte">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">maps.google.com</span></div>
+        <div class="m-map">
+          <svg class="m-route" viewBox="0 0 400 200" preserveAspectRatio="none" aria-hidden="true"><path d="M60 170 C 120 160, 140 90, 210 100 S 300 40, 350 40" fill="none" stroke="#1a73e8" stroke-width="6" stroke-linecap="round"/></svg>
+          <span class="m-mark a">●</span><span class="m-mark b">📍</span>
+          <div class="m-float">
+            <div class="m-searchrow"><span class="m-field wide hl">🔍 Pesquise no Google Maps<span class="pin" aria-hidden="true">1</span></span><span class="m-btn pri hl">↱ Rotas<span class="pin" aria-hidden="true">2</span></span></div>
+            <span class="m-modes hl">🚗 &nbsp;🚌 &nbsp;🚶 &nbsp;🚲<span class="pin" aria-hidden="true">3</span></span>
+          </div>
+          <div class="m-info"><b>18 min</b> (6,2 km)</div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Pesquise o lugar aonde você quer ir.</span></li>
+        <li><b>2</b><span>Clique em <strong>Rotas</strong> e digite de onde você vai sair.</span></li>
+        <li><b>3</b><span>Escolha como vai: carro, transporte público, a pé ou bicicleta.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="maps-street">
@@ -3368,6 +3606,23 @@
       <li><div><b>Aproxime e afaste a imagem.</b><span>No touchpad do Chromebook, deslize dois dedos para cima e para baixo.</span></div></li>
       <li><div><b>Clique e arraste para girar o globo.</b><span>Assim você olha o lugar por outros lados.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Earth (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Earth com o globo, a pesquisa e os botões de aproximar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">earth.google.com</span></div>
+        <div class="m-space">
+          <div class="m-vbar"><span class="m-ico hl">🔍<span class="pin" aria-hidden="true">1</span></span><span class="m-ico">☰</span><span class="m-ico">🎲</span></div>
+          <span class="m-globe-wrap hl"><span class="m-globe"></span><span class="pin" aria-hidden="true">3</span></span>
+          <div class="m-zoom"><span class="m-zoombtn hl">+<br>−<span class="pin" aria-hidden="true">2</span></span><span class="m-zoombtn">3D</span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique na <strong>lupa</strong> para pesquisar um lugar.</span></li>
+        <li><b>2</b><span>Use <strong>+</strong> e <strong>−</strong> (ou a rodinha do mouse) para aproximar e afastar.</span></li>
+        <li><b>3</b><span>Clique e arraste o globo para girar.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="earth-aulas">
@@ -3523,6 +3778,23 @@
         <p>O <strong>botão vermelho</strong> encerra a sua participação.</p>
       </article>
     </div>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Meet (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela de uma chamada no Google Meet com os botões de microfone, câmera, levantar a mão, chat e sair">
+        <div class="m-call">
+          <div class="m-tiles"><span class="m-tile"><span class="m-av" style="background:#7b61ff">L</span><small>Prof. Lucas</small></span><span class="m-tile"><span class="m-av" style="background:#0f9d58">A</span><small>Você</small></span></div>
+          <div class="m-callbar"><span class="m-ico hl">🎤<span class="pin" aria-hidden="true">1</span></span><span class="m-ico hl">📷<span class="pin" aria-hidden="true">2</span></span><span class="m-ico hl">✋<span class="pin" aria-hidden="true">3</span></span><span class="m-ico">⬆</span><span class="m-ico hl">💬<span class="pin" aria-hidden="true">4</span></span><span class="m-ico red hl">📞<span class="pin" aria-hidden="true">5</span></span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span><strong>Microfone</strong>: liga e desliga o som.</span></li>
+        <li><b>2</b><span><strong>Câmera</strong>: liga e desliga o vídeo.</span></li>
+        <li><b>3</b><span><strong>Levantar a mão</strong>: pede a vez para falar.</span></li>
+        <li><b>4</b><span><strong>Chat</strong>: mensagens por escrito.</span></li>
+        <li><b>5</b><span><strong>Sair da chamada</strong> (botão vermelho).</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="meet-boas">
@@ -3658,6 +3930,25 @@
         <p>Em algumas provas aparece o botão <strong>Ver pontuação</strong> depois do envio.</p>
       </article>
     </div>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Forms (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Formulário do Google Forms com pergunta obrigatória e botão Enviar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">forms.gle/…</span></div>
+        <div class="m-form">
+          <div class="m-fcard top"><b class="m-title">Pesquisa da turma</b><small class="m-mut">Responda com atenção.</small><span class="m-req hl">* Indica uma pergunta obrigatória<span class="pin" aria-hidden="true">4</span></span></div>
+          <div class="m-fcard"><span class="m-q hl">Qual aplicativo Google você mais usa? <span class="m-star">*</span><span class="pin" aria-hidden="true">1</span></span>
+            <span class="m-opt">◉ Docs</span><span class="m-opt">○ Drive</span><span class="m-opt">○ Gmail</span></div>
+          <div class="m-row-end left"><span class="m-btn pri form hl">Enviar<span class="pin" aria-hidden="true">2</span></span><span class="m-mut">Limpar formulário</span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Leia a pergunta e escolha uma resposta.</span></li>
+        <li><b>2</b><span>Quando terminar, clique em <strong>Enviar</strong>.</span></li>
+        <li><b>3</b><span>Depois, espere a mensagem de que a resposta foi registrada.</span></li>
+        <li><b>4</b><span>O <strong>asterisco vermelho</strong> marca as perguntas que não podem ficar em branco.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="forms-criar">
@@ -5297,6 +5588,33 @@
       <li><div><b>Se precisar, anexe um arquivo.</b><span>Clique no ícone de clipe e escolha o arquivo.</span></div></li>
       <li><div><b>Clique em Enviar.</b><span>A mensagem vai para a pessoa e uma cópia fica em Enviados.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Gmail (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Gmail com o botão Escrever e a janela de mensagem nova com os campos Para e Assunto, o clipe e o botão Enviar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">mail.google.com</span></div>
+        <div class="m-body tall">
+          <div class="m-side"><span class="m-btn big hl">✏️ Escrever<span class="pin" aria-hidden="true">1</span></span><span class="on">Caixa de entrada</span><span>Com estrela</span><span>Enviados</span><span>Rascunhos</span></div>
+          <div class="m-main white">
+            <div class="m-mailrow"><b>Prof. Lucas</b> Atividade de hoje</div><div class="m-mailrow"><b>Sala de Aula</b> Nova atividade</div><div class="m-mailrow">Secretaria · Aviso</div>
+            <div class="m-compose">
+              <div class="m-chead">Nova mensagem</div>
+              <span class="m-cfield hl">Para<span class="pin" aria-hidden="true">2</span></span>
+              <span class="m-cfield hl">Assunto<span class="pin" aria-hidden="true">3</span></span>
+              <div class="m-cbody"><span class="m-l" style="width:80%"></span><span class="m-l" style="width:60%"></span></div>
+              <div class="m-cfoot"><span class="m-btn pri hl">Enviar<span class="pin" aria-hidden="true">5</span></span><span class="m-tool hl">📎<span class="pin" aria-hidden="true">4</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique em <strong>Escrever</strong>.</span></li>
+        <li><b>2</b><span>No campo <strong>Para</strong>, digite o e-mail da pessoa.</span></li>
+        <li><b>3</b><span>Escreva o <strong>Assunto</strong>, e depois a mensagem.</span></li>
+        <li><b>4</b><span>O <strong>clipe</strong> anexa um arquivo.</span></li>
+        <li><b>5</b><span>Clique em <strong>Enviar</strong>.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="gmail-campos">
@@ -5487,6 +5805,25 @@
       <li><div><b>Selecione o arquivo no Chromebook.</b><span>Ele fica na pasta Downloads, se foi baixado da internet.</span></div></li>
       <li><div><b>Espere terminar.</b><span>Uma janelinha embaixo mostra o envio. Quando termina, o arquivo aparece no Meu Drive.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Drive (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Drive com o botão Novo aberto mostrando Upload de arquivo">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">drive.google.com</span></div>
+        <div class="m-row"><span class="m-app" style="background:#fbbc04">▲</span><span class="m-title">Drive</span><span class="m-field wide hl pl">🔍 Pesquisar no Drive<span class="pin" aria-hidden="true">3</span></span></div>
+        <div class="m-body tall">
+          <div class="m-side"><span class="m-btn big hl">＋ Novo<span class="pin" aria-hidden="true">1</span></span>
+            <div class="m-pop"><span>📁 Nova pasta</span><span class="m-popitem hl">⬆ Upload de arquivo<span class="pin" aria-hidden="true">2</span></span><span>⬆ Upload de pasta</span></div>
+            <span class="on">Meu Drive</span><span>Compartilhados comigo</span><span>Lixeira</span></div>
+          <div class="m-main"><div class="m-files"><span class="m-file">📁 Tecnologia</span><span class="m-file">📁 Matemática</span><span class="m-file">📄 Trabalho Maps</span><span class="m-file">📊 Gastos</span></div></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique em <strong>Novo</strong>.</span></li>
+        <li><b>2</b><span>Escolha <strong>Upload de arquivo</strong> e selecione o arquivo.</span></li>
+        <li><b>3</b><span>A <strong>barra de pesquisa</strong> encontra arquivos pelo nome.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="drive-organizar">
@@ -5706,6 +6043,25 @@
       <li><div><b>Para entregar ao professor, compartilhe.</b><span>Clique em Compartilhar ou anexe o arquivo na Sala de Aula.</span></div></li>
       <li><div><b>Para baixar, use o menu Arquivo.</b><span>Escolha Fazer download e depois PDF ou PowerPoint.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Apresentações (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Apresentações com o botão de novo slide, as miniaturas, as notas do orador e o botão Apresentar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">slides.google.com</span></div>
+        <div class="m-row"><span class="m-app" style="background:#f4b400">▭</span><span class="m-title">Trabalho de Tecnologia</span><span class="m-sp"></span><span class="m-btn hl">▶ Apresentar<span class="pin" aria-hidden="true">4</span></span><span class="m-btn pri">Compartilhar</span></div>
+        <div class="m-row tools"><span class="m-tool hl">＋<span class="pin" aria-hidden="true">1</span></span><span>↶ ↷</span><span>🖼</span><span>T</span><span class="m-sel">Tema</span></div>
+        <div class="m-body">
+          <div class="m-thumbs"><span class="m-thumbwrap hl"><span class="m-thumb on"></span><span class="pin" aria-hidden="true">2</span></span><span class="m-thumb"></span><span class="m-thumb"></span></div>
+          <div class="m-main"><div class="m-slide"><b>Google Maps</b><small>Como traçar uma rota</small></div><span class="m-notes hl">Clique para adicionar notas do orador<span class="pin" aria-hidden="true">3</span></span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>O botão <strong>+</strong> adiciona um slide novo.</span></li>
+        <li><b>2</b><span>As <strong>miniaturas</strong> mostram a ordem dos slides.</span></li>
+        <li><b>3</b><span>As <strong>notas do orador</strong> só você vê.</span></li>
+        <li><b>4</b><span>Clique em <strong>Apresentar</strong> para mostrar em tela cheia. Saia com Esc.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="slides-canva">
@@ -5803,6 +6159,24 @@
       <li><div><b>Se quiser, adicione uma descrição ou um lugar.</b><span>Ajuda a lembrar do que precisa levar.</span></div></li>
       <li><div><b>Clique em Salvar.</b><span>O evento aparece no calendário.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Agenda (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Agenda com o botão Criar e a janela de evento novo com título e botão Salvar">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">calendar.google.com</span></div>
+        <div class="m-body tall">
+          <div class="m-side"><span class="m-btn big hl">＋ Criar<span class="pin" aria-hidden="true">1</span></span><small class="m-mut">Novembro</small><span class="m-minical"></span></div>
+          <div class="m-main white"><div class="m-week"><span class="m-day"><small>SEG</small></span><span class="m-day"><small>TER</small></span><span class="m-day"><small>QUA</small><span class="m-ev">Prova de Tecnologia</span></span><span class="m-day"><small>QUI</small></span><span class="m-day"><small>SEX</small></span></div>
+            <div class="m-evpop"><span class="m-cfield hl">Adicionar título<span class="pin" aria-hidden="true">2</span></span><small class="m-mut">Quarta, 18 de novembro · 8:00 – 9:00</small><span class="m-btn pri hl">Salvar<span class="pin" aria-hidden="true">3</span></span></div>
+          </div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique em <strong>Criar</strong> ou no dia do evento.</span></li>
+        <li><b>2</b><span>Escreva o <strong>título</strong> e confira a data e o horário.</span></li>
+        <li><b>3</b><span>Clique em <strong>Salvar</strong>.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="agenda-recursos">
@@ -5965,6 +6339,24 @@
       <li><div><b>Escolha a cor da nota.</b><span>Clique no ícone da paleta de cores.</span></div></li>
       <li><div><b>Clique em Fechar.</b><span>A nota é salva sozinha e aparece no mural.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Keep (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Keep com o campo Criar uma nota e notas coloridas">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">keep.google.com</span></div>
+        <div class="m-body tall">
+          <div class="m-main white center">
+            <div class="m-keepbar"><span class="m-field wide hl">Criar uma nota…<span class="pin" aria-hidden="true">1</span></span><span class="m-tool hl">☑<span class="pin" aria-hidden="true">2</span></span><span class="m-tool">🖌</span><span class="m-tool">🖼</span></div>
+            <div class="m-notesgrid"><span class="m-knote" style="background:#fff8b8"><b>Tarefas</b>☑ Trabalho Maps<br>☐ Estudar prova</span><span class="m-knote" style="background:#d4e4ed"><b>Ideias</b>Tema: Google Earth</span><span class="m-knote" style="background:#e2f6d3"><span class="m-tool tiny hl">🎨<span class="pin" aria-hidden="true">3</span></span><b>Palavras novas</b>translate = traduzir</span></div>
+          </div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Clique em <strong>Criar uma nota</strong> e escreva.</span></li>
+        <li><b>2</b><span>Este ícone cria uma <strong>lista</strong> com caixinhas.</span></li>
+        <li><b>3</b><span>A <strong>paleta</strong> muda a cor da nota.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="keep-recursos">
@@ -6116,6 +6508,24 @@
       <li><div><b>Digite ou cole o texto.</b><span>A tradução aparece ao lado.</span></div></li>
       <li><div><b>Use os ícones.</b><span>O alto-falante lê o texto em voz alta. O ícone de copiar guarda a tradução.</span></div></li>
     </ol>
+    <figure class="fig mock-fig">
+      <figcaption>Figura: onde ficam os botões no Google Tradutor (desenho simplificado)</figcaption>
+      <div class="mock" role="img" aria-label="Tela do Google Tradutor com a escolha de idiomas, o botão de trocar, a caixa de texto e o alto-falante">
+        <div class="m-bar"><span class="m-dots"><i></i><i></i><i></i></span><span class="m-url">translate.google.com</span></div>
+        <div class="m-row"><span class="m-sel hl">Português ▾<span class="pin" aria-hidden="true">1</span></span><span class="m-tool hl">⇄<span class="pin" aria-hidden="true">2</span></span><span class="m-sel">Inglês ▾</span></div>
+        <div class="m-trad">
+          <span class="m-tbox hl"><span>Bom dia, turma!</span><span class="pin" aria-hidden="true">3</span></span>
+          <div class="m-tbox out"><span>Good morning, class!</span><span class="m-tfoot"><span class="m-tool hl">🔊<span class="pin" aria-hidden="true">4</span></span><span class="m-tool">⧉</span></span></div>
+        </div>
+      </div>
+      <ol class="mock-legend">
+        <li><b>1</b><span>Escolha o idioma de <strong>origem</strong> e o de <strong>destino</strong>.</span></li>
+        <li><b>2</b><span>As setas <strong>trocam</strong> os idiomas de lugar.</span></li>
+        <li><b>3</b><span>Digite ou cole o texto aqui. A tradução aparece ao lado.</span></li>
+        <li><b>4</b><span>O <strong>alto-falante</strong> lê em voz alta.</span></li>
+      </ol>
+      <p class="mock-note">A tela de verdade pode ter cores e posições um pouco diferentes.</p>
+    </figure>
   </section>
 
   <section id="trad-recursos">
