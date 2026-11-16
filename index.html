@@ -374,6 +374,12 @@
   nav .submenu .sub-label:first-child { padding-top: 4px; }
   nav .submenu { max-height: 75vh; overflow-y: auto; }
 
+  /* Desenho animado do topo */
+  .view > .band { position: relative; overflow: hidden; }
+  .view > .band > .wrap { position: relative; z-index: 1; }
+  .hero-fx { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 40%, #000 72%); mask-image: linear-gradient(to right, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 40%, #000 72%); }
+  @media (max-width: 720px) { .hero-fx { opacity: 0.55; } }
+
   footer { border-top: 4px solid var(--sun); background: var(--band); color: var(--band-muted); }
 
   footer { border-top: 6px solid var(--sun); background: var(--band); color: var(--band-muted); }
@@ -3738,6 +3744,140 @@
     window.addEventListener('hashchange', function () { if (view.hidden) pause(); });
 
     setModeButtons(); hud();
+  })();
+</script>
+<script>
+  /* Desenho animado do topo: uma rede de pontos ligados, como um circuito */
+  (function () {
+    var canvas = document.createElement('canvas');
+    canvas.className = 'hero-fx';
+    canvas.setAttribute('aria-hidden', 'true');
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var W = 0, H = 0, nodes = [], pulses = [], pointer = null, running = false, last = 0, host = null;
+    var LINK = 150;
+
+    function build() {
+      var n = Math.max(14, Math.min(80, Math.round(W * H / 11000)));
+      nodes = [];
+      for (var i = 0; i < n; i++) {
+        var sp = 6 + Math.random() * 10, ang = Math.random() * Math.PI * 2;
+        nodes.push({ x: Math.random() * W, y: Math.random() * H, vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp, chip: Math.random() < 0.18, r: 2 + Math.random() * 2 });
+      }
+      pulses = [];
+    }
+    function resize() {
+      if (!host) return;
+      var r = host.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = Math.max(1, Math.round(r.width)); H = Math.max(1, Math.round(r.height));
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      build();
+      draw(0);
+    }
+    function place() {
+      var view = document.querySelector('.view:not([hidden])');
+      var band = view ? view.querySelector('.band') : null;
+      if (!band) return;
+      if (band !== host) { host = band; band.insertBefore(canvas, band.firstChild); pointer = null; }
+      resize();
+      start();
+    }
+    function neighbours(a) {
+      var out = [];
+      for (var j = 0; j < nodes.length; j++) {
+        var b = nodes[j]; if (b === a) continue;
+        var dx = a.x - b.x, dy = a.y - b.y;
+        if (dx * dx + dy * dy < LINK * LINK) out.push(b);
+      }
+      return out;
+    }
+    function draw(dt) {
+      ctx.clearRect(0, 0, W, H);
+      var i, j, a, b, dx, dy, d;
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i];
+        a.x += a.vx * dt; a.y += a.vy * dt;
+        if (a.x < -20) a.x = W + 20; else if (a.x > W + 20) a.x = -20;
+        if (a.y < -20) a.y = H + 20; else if (a.y > H + 20) a.y = -20;
+      }
+      ctx.lineWidth = 1.2;
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i];
+        for (j = i + 1; j < nodes.length; j++) {
+          b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK) {
+            ctx.strokeStyle = 'rgba(190, 215, 255,' + (0.42 * (1 - d / LINK)).toFixed(3) + ')';
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+          }
+        }
+        if (pointer) {
+          dx = a.x - pointer.x; dy = a.y - pointer.y; d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 190) {
+            ctx.strokeStyle = 'rgba(255, 208, 66,' + (0.75 * (1 - d / 190)).toFixed(3) + ')';
+            ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pointer.x, pointer.y); ctx.stroke();
+          }
+        }
+      }
+      for (i = 0; i < nodes.length; i++) {
+        a = nodes[i];
+        ctx.fillStyle = 'rgba(220, 235, 255, 0.9)';
+        if (a.chip) {
+          ctx.strokeStyle = 'rgba(255, 208, 66, 0.9)'; ctx.lineWidth = 1.5;
+          ctx.fillStyle = 'rgba(15, 49, 130, 0.9)';
+          ctx.beginPath(); ctx.rect(a.x - 6, a.y - 6, 12, 12); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = 'rgba(255, 208, 66, 0.95)'; ctx.fillRect(a.x - 2, a.y - 2, 4, 4);
+          ctx.lineWidth = 1.2;
+        } else {
+          ctx.beginPath(); ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+      // sinais amarelos que viajam pelas linhas
+      if (!still && pulses.length < Math.max(3, nodes.length / 6) && Math.random() < dt * 2.5 && nodes.length > 1) {
+        a = nodes[Math.floor(Math.random() * nodes.length)];
+        var nb = neighbours(a);
+        if (nb.length) pulses.push({ from: a, to: nb[Math.floor(Math.random() * nb.length)], t: 0, hops: 3 + Math.floor(Math.random() * 4) });
+      }
+      for (i = pulses.length - 1; i >= 0; i--) {
+        var p = pulses[i];
+        p.t += dt * 1.4;
+        if (p.t >= 1) {
+          var next = neighbours(p.to).filter(function (n) { return n !== p.from; });
+          if (p.hops-- > 0 && next.length) { p.from = p.to; p.to = next[Math.floor(Math.random() * next.length)]; p.t = 0; }
+          else { pulses.splice(i, 1); continue; }
+        }
+        var px = p.from.x + (p.to.x - p.from.x) * p.t, py = p.from.y + (p.to.y - p.from.y) * p.t;
+        ctx.fillStyle = 'rgba(255, 208, 66, 0.25)'; ctx.beginPath(); ctx.arc(px, py, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = 'rgba(255, 208, 66, 1)'; ctx.beginPath(); ctx.arc(px, py, 3, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+    function frame(now) {
+      if (!running) return;
+      var dt = Math.min(0.05, (now - last) / 1000); last = now;
+      draw(dt);
+      requestAnimationFrame(frame);
+    }
+    function start() {
+      if (still || running || document.hidden) return;
+      running = true; last = performance.now(); requestAnimationFrame(frame);
+    }
+    function stop() { running = false; }
+
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else start(); });
+    window.addEventListener('hashchange', function () { setTimeout(place, 0); });
+    var rt = null;
+    window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(resize, 150); });
+    document.addEventListener('pointermove', function (ev) {
+      if (!host) return;
+      var r = host.getBoundingClientRect();
+      if (ev.clientY < r.top || ev.clientY > r.bottom) { pointer = null; return; }
+      pointer = { x: ev.clientX - r.left, y: ev.clientY - r.top };
+    });
+    document.addEventListener('pointerleave', function () { pointer = null; });
+    place();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
   })();
 </script>
 </body>
