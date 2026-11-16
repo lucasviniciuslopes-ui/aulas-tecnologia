@@ -604,6 +604,30 @@
   /* Capa: um ano abaixo do outro, com os grupos lado a lado */
   .years { grid-template-columns: 1fr; gap: 20px; }
   .year-body { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 4px 20px; padding: 8px 14px 16px; align-items: start; }
+
+  /* Fotos da web */
+  .photo-fig[hidden], .gl-list[hidden], .gl-letter[hidden], .gl-item[hidden] { display: none; }
+  .photo-strip { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+  .photo-strip:not(:has(.photo-fig:not([hidden]))) { display: none; }
+  .photo-title { font-size: 1.15rem; }
+  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .photo-fig { margin: 0; background: var(--surface); border: 1.5px solid var(--line); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .photo-fig img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; background: #dfe7f4; }
+  .photo-fig figcaption { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 6px; font-size: 1rem; }
+  .photo-fig small { color: var(--muted); font-size: 0.8rem; }
+  .photo-fig small a { color: var(--accent); }
+  /* Glossário */
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .gl-search input { width: 100%; max-width: 420px; font: inherit; font-size: 1.1rem; padding: 10px 14px; border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--ink); }
+  .gl-search input:focus { outline: 3px solid var(--band-accent); border-color: var(--accent); }
+  .gl-letter { font-size: 1.5rem; color: var(--accent); margin: 18px 0 8px; border-bottom: 3px solid var(--band-accent); display: inline-block; padding-right: 12px; }
+  .gl-list { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .gl-item { background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .gl-item dt { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
+  .gl-item dd { margin: 4px 0 0; }
+  .gl-item dd a { display: inline-block; margin-top: 4px; color: var(--accent); font-weight: 700; font-size: 0.92rem; }
+  .gl-none { color: var(--muted); }
+  @media print { .gl-search, .gl-none { display: none !important; } .photo-fig, .gl-item { break-inside: avoid; } }
 </style>
 </head>
 <body>
@@ -615,6 +639,7 @@
       <nav aria-label="Menu do site">
         <ul class="menu">
           <li><a href="#capa" data-page="capa">Início</a></li>
+          <li><a href="#pagina-33" data-page="pagina-33">Glossário</a></li>
           <li class="group">
             <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-ano1">1º ano<span class="caret" aria-hidden="true">▾</span></button>
             <ul class="submenu" id="menu-ano1" hidden>
@@ -698,6 +723,7 @@
         <a class="btn main" href="#capa" data-scroll="capa-ano1">1º ano</a>
         <a class="btn main" href="#capa" data-scroll="capa-ano2">2º ano</a>
         <a class="btn main" href="#capa" data-scroll="capa-ano3">3º ano</a>
+        <a class="btn alt" href="#pagina-33">Glossário</a>
       </div>
       </div>
       <div class="search" role="search">
@@ -905,19 +931,19 @@
       </li>
       <li>
         <div class="when">Cerca de 3500 a.C.</div><div class="rail"></div>
-        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M495 225.06l-17.22 1.08c-5.27-39.49-20.79-75.64-43.86-105.84l12.95-11.43c6.92-6.11 7.25-16.79.73-23.31L426.44 64.4c-6.53-6.53-17.21-6.19-23.31.73L391.7 78.07c-30.2-23.06-66.35-38.58-105.83-43.86L286.94 17c.58-9.21-6.74-17-15.97-17h-29.94c-9.23 0-16.54 7.79-15.97 17l1.08 17.22c-39.49 5.27-75.64 20.79-105.83 43.86l-11.43-12.95c-6.11-6.92-16.79-7.25-23.31-.73L64.4 85.56c-6.53 6.53-6.19 17.21.73 23.31l12.95 11.43c-23.06 30.2-38.58 66.35-43.86 105.84L17 225.06c-9.21-.58-17 6.74-17 15.97v29.94c0 9.23 7.79 16.54 17 15.97l17.22-1.08c5.27 39.49 20.79 75.64 43.86 105.83l-12.95 11.43c-6.92 6.11-7.25 16.79-.73 23.31l21.17 21.17c6.53 6.53 17.21 6.19 23.31-.73l11.43-12.95c30.2 23.06 66.35 38.58 105.84 43.86L225.06 495c-.58 9.21 6.74 17 15.97 17h29.94c9.23 0 16.54-7.79 15.97-17l-1.08-17.22c39.49-5.27 75.64-20.79 105.84-43.86l11.43 12.95c6.11 6.92 16.79 7.25 23.31.73l21.17-21.17c6.53-6.53 6.19-17.21-.73-23.31l-12.95-11.43c23.06-30.2 38.58-66.35 43.86-105.83l17.22 1.08c9.21.58 17-6.74 17-15.97v-29.94c-.01-9.23-7.8-16.54-17.01-15.97zM281.84 98.61c24.81 4.07 47.63 13.66 67.23 27.78l-42.62 48.29c-8.73-5.44-18.32-9.54-28.62-11.95l4.01-64.12zm-51.68 0l4.01 64.12c-10.29 2.41-19.89 6.52-28.62 11.95l-42.62-48.29c19.6-14.12 42.42-23.71 67.23-27.78zm-103.77 64.33l48.3 42.61c-5.44 8.73-9.54 18.33-11.96 28.62l-64.12-4.01c4.07-24.81 13.66-47.62 27.78-67.22zm-27.78 118.9l64.12-4.01c2.41 10.29 6.52 19.89 11.95 28.62l-48.29 42.62c-14.12-19.6-23.71-42.42-27.78-67.23zm131.55 131.55c-24.81-4.07-47.63-13.66-67.23-27.78l42.61-48.3c8.73 5.44 18.33 9.54 28.62 11.96l-4 64.12zM256 288c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm25.84 125.39l-4.01-64.12c10.29-2.41 19.89-6.52 28.62-11.96l42.61 48.3c-19.6 14.12-42.41 23.71-67.22 27.78zm103.77-64.33l-48.29-42.62c5.44-8.73 9.54-18.32 11.95-28.62l64.12 4.01c-4.07 24.82-13.66 47.64-27.78 67.23zm-36.34-114.89c-2.41-10.29-6.52-19.89-11.96-28.62l48.3-42.61c14.12 19.6 23.71 42.42 27.78 67.23l-64.12 4z"></path></svg></span><div><h3>A roda e a escrita</h3><p>Na Mesopotâmia, a <strong>roda</strong> facilitou o transporte de cargas. A <strong>escrita</strong> permitiu guardar informações e passar o conhecimento adiante.</p></div></div>
+        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M495 225.06l-17.22 1.08c-5.27-39.49-20.79-75.64-43.86-105.84l12.95-11.43c6.92-6.11 7.25-16.79.73-23.31L426.44 64.4c-6.53-6.53-17.21-6.19-23.31.73L391.7 78.07c-30.2-23.06-66.35-38.58-105.83-43.86L286.94 17c.58-9.21-6.74-17-15.97-17h-29.94c-9.23 0-16.54 7.79-15.97 17l1.08 17.22c-39.49 5.27-75.64 20.79-105.83 43.86l-11.43-12.95c-6.11-6.92-16.79-7.25-23.31-.73L64.4 85.56c-6.53 6.53-6.19 17.21.73 23.31l12.95 11.43c-23.06 30.2-38.58 66.35-43.86 105.84L17 225.06c-9.21-.58-17 6.74-17 15.97v29.94c0 9.23 7.79 16.54 17 15.97l17.22-1.08c5.27 39.49 20.79 75.64 43.86 105.83l-12.95 11.43c-6.92 6.11-7.25 16.79-.73 23.31l21.17 21.17c6.53 6.53 17.21 6.19 23.31-.73l11.43-12.95c30.2 23.06 66.35 38.58 105.84 43.86L225.06 495c-.58 9.21 6.74 17 15.97 17h29.94c9.23 0 16.54-7.79 15.97-17l-1.08-17.22c39.49-5.27 75.64-20.79 105.84-43.86l11.43 12.95c6.11 6.92 16.79 7.25 23.31.73l21.17-21.17c6.53-6.53 6.19-17.21-.73-23.31l-12.95-11.43c23.06-30.2 38.58-66.35 43.86-105.83l17.22 1.08c9.21.58 17-6.74 17-15.97v-29.94c-.01-9.23-7.8-16.54-17.01-15.97zM281.84 98.61c24.81 4.07 47.63 13.66 67.23 27.78l-42.62 48.29c-8.73-5.44-18.32-9.54-28.62-11.95l4.01-64.12zm-51.68 0l4.01 64.12c-10.29 2.41-19.89 6.52-28.62 11.95l-42.62-48.29c19.6-14.12 42.42-23.71 67.23-27.78zm-103.77 64.33l48.3 42.61c-5.44 8.73-9.54 18.33-11.96 28.62l-64.12-4.01c4.07-24.81 13.66-47.62 27.78-67.22zm-27.78 118.9l64.12-4.01c2.41 10.29 6.52 19.89 11.95 28.62l-48.29 42.62c-14.12-19.6-23.71-42.42-27.78-67.23zm131.55 131.55c-24.81-4.07-47.63-13.66-67.23-27.78l42.61-48.3c8.73 5.44 18.33 9.54 28.62 11.96l-4 64.12zM256 288c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm25.84 125.39l-4.01-64.12c10.29-2.41 19.89-6.52 28.62-11.96l42.61 48.3c-19.6 14.12-42.41 23.71-67.22 27.78zm103.77-64.33l-48.29-42.62c5.44-8.73 9.54-18.32 11.95-28.62l64.12 4.01c-4.07 24.82-13.66 47.64-27.78 67.23zm-36.34-114.89c-2.41-10.29-6.52-19.89-11.96-28.62l48.3-42.61c14.12 19.6 23.71 42.42 27.78 67.23l-64.12 4z"></path></svg></span><div><h3>A roda e a escrita</h3><p>Na Mesopotâmia (onde hoje fica o Iraque), a <strong>roda</strong> facilitou o transporte de cargas. A <strong>escrita</strong> permitiu guardar informações e passar o conhecimento adiante.</p></div></div>
       </li>
       <li>
         <div class="when">Cerca de 1450</div><div class="rail"></div>
         <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"></path></svg></span><div><h3>A prensa de Gutenberg</h3><p>Johannes Gutenberg criou uma máquina de imprimir com letras móveis. Os livros ficaram mais baratos e muito mais gente pôde ler.</p></div></div>
       </li>
       <li>
-        <div class="when">Século 18</div><div class="rail"></div>
-        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 96v256c0 51.815-61.624 96-130.022 96l62.98 49.721C386.905 502.417 383.562 512 376 512H72c-7.578 0-10.892-9.594-4.957-14.279L130.022 448C61.82 448 0 403.954 0 352V96C0 42.981 64 0 128 0h192c65 0 128 42.981 128 96zm-48 136V120c0-13.255-10.745-24-24-24H72c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h304c13.255 0 24-10.745 24-24zm-176 64c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56z"></path></svg></span><div><h3>A máquina a vapor</h3><p>James Watt aperfeiçoou a máquina a vapor. Ela moveu fábricas, trens e navios e deu início à <strong>Revolução Industrial</strong>.</p></div></div>
+        <div class="when">Anos 1700</div><div class="rail"></div>
+        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 96v256c0 51.815-61.624 96-130.022 96l62.98 49.721C386.905 502.417 383.562 512 376 512H72c-7.578 0-10.892-9.594-4.957-14.279L130.022 448C61.82 448 0 403.954 0 352V96C0 42.981 64 0 128 0h192c65 0 128 42.981 128 96zm-48 136V120c0-13.255-10.745-24-24-24H72c-13.255 0-24 10.745-24 24v112c0 13.255 10.745 24 24 24h304c13.255 0 24-10.745 24-24zm-176 64c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56z"></path></svg></span><div><h3>A máquina a vapor</h3><p>James Watt melhorou a máquina a vapor. Ela moveu fábricas, trens e navios e deu início à <strong>Revolução Industrial</strong>: a época em que as máquinas passaram a fazer boa parte do trabalho nas fábricas.</p></div></div>
       </li>
       <li>
         <div class="when">1876 e 1879</div><div class="rail"></div>
-        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg></span><div><h3>O telefone e a lâmpada elétrica</h3><p>Graham Bell patenteou o telefone e Thomas Edison criou uma lâmpada que durava bastante. A eletricidade começou a entrar nas casas.</p></div></div>
+        <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg></span><div><h3>O telefone e a lâmpada elétrica</h3><p>Graham Bell registrou a invenção do telefone e Thomas Edison criou uma lâmpada que durava bastante. A eletricidade começou a entrar nas casas.</p></div></div>
       </li>
       <li>
         <div class="when">1946</div><div class="rail"></div>
@@ -944,6 +970,23 @@
         <div class="what"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32,224H64V416H32A31.96166,31.96166,0,0,1,0,384V256A31.96166,31.96166,0,0,1,32,224Zm512-48V448a64.06328,64.06328,0,0,1-64,64H160a64.06328,64.06328,0,0,1-64-64V176a79.974,79.974,0,0,1,80-80H288V32a32,32,0,0,1,64,0V96H464A79.974,79.974,0,0,1,544,176ZM264,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,264,256Zm-8,128H192v32h64Zm96,0H288v32h64ZM456,256a40,40,0,1,0-40,40A39.997,39.997,0,0,0,456,256Zm-8,128H384v32h64ZM640,256V384a31.96166,31.96166,0,0,1-32,32H576V224h32A31.96166,31.96166,0,0,1,640,256Z"></path></svg></span><div><h3>Inteligência artificial no dia a dia</h3><p>Ferramentas de <strong>inteligência artificial</strong> que conversam, escrevem textos e criam imagens passaram a ser usadas por milhões de pessoas.</p></div></div>
       </li>
     </ol>
+    <div class="photo-strip" data-photos>
+      <h3 class="photo-title">Veja de perto</h3>
+      <div class="photos">
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Gutenberg%27s_vintage_printing_press_in_the_Gutenberg_Museum_in_Mainz%2C_Germany_%2848988497077%29.jpg?width=640" alt="Prensa de impressão antiga de madeira em um museu" width="640" height="420" decoding="async">
+        <figcaption><span><b>A prensa de Gutenberg</b> em um museu na Alemanha. Cada página era impressa à mão.</span><small>Foto: dronepicr, via <a href="https://commons.wikimedia.org/wiki/File:Gutenberg%27s_vintage_printing_press_in_the_Gutenberg_Museum_in_Mainz%2C_Germany_%2848988497077%29.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Classic_shot_of_the_ENIAC.jpg" alt="Homem mexendo nos painéis do ENIAC, um computador do tamanho de uma sala" width="640" height="420" decoding="async">
+        <figcaption><span><b>O ENIAC</b>, em 1946. Repare: o computador ocupa a sala inteira.</span><small>Foto: Exército dos EUA (domínio público), via <a href="https://commons.wikimedia.org/wiki/File:Classic_shot_of_the_ENIAC.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Intel_C4004.jpg?width=640" alt="Pequeno chip Intel 4004 com pernas douradas" width="640" height="420" decoding="async">
+        <figcaption><span><b>O chip Intel 4004</b>, de 1971. O "cérebro" do computador cabia na ponta do dedo.</span><small>Foto: Thomas Nguyen, via <a href="https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      </div>
+    </div>
   </section>
 
   <section id="conceitos">
@@ -968,7 +1011,7 @@
         <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z"></path></svg></span>
         <h3>Sistema operacional</h3>
         <p>É o software principal do aparelho. Ele liga o hardware aos outros programas e organiza tudo.</p>
-        <p class="eg"><b>Exemplo:</b> Windows, Android, iOS.</p>
+        <p class="eg"><b>Exemplo:</b> ChromeOS (o sistema do Chromebook), Windows, Android e iOS.</p>
       </article>
       <article class="card">
         <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg></span>
@@ -1111,6 +1154,15 @@
         <div class="twin-box"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg></span><b>Armazenamento é o armário</b><small>Guarda tudo o que você quer manter. O que está lá dentro continua no dia seguinte.</small></div>
       </div>
     </figure>
+    <div class="photo-strip" data-photos>
+      <h3 class="photo-title">Por dentro de um Chromebook</h3>
+      <div class="photos">
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Samsung_Chromebook_Series_3_internals.JPG?width=800" alt="Chromebook aberto por baixo mostrando a placa-mãe, a bateria e os chips" width="640" height="420" decoding="async">
+        <figcaption><span>Este Chromebook foi aberto por baixo. A peça grande e escura é a <b>bateria</b>. A placa verde com os chips é a <b>placa-mãe</b>, onde ficam o processador e a memória.</span><small>Foto: Marcus Qwertyus, via <a href="https://commons.wikimedia.org/wiki/File:Samsung_Chromebook_Series_3_internals.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      </div>
+    </div>
   </section>
 
   <section id="perifericos">
@@ -1160,7 +1212,7 @@
         <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M528 0H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h192l-16 48h-72c-13.3 0-24 10.7-24 24s10.7 24 24 24h272c13.3 0 24-10.7 24-24s-10.7-24-24-24h-72l-16-48h192c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zm-16 352H64V64h448v288z"></path></svg></span>
         <h3>Sistema operacional</h3>
         <p>É o <strong>programa principal</strong>. Ele liga quando o aparelho liga, controla o hardware e permite abrir os outros programas.</p>
-        <p class="eg"><b>Exemplo:</b> Windows, Linux, macOS, Android, iOS.</p>
+        <p class="eg"><b>Exemplo:</b> ChromeOS (o sistema do Chromebook), Windows, Android, iOS, macOS e Linux.</p>
       </article>
       <article class="card">
         <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg></span>
@@ -1474,6 +1526,19 @@
         <div class="flow-box hi"><span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z"></path></svg></span><b>Servidor</b><small>Guarda o site e responde</small></div>
       </div>
     </figure>
+    <div class="photo-strip" data-photos>
+      <h3 class="photo-title">O que existe por trás da internet</h3>
+      <div class="photos">
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/CERN_Server_03.jpg?width=800" alt="Sala com fileiras de armários cheios de computadores e cabos" width="640" height="420" decoding="async">
+        <figcaption><span><b>Servidores</b>: salas cheias de computadores que guardam sites, vídeos e arquivos. Eles ficam ligados o tempo todo.</span><small>Foto: Florian Hirzinger, via <a href="https://commons.wikimedia.org/wiki/File:CERN_Server_03.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Fiber_optic_illuminated.jpg?width=640" alt="Cabo transparente de fibra óptica com luz vermelha passando por dentro" width="640" height="420" decoding="async">
+        <figcaption><span><b>Fibra óptica</b>: cabos finos que levam a internet usando <b>luz</b>. A luz entra de um lado e sai do outro.</span><small>Foto: Hustvedt, via <a href="https://commons.wikimedia.org/wiki/File:Fiber_optic_illuminated.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      </div>
+    </div>
   </section>
 
   <section id="conexao">
@@ -2303,6 +2368,15 @@
         <h3>Trabalha com a internet</h3>
         <p>A maior parte das tarefas é feita <strong>on-line</strong>, e os arquivos ficam guardados na nuvem, no Google Drive.</p>
       </article>
+    </div>
+    <div class="photo-strip" data-photos>
+      <h3 class="photo-title">Um Chromebook de verdade</h3>
+      <div class="photos">
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/Lenovo_Chromebook_500e%2C_September_2023.jpg?width=800" alt="Notebook Chromebook aberto mostrando um site na tela" width="640" height="420" decoding="async">
+        <figcaption><span>Um Chromebook aberto, com o navegador na tela. Por fora ele parece um notebook comum.</span><small>Foto: EnbyPie08, via <a href="https://commons.wikimedia.org/wiki/File:Lenovo_Chromebook_500e%2C_September_2023.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      </div>
     </div>
   </section>
 
@@ -3568,6 +3642,15 @@
       <p class="lead">O <strong>Google Earth</strong> é um <strong>globo terrestre digital</strong>. Ele mostra o planeta em três dimensões, com imagens de satélite.</p>
       <p>Você gira o globo, aproxima a imagem e observa montanhas, rios, cidades e construções de qualquer lugar do mundo.</p>
     </div>
+    <div class="photo-strip" data-photos>
+      <h3 class="photo-title">O planeta visto do espaço</h3>
+      <div class="photos">
+      <figure class="photo-fig" hidden>
+        <img data-src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Earth_seen_from_Apollo_17.jpg?width=700" alt="Foto da Terra inteira vista do espaço, com a África e nuvens" width="640" height="420" decoding="async">
+        <figcaption><span>A Terra fotografada pelos astronautas da Apollo 17, em 1972. O Google Earth junta milhares de fotos como esta, tiradas por satélites e aviões.</span><small>Foto: NASA (domínio público), via <a href="https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figcaption>
+      </figure>
+      </div>
+    </div>
   </section>
 
   <section id="earth-diferenca">
@@ -4109,7 +4192,8 @@
   <section id="ia-aprende">
     <div class="sec-head">
       <h2>Como a IA aprende</h2>
-      <p>A IA não decora respostas. Ela aprende padrões a partir de muitos exemplos.</p>
+      <p>A IA não decora respostas. Ela aprende <strong>padrões</strong> a partir de muitos exemplos.</p>
+      <p><b>Exemplo:</b> depois de ver milhares de fotos de gatos, a IA aprende como um gato costuma ser. Aí ela consegue reconhecer um gato em uma foto que nunca viu.</p>
     </div>
     <figure class="fig">
       <figcaption>Figura: do dado à resposta</figcaption>
@@ -6674,13 +6758,142 @@
 </div>
 </div>
 
+<!-- ================= GLOSSÁRIO ================= -->
+<div class="view" id="view-pagina-33" data-ano="Todos os anos" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · TODOS OS ANOS</span>
+      <h1>Glossário</h1>
+      <p>As palavras da tecnologia explicadas de um jeito simples. Cada palavra leva para a página onde ela aparece.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-33" data-scroll="glossario">Ver as palavras</a>
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="glossario">
+    <div class="sec-head">
+      <h2>Palavras de A a Z</h2>
+      <p>Digite para encontrar uma palavra.</p>
+    </div>
+    <label class="gl-search"><span class="sr-only">Procurar palavra</span><input type="search" id="gl-busca" placeholder="Exemplo: nuvem" autocomplete="off"></label>
+    <p class="gl-none" id="gl-nada" hidden>Nenhuma palavra encontrada. Tente a busca da página inicial.</p>
+    <div class="gl-wrap">
+      <h3 class="gl-letter">A</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Aba</dt><dd>Cada página aberta dentro do navegador. Dá para ter várias abas ao mesmo tempo. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+        <div class="gl-item"><dt>Algoritmo</dt><dd>Uma sequência de passos, em ordem, para resolver um problema. Uma receita de bolo é um algoritmo. <a href="#inicio">Ver em: História e conceitos da tecnologia</a></dd></div>
+        <div class="gl-item"><dt>Anexo</dt><dd>Arquivo enviado junto com um e-mail ou uma atividade. <a href="#pagina-27">Ver em: Gmail</a></dd></div>
+        <div class="gl-item"><dt>Aplicativo</dt><dd>Programa feito para uma tarefa, como escrever, conversar ou jogar. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+        <div class="gl-item"><dt>Arquivo</dt><dd>Qualquer coisa guardada no computador: um texto, uma foto, um vídeo, uma planilha. <a href="#pagina-7">Ver em: Download e upload</a></dd></div>
+        <div class="gl-item"><dt>Atalho</dt><dd>Combinação de teclas que faz uma ação mais rápido. Exemplo: Ctrl + C copia. <a href="#pagina-4">Ver em: Teclas de atalho</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">B</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Buscador</dt><dd>Site que procura páginas na internet para você, como o Google. <a href="#pagina-6">Ver em: Buscadores</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">C</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Chromebook</dt><dd>Notebook que usa o sistema ChromeOS e funciona principalmente com a internet. <a href="#pagina-10">Ver em: Usando o Chromebook</a></dd></div>
+        <div class="gl-item"><dt>ChromeOS</dt><dd>O sistema operacional do Chromebook. <a href="#pagina-10">Ver em: Usando o Chromebook</a></dd></div>
+        <div class="gl-item"><dt>Compartilhar</dt><dd>Dar acesso a um arquivo para outra pessoa ver ou editar. <a href="#pagina-28">Ver em: Google Drive</a></dd></div>
+        <div class="gl-item"><dt>Célula</dt><dd>Cada quadradinho de uma planilha. Tem um endereço, como B4. <a href="#pagina-14">Ver em: Google Planilhas</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">D</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Dados</dt><dd>Registros soltos, como números e palavras. Organizados, viram informação. <a href="#inicio">Ver em: História e conceitos da tecnologia</a></dd></div>
+        <div class="gl-item"><dt>Download</dt><dd>Baixar: trazer um arquivo da internet para o seu aparelho. <a href="#pagina-7">Ver em: Download e upload</a></dd></div>
+        <div class="gl-item"><dt>Driver</dt><dd>Pequeno programa que ensina o sistema a usar uma peça, como a impressora. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">E</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>E-mail</dt><dd>Mensagem enviada pela internet para um endereço, como nome@escola.com.br. <a href="#pagina-27">Ver em: Gmail</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">F</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Fórmula</dt><dd>Conta feita na planilha. Sempre começa com o sinal de igual (=). <a href="#pagina-14">Ver em: Google Planilhas</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">G</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Golpe on-line</dt><dd>Mensagem ou site falso que tenta roubar dados ou dinheiro. Desconfie de prêmios e pressa. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">H</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Hardware</dt><dd>A parte física do aparelho: tudo o que dá para tocar. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">I</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>IA (inteligência artificial)</dt><dd>Programas que aprendem com muitos exemplos para fazer tarefas que parecem inteligentes. <a href="#pagina-19">Ver em: Inteligência artificial</a></dd></div>
+        <div class="gl-item"><dt>IA generativa</dt><dd>IA que cria textos, imagens, áudios ou vídeos a partir de um pedido. <a href="#pagina-19">Ver em: Inteligência artificial</a></dd></div>
+        <div class="gl-item"><dt>Internet</dt><dd>A rede que liga computadores e celulares do mundo todo. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">L</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Link</dt><dd>Texto ou botão que leva para outra página quando você clica. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+        <div class="gl-item"><dt>Login</dt><dd>Entrar em uma conta com e-mail e senha. <a href="#pagina-10">Ver em: Usando o Chromebook</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">M</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Memória RAM</dt><dd>Guarda o que está sendo usado agora. Apaga quando o aparelho desliga. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">N</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Navegador</dt><dd>Programa que abre os sites, como o Chrome. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+        <div class="gl-item"><dt>Nuvem</dt><dd>Guardar arquivos em computadores da internet, e não só no seu aparelho. <a href="#pagina-28">Ver em: Google Drive</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">P</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Periférico</dt><dd>Equipamento ligado ao computador, como teclado, mouse e impressora. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+        <div class="gl-item"><dt>Plágio</dt><dd>Entregar como seu um texto ou uma ideia que outra pessoa (ou a IA) fez. <a href="#pagina-26">Ver em: Uso ético da IA nos estudos</a></dd></div>
+        <div class="gl-item"><dt>Processador</dt><dd>O "cérebro" do aparelho. Faz as contas e segue as instruções dos programas. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+        <div class="gl-item"><dt>Prompt</dt><dd>O pedido que você escreve para uma ferramenta de IA. <a href="#pagina-20">Ver em: Prompt</a></dd></div>
+        <div class="gl-item"><dt>Provedor</dt><dd>Empresa que fornece a internet para a sua casa ou escola. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">R</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Roteador</dt><dd>Aparelho que espalha a internet pelo Wi-Fi. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">S</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Servidor</dt><dd>Computador que guarda sites e arquivos e os envia quando alguém pede. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+        <div class="gl-item"><dt>Sistema operacional</dt><dd>O programa principal do aparelho, como ChromeOS, Windows e Android. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+        <div class="gl-item"><dt>Slide</dt><dd>Cada tela de uma apresentação. <a href="#pagina-29">Ver em: Google Apresentações</a></dd></div>
+        <div class="gl-item"><dt>Software</dt><dd>Os programas. Não dá para tocar, mas você usa o tempo todo. <a href="#pagina-2">Ver em: Hardware e software</a></dd></div>
+        <div class="gl-item"><dt>Spam</dt><dd>Mensagens indesejadas, de propaganda ou de golpe. <a href="#pagina-27">Ver em: Gmail</a></dd></div>
+        <div class="gl-item"><dt>Streaming</dt><dd>Assistir ou ouvir pela internet sem baixar o arquivo, como no YouTube. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">U</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Upload</dt><dd>Enviar: levar um arquivo do seu aparelho para a internet. <a href="#pagina-7">Ver em: Download e upload</a></dd></div>
+        <div class="gl-item"><dt>URL</dt><dd>O endereço de um site, como www.gov.br. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+      <h3 class="gl-letter">W</h3>
+      <dl class="gl-list">
+        <div class="gl-item"><dt>Web</dt><dd>Os sites e páginas ligados por links, que você abre no navegador. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+        <div class="gl-item"><dt>Wi-Fi</dt><dd>Conexão com a internet sem fio. <a href="#pagina-5">Ver em: Internet e navegação</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="pager"><a class="back" href="#capa">← Início</a><span></span></div>
+
+</main>
+</div>
+</div>
+
 <footer>
   <div class="wrap">Professor Lucas Vinicius · Aulas de Tecnologia · Ícones: Font Awesome (CC BY 4.0)</div>
 </footer>
 
 <script>
   (function () {
-    var views = { 'capa': document.getElementById('view-capa'), 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16'), 'pagina-17': document.getElementById('view-pagina-17'), 'pagina-18': document.getElementById('view-pagina-18'), 'pagina-19': document.getElementById('view-pagina-19'), 'pagina-20': document.getElementById('view-pagina-20'), 'pagina-21': document.getElementById('view-pagina-21'), 'pagina-22': document.getElementById('view-pagina-22'), 'pagina-23': document.getElementById('view-pagina-23'), 'pagina-24': document.getElementById('view-pagina-24'), 'pagina-25': document.getElementById('view-pagina-25'), 'pagina-26': document.getElementById('view-pagina-26'), 'pagina-27': document.getElementById('view-pagina-27'), 'pagina-28': document.getElementById('view-pagina-28'), 'pagina-29': document.getElementById('view-pagina-29'), 'pagina-30': document.getElementById('view-pagina-30'), 'pagina-31': document.getElementById('view-pagina-31'), 'pagina-32': document.getElementById('view-pagina-32') };
+    var views = { 'capa': document.getElementById('view-capa'), 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16'), 'pagina-17': document.getElementById('view-pagina-17'), 'pagina-18': document.getElementById('view-pagina-18'), 'pagina-19': document.getElementById('view-pagina-19'), 'pagina-20': document.getElementById('view-pagina-20'), 'pagina-21': document.getElementById('view-pagina-21'), 'pagina-22': document.getElementById('view-pagina-22'), 'pagina-23': document.getElementById('view-pagina-23'), 'pagina-24': document.getElementById('view-pagina-24'), 'pagina-25': document.getElementById('view-pagina-25'), 'pagina-26': document.getElementById('view-pagina-26'), 'pagina-27': document.getElementById('view-pagina-27'), 'pagina-28': document.getElementById('view-pagina-28'), 'pagina-29': document.getElementById('view-pagina-29'), 'pagina-30': document.getElementById('view-pagina-30'), 'pagina-31': document.getElementById('view-pagina-31'), 'pagina-32': document.getElementById('view-pagina-32'), 'pagina-33': document.getElementById('view-pagina-33') };
     var tabs = document.querySelectorAll('[data-page]');
     var menuBtns = Array.prototype.slice.call(document.querySelectorAll('.menu-btn'));
     var pendingScroll = null;
@@ -7468,6 +7681,30 @@
       document.title = (h1 ? h1.textContent.trim() : 'Aula') + ' - Professor Lucas Vinicius';
       toast.hidden = false; clearTimeout(t); t = setTimeout(function () { toast.hidden = true; }, 7000);
       setTimeout(function () { window.print(); }, 80);
+    });
+  })();
+</script>
+<script>
+  /* Fotos: só aparecem se carregarem (no Claude elas ficam escondidas) */
+  (function () {
+    Array.prototype.forEach.call(document.querySelectorAll('.photo-fig img[data-src]'), function (img) {
+      var fig = img.closest('.photo-fig');
+      img.addEventListener('load', function () { fig.hidden = false; });
+      img.addEventListener('error', function () { fig.hidden = true; });
+      img.src = img.getAttribute('data-src');
+    });
+  })();
+  /* Glossário: filtrar palavras */
+  (function () {
+    var q = document.getElementById('gl-busca'); if (!q) return;
+    var norm = function (t) { return t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+    var items = Array.prototype.slice.call(document.querySelectorAll('.gl-item'));
+    var letters = Array.prototype.slice.call(document.querySelectorAll('.gl-letter'));
+    q.addEventListener('input', function () {
+      var w = norm(q.value.trim()), any = false;
+      items.forEach(function (it) { var ok = !w || norm(it.textContent).indexOf(w) !== -1; it.hidden = !ok; if (ok) any = true; });
+      letters.forEach(function (h) { var dl = h.nextElementSibling; h.hidden = dl.querySelectorAll('.gl-item:not([hidden])').length === 0; dl.hidden = h.hidden; });
+      document.getElementById('gl-nada').hidden = any;
     });
   })();
 </script>
