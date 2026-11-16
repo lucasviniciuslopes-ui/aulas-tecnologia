@@ -330,13 +330,13 @@
   .menu-btn:hover, .menu-btn[aria-expanded="true"] { border-color: var(--band-accent); }
   .menu-btn.has-current { background: var(--band-accent); color: var(--sun-ink); }
   .menu-btn .caret { font-size: 0.8em; }
-  nav .submenu { position: absolute; top: calc(100% + 8px); left: 0; z-index: 30; flex-direction: column; flex-wrap: nowrap; gap: 2px; min-width: 250px; padding: 8px; background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); border-radius: 14px; box-shadow: 0 12px 30px rgba(8, 20, 50, 0.25); }
+  nav .submenu { position: absolute; top: calc(100% + 8px); left: auto; right: 0; z-index: 30; flex-direction: column; flex-wrap: nowrap; gap: 2px; min-width: 250px; padding: 8px; background: var(--surface); color: var(--ink); border: 1.5px solid var(--line); border-radius: 14px; box-shadow: 0 12px 30px rgba(8, 20, 50, 0.25); }
   nav .submenu[hidden] { display: none; }
   nav .group:last-child .submenu { left: auto; right: 0; }
   nav .submenu a { border-radius: 8px; padding: 8px 12px; }
   nav .submenu a:hover { border-color: var(--accent); }
   nav .submenu a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); }
-  @media (max-width: 720px) {
+  @media (max-width: 900px) {
     nav .group { position: static; }
     nav .submenu, nav .group:last-child .submenu { left: 0; right: 0; top: 100%; }
   }
@@ -360,6 +360,20 @@
   .search-results b { font-size: 1.05rem; }
   .search-results small { color: var(--muted); font-size: 0.95rem; }
 
+  /* Divisão por ano */
+  .year { gap: 28px; }
+  .year-head { background: var(--band); color: var(--band-ink); border-radius: 16px; padding: 22px 26px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; border-left: 10px solid var(--band-accent); }
+  .year-head h2 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; }
+  .year-head p { color: var(--band-muted); font-size: 1.15rem; }
+  .year-group { display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 16px; }
+  .group-title { font-size: 1.5rem; font-weight: 800; }
+  a.card.link h4 { font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; line-height: 1.15; margin: 0; }
+  a.card.link p { margin: 0; }
+  .group-title, .year-head p { margin: 0; }
+  nav .submenu .sub-label { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 10px 12px 2px; }
+  nav .submenu .sub-label:first-child { padding-top: 4px; }
+  nav .submenu { max-height: 75vh; overflow-y: auto; }
+
   footer { border-top: 4px solid var(--sun); background: var(--band); color: var(--band-muted); }
 
   footer { border-top: 6px solid var(--sun); background: var(--band); color: var(--band-muted); }
@@ -377,33 +391,27 @@
         <ul class="menu">
           <li><a href="#capa" data-page="capa">Início</a></li>
           <li class="group">
-            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-comp">Computador<span class="caret" aria-hidden="true">▾</span></button>
-            <ul class="submenu" id="menu-comp" hidden>
+            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-ano1">1º ano<span class="caret" aria-hidden="true">▾</span></button>
+            <ul class="submenu" id="menu-ano1" hidden>
+              <li class="sub-label">Computador</li>
               <li><a href="#inicio" data-page="inicio">1. História</a></li>
               <li><a href="#pagina-2" data-page="pagina-2">2. Hardware e software</a></li>
               <li><a href="#pagina-10" data-page="pagina-10">10. Chromebook</a></li>
-            </ul>
-          </li>
-          <li class="group">
-            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-tec">Teclado e digitação<span class="caret" aria-hidden="true">▾</span></button>
-            <ul class="submenu" id="menu-tec" hidden>
+              <li class="sub-label">Teclado e digitação</li>
               <li><a href="#pagina-3" data-page="pagina-3">3. Teclado</a></li>
               <li><a href="#pagina-4" data-page="pagina-4">4. Atalhos</a></li>
               <li><a href="#pagina-8" data-page="pagina-8">8. Digitação</a></li>
               <li><a href="#pagina-9" data-page="pagina-9">9. Jogo</a></li>
-            </ul>
-          </li>
-          <li class="group">
-            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-net">Internet<span class="caret" aria-hidden="true">▾</span></button>
-            <ul class="submenu" id="menu-net" hidden>
+              <li class="sub-label">Internet</li>
               <li><a href="#pagina-5" data-page="pagina-5">5. Internet</a></li>
               <li><a href="#pagina-6" data-page="pagina-6">6. Buscadores</a></li>
               <li><a href="#pagina-7" data-page="pagina-7">7. Download e upload</a></li>
             </ul>
           </li>
           <li class="group">
-            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-goo">Ferramentas Google<span class="caret" aria-hidden="true">▾</span></button>
-            <ul class="submenu" id="menu-goo" hidden>
+            <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-ano2">2º ano<span class="caret" aria-hidden="true">▾</span></button>
+            <ul class="submenu" id="menu-ano2" hidden>
+              <li class="sub-label">Ferramentas Google</li>
               <li><a href="#pagina-11" data-page="pagina-11">11. Sala de Aula</a></li>
               <li><a href="#pagina-12" data-page="pagina-12">12. Docs</a></li>
               <li><a href="#pagina-13" data-page="pagina-13">13. Planilhas</a></li>
@@ -426,7 +434,11 @@
     <div class="hero">
       <span class="label">AULAS DE TECNOLOGIA</span>
       <h1>Aprenda tecnologia com o Professor Lucas Vinicius</h1>
-      <p>Escolha um assunto abaixo ou procure o que você quer estudar.</p>
+      <p>Escolha a sua turma, ou procure o assunto que você quer estudar.</p>
+      <div class="go">
+        <a class="btn main" href="#capa" data-scroll="capa-ano1">1º ano</a>
+        <a class="btn main" href="#capa" data-scroll="capa-ano2">2º ano</a>
+      </div>
       <div class="search" role="search">
         <label for="busca-site">Procurar um assunto no site</label>
         <div class="search-box">
@@ -443,141 +455,139 @@
 <div class="wrap">
 <main>
 
-  <section id="capa-comp">
-    <div class="sec-head">
-      <h2>Computador</h2>
-      <p>Conheça a máquina e a história da tecnologia.</p>
+  <section class="year" id="capa-ano1">
+    <div class="year-head">
+      <h2>1º ano</h2>
+      <p>Computador, teclado, digitação e internet.</p>
     </div>
-    <div class="cards">
-      <a class="card link" href="#inicio">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"></path></svg></span>
-        <span class="num">Página 1</span>
-        <h3>História e conceitos</h3>
-        <p>De onde veio a tecnologia e as ideias básicas.</p>
-      </a>
-      <a class="card link" href="#pagina-2">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 48v416c0 26.51-21.49 48-48 48H144c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h224c26.51 0 48 21.49 48 48zm96 58v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42V88h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zM30 376h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6z"></path></svg></span>
-        <span class="num">Página 2</span>
-        <h3>Hardware e software</h3>
-        <p>As peças e os programas do computador.</p>
-      </a>
-      <a class="card link" href="#pagina-10">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg></span>
-        <span class="num">Página 10</span>
-        <h3>Usando o Chromebook</h3>
-        <p>Como ligar e entrar com a conta do colégio.</p>
-      </a>
+    <div class="year-group" id="capa-comp">
+      <h3 class="group-title">Computador</h3>
+      <div class="cards">
+        <a class="card link" href="#inicio">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M504 255.531c.253 136.64-111.18 248.372-247.82 248.468-59.015.042-113.223-20.53-155.822-54.911-11.077-8.94-11.905-25.541-1.839-35.607l11.267-11.267c8.609-8.609 22.353-9.551 31.891-1.984C173.062 425.135 212.781 440 256 440c101.705 0 184-82.311 184-184 0-101.705-82.311-184-184-184-48.814 0-93.149 18.969-126.068 49.932l50.754 50.754c10.08 10.08 2.941 27.314-11.313 27.314H24c-8.837 0-16-7.163-16-16V38.627c0-14.254 17.234-21.393 27.314-11.314l49.372 49.372C129.209 34.136 189.552 8 256 8c136.81 0 247.747 110.78 248 247.531zm-180.912 78.784l9.823-12.63c8.138-10.463 6.253-25.542-4.21-33.679L288 256.349V152c0-13.255-10.745-24-24-24h-16c-13.255 0-24 10.745-24 24v135.651l65.409 50.874c10.463 8.137 25.541 6.253 33.679-4.21z"></path></svg></span>
+          <span class="num">Página 1</span>
+          <h4>História e conceitos</h4>
+          <p>De onde veio a tecnologia e as ideias básicas.</p>
+        </a>
+        <a class="card link" href="#pagina-2">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 48v416c0 26.51-21.49 48-48 48H144c-26.51 0-48-21.49-48-48V48c0-26.51 21.49-48 48-48h224c26.51 0 48 21.49 48 48zm96 58v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42V88h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zm0 96v12a6 6 0 0 1-6 6h-18v6a6 6 0 0 1-6 6h-42v-48h42a6 6 0 0 1 6 6v6h18a6 6 0 0 1 6 6zM30 376h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6zm0-96h42v48H30a6 6 0 0 1-6-6v-6H6a6 6 0 0 1-6-6v-12a6 6 0 0 1 6-6h18v-6a6 6 0 0 1 6-6z"></path></svg></span>
+          <span class="num">Página 2</span>
+          <h4>Hardware e software</h4>
+          <p>As peças e os programas do computador.</p>
+        </a>
+        <a class="card link" href="#pagina-10">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg></span>
+          <span class="num">Página 10</span>
+          <h4>Usando o Chromebook</h4>
+          <p>Como ligar e entrar com a conta do colégio.</p>
+        </a>
+      </div>
     </div>
-  </section>
-
-  <section id="capa-tec">
-    <div class="sec-head">
-      <h2>Teclado e digitação</h2>
-      <p>Aprenda as teclas e treine os dedos.</p>
+    <div class="year-group" id="capa-tec">
+      <h3 class="group-title">Teclado e digitação</h3>
+      <div class="cards">
+        <a class="card link" href="#pagina-3">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M528 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h480c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM128 180v-40c0-6.627-5.373-12-12-12H76c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm-336 96v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm-336 96v-40c0-6.627-5.373-12-12-12H76c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm288 0v-40c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h232c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12z"></path></svg></span>
+          <span class="num">Página 3</span>
+          <h4>O teclado do Chromebook</h4>
+          <p>O que cada tecla faz.</p>
+        </a>
+        <a class="card link" href="#pagina-4">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"></path></svg></span>
+          <span class="num">Página 4</span>
+          <h4>Teclas de atalho</h4>
+          <p>Combinações de teclas que poupam tempo.</p>
+        </a>
+        <a class="card link" href="#pagina-8">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path></svg></span>
+          <span class="num">Página 8</span>
+          <h4>Treino de digitação</h4>
+          <p>Exercícios do mais fácil ao mais difícil.</p>
+        </a>
+        <a class="card link" href="#pagina-9">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"></path></svg></span>
+          <span class="num">Página 9</span>
+          <h4>Jogo: Chuva de palavras</h4>
+          <p>Digite as palavras antes que cheguem ao chão.</p>
+        </a>
+      </div>
     </div>
-    <div class="cards">
-      <a class="card link" href="#pagina-3">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M528 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h480c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM128 180v-40c0-6.627-5.373-12-12-12H76c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm-336 96v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm-336 96v-40c0-6.627-5.373-12-12-12H76c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12zm288 0v-40c0-6.627-5.373-12-12-12H172c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h232c6.627 0 12-5.373 12-12zm96 0v-40c0-6.627-5.373-12-12-12h-40c-6.627 0-12 5.373-12 12v40c0 6.627 5.373 12 12 12h40c6.627 0 12-5.373 12-12z"></path></svg></span>
-        <span class="num">Página 3</span>
-        <h3>O teclado do Chromebook</h3>
-        <p>O que cada tecla faz.</p>
-      </a>
-      <a class="card link" href="#pagina-4">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 320 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M296 160H180.6l42.6-129.8C227.2 15 215.7 0 200 0H56C44 0 33.8 8.9 32.2 20.8l-32 240C-1.7 275.2 9.5 288 24 288h118.7L96.6 482.5c-3.6 15.2 8 29.5 23.3 29.5 8.4 0 16.4-4.4 20.8-12l176-304c9.3-15.9-2.2-36-20.7-36z"></path></svg></span>
-        <span class="num">Página 4</span>
-        <h3>Teclas de atalho</h3>
-        <p>Combinações de teclas que poupam tempo.</p>
-      </a>
-      <a class="card link" href="#pagina-8">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M402.6 83.2l90.2 90.2c3.8 3.8 3.8 10 0 13.8L274.4 405.6l-92.8 10.3c-12.4 1.4-22.9-9.1-21.5-21.5l10.3-92.8L388.8 83.2c3.8-3.8 10-3.8 13.8 0zm162-22.9l-48.8-48.8c-15.2-15.2-39.9-15.2-55.2 0l-35.4 35.4c-3.8 3.8-3.8 10 0 13.8l90.2 90.2c3.8 3.8 10 3.8 13.8 0l35.4-35.4c15.2-15.3 15.2-40 0-55.2zM384 346.2V448H64V128h229.8c3.2 0 6.2-1.3 8.5-3.5l40-40c7.6-7.6 2.2-20.5-8.5-20.5H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V306.2c0-10.7-12.9-16-20.5-8.5l-40 40c-2.2 2.3-3.5 5.3-3.5 8.5z"></path></svg></span>
-        <span class="num">Página 8</span>
-        <h3>Treino de digitação</h3>
-        <p>Exercícios do mais fácil ao mais difícil.</p>
-      </a>
-      <a class="card link" href="#pagina-9">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M480.07 96H160a160 160 0 1 0 114.24 272h91.52A160 160 0 1 0 480.07 96zM248 268a12 12 0 0 1-12 12h-52v52a12 12 0 0 1-12 12h-24a12 12 0 0 1-12-12v-52H84a12 12 0 0 1-12-12v-24a12 12 0 0 1 12-12h52v-52a12 12 0 0 1 12-12h24a12 12 0 0 1 12 12v52h52a12 12 0 0 1 12 12zm216 76a40 40 0 1 1 40-40 40 40 0 0 1-40 40zm64-96a40 40 0 1 1 40-40 40 40 0 0 1-40 40z"></path></svg></span>
-        <span class="num">Página 9</span>
-        <h3>Jogo: Chuva de palavras</h3>
-        <p>Digite as palavras antes que cheguem ao chão.</p>
-      </a>
-    </div>
-  </section>
-
-  <section id="capa-net">
-    <div class="sec-head">
-      <h2>Internet</h2>
-      <p>Navegue, pesquise e troque arquivos.</p>
-    </div>
-    <div class="cards">
-      <a class="card link" href="#pagina-5">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg></span>
-        <span class="num">Página 5</span>
-        <h3>Internet e navegação</h3>
-        <p>O que é a internet e como usar o navegador.</p>
-      </a>
-      <a class="card link" href="#pagina-6">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
-        <span class="num">Página 6</span>
-        <h3>Buscadores</h3>
-        <p>Como pesquisar melhor, com o Google de exemplo.</p>
-      </a>
-      <a class="card link" href="#pagina-7">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"></path></svg></span>
-        <span class="num">Página 7</span>
-        <h3>Download e upload</h3>
-        <p>A diferença entre baixar e enviar arquivos.</p>
-      </a>
+    <div class="year-group" id="capa-net">
+      <h3 class="group-title">Internet</h3>
+      <div class="cards">
+        <a class="card link" href="#pagina-5">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg></span>
+          <span class="num">Página 5</span>
+          <h4>Internet e navegação</h4>
+          <p>O que é a internet e como usar o navegador.</p>
+        </a>
+        <a class="card link" href="#pagina-6">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
+          <span class="num">Página 6</span>
+          <h4>Buscadores</h4>
+          <p>Como pesquisar melhor, com o Google de exemplo.</p>
+        </a>
+        <a class="card link" href="#pagina-7">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"></path></svg></span>
+          <span class="num">Página 7</span>
+          <h4>Download e upload</h4>
+          <p>A diferença entre baixar e enviar arquivos.</p>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="capa-goo">
-    <div class="sec-head">
-      <h2>Ferramentas Google</h2>
-      <p>Os aplicativos usados nas aulas.</p>
+  <section class="year" id="capa-ano2">
+    <div class="year-head">
+      <h2>2º ano</h2>
+      <p>As ferramentas Google usadas nas aulas.</p>
     </div>
-    <div class="cards">
-      <a class="card link" href="#pagina-11">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"></path></svg></span>
-        <span class="num">Página 11</span>
-        <h3>Google Sala de Aula</h3>
-        <p>Onde ficam os conteúdos e as atividades.</p>
-      </a>
-      <a class="card link" href="#pagina-12">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>
-        <span class="num">Página 12</span>
-        <h3>Google Docs</h3>
-        <p>Criar, formatar e compartilhar textos.</p>
-      </a>
-      <a class="card link" href="#pagina-13">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path></svg></span>
-        <span class="num">Página 13</span>
-        <h3>Google Planilhas</h3>
-        <p>Tabelas, fórmulas e gráficos.</p>
-      </a>
-      <a class="card link" href="#pagina-14">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"></path></svg></span>
-        <span class="num">Página 14</span>
-        <h3>Google Maps</h3>
-        <p>Encontrar lugares e traçar caminhos.</p>
-      </a>
-      <a class="card link" href="#pagina-15">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg></span>
-        <span class="num">Página 15</span>
-        <h3>Google Earth</h3>
-        <p>Explorar o planeta em três dimensões.</p>
-      </a>
-      <a class="card link" href="#pagina-16">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg></span>
-        <span class="num">Página 16</span>
-        <h3>Google Meet</h3>
-        <p>Participar de chamadas de vídeo.</p>
-      </a>
-      <a class="card link" href="#pagina-17">
-        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"></path></svg></span>
-        <span class="num">Página 17</span>
-        <h3>Google Forms</h3>
-        <p>Responder e criar formulários.</p>
-      </a>
+    <div class="year-group" id="capa-goo">
+      <h3 class="group-title">Ferramentas Google</h3>
+      <div class="cards">
+        <a class="card link" href="#pagina-11">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"></path></svg></span>
+          <span class="num">Página 11</span>
+          <h4>Google Sala de Aula</h4>
+          <p>Onde ficam os conteúdos e as atividades.</p>
+        </a>
+        <a class="card link" href="#pagina-12">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>
+          <span class="num">Página 12</span>
+          <h4>Google Docs</h4>
+          <p>Criar, formatar e compartilhar textos.</p>
+        </a>
+        <a class="card link" href="#pagina-13">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path></svg></span>
+          <span class="num">Página 13</span>
+          <h4>Google Planilhas</h4>
+          <p>Tabelas, fórmulas e gráficos.</p>
+        </a>
+        <a class="card link" href="#pagina-14">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"></path></svg></span>
+          <span class="num">Página 14</span>
+          <h4>Google Maps</h4>
+          <p>Encontrar lugares e traçar caminhos.</p>
+        </a>
+        <a class="card link" href="#pagina-15">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg></span>
+          <span class="num">Página 15</span>
+          <h4>Google Earth</h4>
+          <p>Explorar o planeta em três dimensões.</p>
+        </a>
+        <a class="card link" href="#pagina-16">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg></span>
+          <span class="num">Página 16</span>
+          <h4>Google Meet</h4>
+          <p>Participar de chamadas de vídeo.</p>
+        </a>
+        <a class="card link" href="#pagina-17">
+          <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"></path></svg></span>
+          <span class="num">Página 17</span>
+          <h4>Google Forms</h4>
+          <p>Responder e criar formulários.</p>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -586,11 +596,11 @@
 </div>
 
 <!-- ================= PÁGINA 1 ================= -->
-<div class="view" id="view-inicio" hidden>
+<div class="view" id="view-inicio" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 1</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 1</span>
       <h1>História e conceitos da tecnologia</h1>
       <p>Aqui você descobre de onde veio a tecnologia, como ela funciona e por que ela faz parte do seu dia a dia.</p>
       <div class="go">
@@ -757,11 +767,11 @@
 </div>
 
 <!-- ================= PÁGINA 2 ================= -->
-<div class="view" id="view-pagina-2" hidden>
+<div class="view" id="view-pagina-2" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 2</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 2</span>
       <h1>Hardware e software</h1>
       <p>Todo computador e todo celular têm duas partes que trabalham juntas: a que você toca e a que você usa.</p>
       <div class="go">
@@ -964,11 +974,11 @@
 </div>
 
 <!-- ================= PÁGINA 3 ================= -->
-<div class="view" id="view-pagina-3" hidden>
+<div class="view" id="view-pagina-3" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 3</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 3</span>
       <h1>O teclado do Chromebook</h1>
       <p>Conheça os grupos de teclas, o que cada tecla faz e o que o teclado do Chromebook tem de diferente dos outros.</p>
       <div class="go">
@@ -1080,11 +1090,11 @@
 </div>
 
 <!-- ================= PÁGINA 4 ================= -->
-<div class="view" id="view-pagina-4" hidden>
+<div class="view" id="view-pagina-4" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 4</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 4</span>
       <h1>Teclas de atalho</h1>
       <p>Atalhos são combinações de teclas que fazem uma ação na hora, sem precisar do mouse.</p>
       <div class="go">
@@ -1161,11 +1171,11 @@
 </div>
 
 <!-- ================= PÁGINA 5 ================= -->
-<div class="view" id="view-pagina-5" hidden>
+<div class="view" id="view-pagina-5" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 5</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 5</span>
       <h1>Internet e navegação</h1>
       <p>Entenda o que é a internet, como você se conecta a ela e como usar o navegador para encontrar o que procura.</p>
       <div class="go">
@@ -1442,11 +1452,11 @@
 </div>
 
 <!-- ================= PÁGINA 6 ================= -->
-<div class="view" id="view-pagina-6" hidden>
+<div class="view" id="view-pagina-6" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 6</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 6</span>
       <h1>Buscadores</h1>
       <p>Entenda o que é um buscador, como ele encontra as páginas e como pesquisar melhor, usando o Google como exemplo.</p>
       <div class="go">
@@ -1655,11 +1665,11 @@
 </div>
 
 <!-- ================= PÁGINA 7 ================= -->
-<div class="view" id="view-pagina-7" hidden>
+<div class="view" id="view-pagina-7" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 7</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 7</span>
       <h1>Download e upload</h1>
       <p>Entenda a diferença entre baixar e enviar arquivos e veja como fazer cada um no Chromebook.</p>
       <div class="go">
@@ -1827,11 +1837,11 @@
 </div>
 
 <!-- ================= PÁGINA 8 ================= -->
-<div class="view" id="view-pagina-8" hidden>
+<div class="view" id="view-pagina-8" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 8</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 8</span>
       <h1>Treino de digitação</h1>
       <p>Exercícios para praticar no teclado, do mais fácil ao mais difícil. Vá no seu ritmo: acertar vale mais do que correr.</p>
       <div class="go">
@@ -1893,11 +1903,11 @@
 </div>
 
 <!-- ================= PÁGINA 9 ================= -->
-<div class="view" id="view-pagina-9" hidden>
+<div class="view" id="view-pagina-9" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 9</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 9</span>
       <h1>Jogo: Chuva de palavras</h1>
       <p>As palavras caem do alto da tela. Digite cada uma antes que ela chegue ao chão para ganhar pontos e passar de fase.</p>
       <div class="go">
@@ -1976,11 +1986,11 @@
 </div>
 
 <!-- ================= PÁGINA 10 ================= -->
-<div class="view" id="view-pagina-10" hidden>
+<div class="view" id="view-pagina-10" data-ano="1º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 10</span>
+      <span class="label">AULAS DE TECNOLOGIA · 1º ANO · PÁGINA 10</span>
       <h1>Usando o Chromebook</h1>
       <p>Saiba o que é um Chromebook, como ligar, como entrar com a sua conta do colégio e o que você encontra depois do login.</p>
       <div class="go">
@@ -2129,11 +2139,11 @@
 </div>
 
 <!-- ================= PÁGINA 11 ================= -->
-<div class="view" id="view-pagina-11" hidden>
+<div class="view" id="view-pagina-11" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 11</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 11</span>
       <h1>Google Sala de Aula</h1>
       <p>Conheça a nossa sala de aula virtual: o lugar onde os professores postam os conteúdos, as atividades e os links das provas.</p>
       <div class="go">
@@ -2311,11 +2321,11 @@
 </div>
 
 <!-- ================= PÁGINA 12 ================= -->
-<div class="view" id="view-pagina-12" hidden>
+<div class="view" id="view-pagina-12" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 12</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 12</span>
       <h1>Google Docs</h1>
       <p>Aprenda a criar, formatar e compartilhar textos no editor de documentos do Google.</p>
       <div class="go">
@@ -2449,11 +2459,11 @@
 </div>
 
 <!-- ================= PÁGINA 13 ================= -->
-<div class="view" id="view-pagina-13" hidden>
+<div class="view" id="view-pagina-13" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 13</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 13</span>
       <h1>Google Planilhas</h1>
       <p>Aprenda a organizar informações em tabelas, fazer contas com fórmulas e criar gráficos.</p>
       <div class="go">
@@ -2685,11 +2695,11 @@
 </div>
 
 <!-- ================= PÁGINA 14 ================= -->
-<div class="view" id="view-pagina-14" hidden>
+<div class="view" id="view-pagina-14" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 14</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 14</span>
       <h1>Google Maps</h1>
       <p>Aprenda a encontrar lugares, traçar caminhos e ver as ruas pelo mapa digital do Google.</p>
       <div class="go">
@@ -2830,11 +2840,11 @@
 </div>
 
 <!-- ================= PÁGINA 15 ================= -->
-<div class="view" id="view-pagina-15" hidden>
+<div class="view" id="view-pagina-15" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 15</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 15</span>
       <h1>Google Earth</h1>
       <p>Conheça o globo terrestre digital do Google e viaje pelo planeta sem sair da sala de aula.</p>
       <div class="go">
@@ -2967,11 +2977,11 @@
 </div>
 
 <!-- ================= PÁGINA 16 ================= -->
-<div class="view" id="view-pagina-16" hidden>
+<div class="view" id="view-pagina-16" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 16</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 16</span>
       <h1>Google Meet</h1>
       <p>Aprenda a entrar em uma chamada de vídeo e a usar os botões do Google Meet.</p>
       <div class="go">
@@ -3120,11 +3130,11 @@
 </div>
 
 <!-- ================= PÁGINA 17 ================= -->
-<div class="view" id="view-pagina-17" hidden>
+<div class="view" id="view-pagina-17" data-ano="2º ano" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 17</span>
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO · PÁGINA 17</span>
       <h1>Google Forms</h1>
       <p>Aprenda a responder e a criar formulários on-line, usados em pesquisas, inscrições e provas.</p>
       <div class="go">
@@ -3330,7 +3340,7 @@
     Object.keys(views).forEach(function (key) {
       if (key === 'capa') return;
       var v = views[key];
-      var page = v.querySelector('h1').textContent.trim();
+      var page = (v.getAttribute('data-ano') || '') + ' · ' + v.querySelector('h1').textContent.trim();
       Array.prototype.forEach.call(v.querySelectorAll('section[id]'), function (sec) {
         if (sec.classList.contains('summary')) return;
         var h2 = sec.querySelector('h2'); if (!h2) return;
