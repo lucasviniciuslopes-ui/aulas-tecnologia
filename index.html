@@ -385,6 +385,35 @@
   footer { border-top: 6px solid var(--sun); background: var(--band); color: var(--band-muted); }
 
   footer { padding: 24px 0 40px; font-size: 1rem; }
+
+  /* Topo mais compacto e responsivo */
+  .wrap { max-width: 1040px; padding: 0 clamp(16px, 3vw, 32px); }
+  @media (min-width: 1500px) { .wrap { max-width: 1240px; } }
+  @media (min-width: 1900px) { .wrap { max-width: 1440px; } }
+  .topbar { padding: 10px 0; }
+  .brand { font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem); }
+  .hero { padding: clamp(14px, 2.2vw, 28px) 0 clamp(22px, 3vw, 36px); gap: clamp(8px, 1.2vw, 14px); }
+  .hero .label { font-size: clamp(0.78rem, 0.74rem + 0.2vw, 0.9rem); }
+  .hero h1 { font-size: clamp(1.6rem, 1.15rem + 2vw, 2.7rem); max-width: 26ch; }
+  .hero p { font-size: clamp(1rem, 0.94rem + 0.35vw, 1.2rem); max-width: 60ch; }
+  .hero .go { gap: 10px; margin-top: 2px; }
+  .hero .btn { padding: clamp(8px, 1vw, 11px) clamp(14px, 1.6vw, 20px); font-size: clamp(0.95rem, 0.9rem + 0.25vw, 1.05rem); }
+  .search { gap: 6px; margin-top: 0; }
+  .search-box input { font-size: 1.05rem; padding: 8px 0; }
+  .search-status:empty { display: none; }
+  /* Capa: em telas largas, a busca fica ao lado do título */
+  .hero-capa .hero-text { display: flex; flex-direction: column; gap: clamp(8px, 1.2vw, 14px); min-width: 0; }
+  @media (min-width: 900px) {
+    .hero.hero-capa { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: center; column-gap: clamp(24px, 4vw, 64px); }
+    .hero-capa .search { max-width: none; background: rgba(8, 20, 50, 0.45); border: 1.5px solid rgba(255, 255, 255, 0.18); border-radius: 16px; padding: 18px; }
+  }
+  @media (max-width: 520px) {
+    .hero .go { display: grid; grid-template-columns: 1fr 1fr; }
+    .hero .go .btn { text-align: center; }
+    .view:not(#view-capa) .hero .go { grid-template-columns: 1fr; }
+    nav .menu { gap: 4px; }
+    nav a, .menu-btn { padding: 5px 10px; font-size: 0.95rem; }
+  }
 </style>
 </head>
 <body>
@@ -439,13 +468,15 @@
 <div class="view" id="view-capa">
 <div class="band">
   <div class="wrap">
-    <div class="hero">
+    <div class="hero hero-capa">
+      <div class="hero-text">
       <span class="label">AULAS DE TECNOLOGIA</span>
       <h1>Aprenda tecnologia com o Professor Lucas Vinicius</h1>
       <p>Escolha a sua turma, ou procure o assunto que você quer estudar.</p>
       <div class="go">
         <a class="btn main" href="#capa" data-scroll="capa-ano1">1º ano</a>
         <a class="btn main" href="#capa" data-scroll="capa-ano2">2º ano</a>
+      </div>
       </div>
       <div class="search" role="search">
         <label for="busca-site">Procurar um assunto no site</label>
