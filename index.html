@@ -431,6 +431,13 @@
   .topic-list a:hover, .topic-list a:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
   .ic.sm { width: 30px; height: 30px; border-radius: 8px; font-size: 0.95rem; }
   @media (min-width: 900px) { #view-capa .hero .go { display: none; } }
+
+  /* Menu aberto sempre branco, inclusive no modo escuro */
+  nav .submenu { background: #ffffff; color: #0f2347; border: 1.5px solid #c9d6ec; box-shadow: 0 16px 40px rgba(4, 12, 34, 0.45); }
+  nav .submenu a { color: #0f2347; }
+  nav .submenu a:hover, nav .submenu a:focus-visible { background: #eef4fd; border-color: #1a56c4; }
+  nav .submenu a[aria-current="page"] { background: #dbe8fd; color: #1a56c4; }
+  nav .submenu .sub-label { color: #5a6b8a; }
 </style>
 </head>
 <body>
