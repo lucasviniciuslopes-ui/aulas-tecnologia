@@ -438,6 +438,33 @@
   nav .submenu a:hover, nav .submenu a:focus-visible { background: #eef4fd; border-color: #1a56c4; }
   nav .submenu a[aria-current="page"] { background: #dbe8fd; color: #1a56c4; }
   nav .submenu .sub-label { color: #5a6b8a; }
+
+  /* Botão que pausa a animação do topo */
+  .fx-toggle { position: absolute; right: 12px; bottom: 10px; z-index: 3; font: inherit; font-size: 0.85rem; padding: 4px 12px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.45); background: rgba(8, 20, 50, 0.5); color: #fff; cursor: pointer; }
+  .fx-toggle:hover, .fx-toggle:focus-visible { background: rgba(8, 20, 50, 0.85); border-color: var(--band-accent); }
+  button.btn { font-family: inherit; cursor: pointer; background: transparent; }
+  .define p, .card p, .steps span, .note { overflow-wrap: anywhere; }
+  .pdf-toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 50; max-width: min(92vw, 520px); background: #ffffff; color: #0f2347; border: 2px solid #1a56c4; border-radius: 12px; padding: 12px 18px; font-weight: 700; box-shadow: 0 10px 30px rgba(4, 12, 34, 0.35); }
+  .pdf-toast[hidden] { display: none; }
+
+  /* Impressão e PDF: só a página aberta, em fundo branco */
+  @media print {
+    @page { margin: 12mm; }
+    :root:root:root { color-scheme: light; --bg: #ffffff; --surface: #ffffff; --ink: #0f2347; --muted: #43577a; --accent: #1a56c4; --accent-soft: #dbe8fd; --warm: #855600; --warm-soft: #fff1c2; --line: #c9d8ef; --band: #ffffff; --band-ink: #0f2347; --band-muted: #43577a; --band-accent: #855600; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html { font-size: 14px; }
+    body { background: #ffffff; }
+    body > header.band, .hero-fx, .fx-toggle, .hero .go, .pager, .pdf-toast, footer, button, .search { display: none !important; }
+    .view > .band { background: #ffffff; color: #0f2347; border-bottom: 4px solid #ffc629; }
+    .hero { padding: 0 0 14px; }
+    .hero h1 { color: #0f2347; max-width: none; }
+    .hero p { color: #43577a; }
+    .hero .label { color: #855600; }
+    .sec-head, h2, h3 { break-after: avoid; break-after: avoid-page; break-inside: avoid; }
+    .sec-head + * { break-before: avoid; }
+    .card, .define, .fig, table, .steps li, .flow-box, .note, .summary { break-inside: avoid; }
+    a { color: inherit; text-decoration: none; }
+  }
 </style>
 </head>
 <body>
@@ -474,14 +501,23 @@
             <ul class="submenu" id="menu-ano2" hidden>
               <li class="sub-label">Computador</li>
               <li><a href="#pagina-10" data-page="pagina-10">Chromebook</a></li>
-              <li class="sub-label">Ferramentas Google</li>
+              <li class="sub-label">Escola e arquivos</li>
               <li><a href="#pagina-12" data-page="pagina-12">Sala de Aula</a></li>
+              <li><a href="#pagina-28" data-page="pagina-28">Drive</a></li>
+              <li><a href="#pagina-27" data-page="pagina-27">Gmail</a></li>
+              <li class="sub-label">Criar</li>
               <li><a href="#pagina-13" data-page="pagina-13">Docs</a></li>
               <li><a href="#pagina-14" data-page="pagina-14">Planilhas</a></li>
+              <li><a href="#pagina-29" data-page="pagina-29">Apresentações</a></li>
+              <li><a href="#pagina-18" data-page="pagina-18">Forms</a></li>
+              <li class="sub-label">Organizar e conversar</li>
+              <li><a href="#pagina-30" data-page="pagina-30">Agenda</a></li>
+              <li><a href="#pagina-31" data-page="pagina-31">Keep</a></li>
+              <li><a href="#pagina-17" data-page="pagina-17">Meet</a></li>
+              <li class="sub-label">Mundo e idiomas</li>
               <li><a href="#pagina-15" data-page="pagina-15">Maps</a></li>
               <li><a href="#pagina-16" data-page="pagina-16">Earth</a></li>
-              <li><a href="#pagina-17" data-page="pagina-17">Meet</a></li>
-              <li><a href="#pagina-18" data-page="pagina-18">Forms</a></li>
+              <li><a href="#pagina-32" data-page="pagina-32">Tradutor</a></li>
             </ul>
           </li>
           <li class="group">
@@ -584,15 +620,30 @@
           <ul class="topic-list">
             <li><a href="#pagina-10"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg></span>Usando o Chromebook</a></li>
           </ul>
-          <h3 class="topic-group">Ferramentas Google</h3>
+          <h3 class="topic-group">Escola e arquivos</h3>
           <ul class="topic-list">
             <li><a href="#pagina-12"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"></path></svg></span>Google Sala de Aula</a></li>
+            <li><a href="#pagina-28"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4zM393.4 288H328v112c0 8.8-7.2 16-16 16h-48c-8.8 0-16-7.2-16-16V288h-65.4c-14.3 0-21.4-17.2-11.3-27.3l105.4-105.4c6.2-6.2 16.4-6.2 22.6 0l105.4 105.4c10.1 10.1 2.9 27.3-11.3 27.3z"></path></svg></span>Google Drive</a></li>
+            <li><a href="#pagina-27"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg></span>Gmail</a></li>
+          </ul>
+          <h3 class="topic-group">Criar</h3>
+          <ul class="topic-list">
             <li><a href="#pagina-13"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>Google Docs</a></li>
             <li><a href="#pagina-14"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path></svg></span>Google Planilhas</a></li>
+            <li><a href="#pagina-29"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M193.7 271.2c8.8 0 15.5 2.7 20.3 8.1 9.6 10.9 9.8 32.7-.2 44.1-4.9 5.6-11.9 8.5-21.1 8.5h-26.9v-60.7h27.9zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-153 31V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm53 165.2c0 90.3-88.8 77.6-111.1 77.6V436c0 6.6-5.4 12-12 12h-30.8c-6.6 0-12-5.4-12-12V236.2c0-6.6 5.4-12 12-12h81c44.5 0 72.9 32.8 72.9 77z"></path></svg></span>Google Apresentações</a></li>
+            <li><a href="#pagina-18"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"></path></svg></span>Google Forms</a></li>
+          </ul>
+          <h3 class="topic-group">Organizar e conversar</h3>
+          <ul class="topic-list">
+            <li><a href="#pagina-30"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path></svg></span>Google Agenda</a></li>
+            <li><a href="#pagina-31"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"></path></svg></span>Google Keep</a></li>
+            <li><a href="#pagina-17"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg></span>Google Meet</a></li>
+          </ul>
+          <h3 class="topic-group">Mundo e idiomas</h3>
+          <ul class="topic-list">
             <li><a href="#pagina-15"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M288 0c-69.59 0-126 56.41-126 126 0 56.26 82.35 158.8 113.9 196.02 6.39 7.54 17.82 7.54 24.2 0C331.65 284.8 414 182.26 414 126 414 56.41 357.59 0 288 0zm0 168c-23.2 0-42-18.8-42-42s18.8-42 42-42 42 18.8 42 42-18.8 42-42 42zM20.12 215.95A32.006 32.006 0 0 0 0 245.66v250.32c0 11.32 11.43 19.06 21.94 14.86L160 448V214.92c-8.84-15.98-16.07-31.54-21.25-46.42L20.12 215.95zM288 359.67c-14.07 0-27.38-6.18-36.51-16.96-19.66-23.2-40.57-49.62-59.49-76.72v182l192 64V266c-18.92 27.09-39.82 53.52-59.49 76.72-9.13 10.77-22.44 16.95-36.51 16.95zm266.06-198.51L416 224v288l139.88-55.95A31.996 31.996 0 0 0 576 426.34V176.02c0-11.32-11.43-19.06-21.94-14.86z"></path></svg></span>Google Maps</a></li>
             <li><a href="#pagina-16"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg></span>Google Earth</a></li>
-            <li><a href="#pagina-17"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg></span>Google Meet</a></li>
-            <li><a href="#pagina-18"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336 64h-80c0-35.3-28.7-64-64-64s-64 28.7-64 64H48C21.5 64 0 85.5 0 112v352c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zM96 424c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-96c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm96-192c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zm128 368c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16zm0-96c0 4.4-3.6 8-8 8H168c-4.4 0-8-3.6-8-8v-16c0-4.4 3.6-8 8-8h144c4.4 0 8 3.6 8 8v16z"></path></svg></span>Google Forms</a></li>
+            <li><a href="#pagina-32"><span class="ic sm"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M152.1 236.2c-3.5-12.1-7.8-33.2-7.8-33.2h-.5s-4.3 21.1-7.8 33.2l-11.1 37.5H163zM616 96H336v320h280c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24zm-24 120c0 6.6-5.4 12-12 12h-11.4c-6.9 23.6-21.7 47.4-42.7 69.9 8.4 6.4 17.1 12.5 26.1 18 5.5 3.4 7.3 10.5 4.1 16.2l-7.9 13.9c-3.4 5.9-10.9 7.8-16.7 4.3-12.6-7.8-24.5-16.1-35.4-24.9-10.9 8.7-22.7 17.1-35.4 24.9-5.8 3.5-13.3 1.6-16.7-4.3l-7.9-13.9c-3.2-5.6-1.4-12.8 4.2-16.2 9.3-5.7 18-11.7 26.1-18-7.9-8.4-14.9-17-21-25.7-4-5.7-2.2-13.6 3.7-17.1l6.5-3.9 7.3-4.3c5.4-3.2 12.4-1.7 16 3.4 5 7 10.8 14 17.4 20.9 13.5-14.2 23.8-28.9 30-43.2H412c-6.6 0-12-5.4-12-12v-16c0-6.6 5.4-12 12-12h64v-16c0-6.6 5.4-12 12-12h16c6.6 0 12 5.4 12 12v16h64c6.6 0 12 5.4 12 12zM0 120v272c0 13.3 10.7 24 24 24h280V96H24c-13.3 0-24 10.7-24 24zm58.9 216.1L116.4 167c1.7-4.9 6.2-8.1 11.4-8.1h32.5c5.1 0 9.7 3.3 11.4 8.1l57.5 169.1c2.6 7.8-3.1 15.9-11.4 15.9h-22.9a12 12 0 0 1-11.5-8.6l-9.4-31.9h-60.2l-9.1 31.8c-1.5 5.1-6.2 8.7-11.5 8.7H70.3c-8.2 0-14-8.1-11.4-15.9z"></path></svg></span>Google Tradutor</a></li>
           </ul>
         </div>
       </article>
@@ -645,7 +696,9 @@
       <div class="go">
         <a class="btn main" href="#inicio" data-scroll="historia">Começar pela história</a>
         <a class="btn alt" href="#inicio" data-scroll="conceitos">Ver os conceitos básicos</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -816,7 +869,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-2" data-scroll="hardware">Conhecer o hardware</a>
         <a class="btn alt" href="#pagina-2" data-scroll="software">Conhecer o software</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1023,7 +1078,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-3" data-scroll="teclas">Conhecer as teclas</a>
         <a class="btn alt" href="#pagina-3" data-scroll="diferencas">O que muda no Chromebook</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1139,7 +1196,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-4" data-scroll="como">Como fazer um atalho</a>
         <a class="btn alt" href="#pagina-4" data-scroll="chromebook">Atalhos do Chromebook</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1220,7 +1279,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-5" data-scroll="internet">O que é a internet</a>
         <a class="btn alt" href="#pagina-5" data-scroll="navegador">Conhecer o navegador</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1501,7 +1562,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-6" data-scroll="busca-google">Como pesquisar no Google</a>
         <a class="btn alt" href="#pagina-6" data-scroll="busca-oque">O que é um buscador</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1714,7 +1777,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-7" data-scroll="du-conceitos">Os dois conceitos</a>
         <a class="btn alt" href="#pagina-7" data-scroll="du-baixar">Como baixar um arquivo</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1886,7 +1951,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-8" data-scroll="treino">Começar o treino</a>
         <a class="btn alt" href="#pagina-8" data-scroll="antes">Dicas antes de começar</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -1952,7 +2019,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-9" data-scroll="jogo">Ir para o jogo</a>
         <a class="btn alt" href="#pagina-9" data-scroll="como-jogar">Como jogar</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -2035,7 +2104,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-10" data-scroll="cb-entrar">Como entrar na conta</a>
         <a class="btn alt" href="#pagina-10" data-scroll="cb-oque">O que é um Chromebook</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -2188,7 +2259,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-11" data-scroll="canva-criar">Como criar um design</a>
         <a class="btn alt" href="#pagina-11" data-scroll="canva-painel">As ferramentas do Canva</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -2500,7 +2573,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-12" data-scroll="gsa-postam">O que os professores postam</a>
         <a class="btn alt" href="#pagina-12" data-scroll="gsa-entregar">Como entregar uma atividade</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -2682,7 +2757,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-13" data-scroll="docs-criar">Como criar um documento</a>
         <a class="btn alt" href="#pagina-13" data-scroll="docs-compartilhar">Como compartilhar</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -2820,7 +2897,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-14" data-scroll="plan-formulas">Como fazer contas</a>
         <a class="btn alt" href="#pagina-14" data-scroll="plan-partes">As partes da planilha</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3056,7 +3135,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-15" data-scroll="maps-rota">Como traçar uma rota</a>
         <a class="btn alt" href="#pagina-15" data-scroll="maps-oque">O que é o Google Maps</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3201,7 +3282,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-16" data-scroll="earth-usar">Como usar</a>
         <a class="btn alt" href="#pagina-16" data-scroll="earth-diferenca">Maps ou Earth?</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3338,7 +3421,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-17" data-scroll="meet-entrar">Como entrar na chamada</a>
         <a class="btn alt" href="#pagina-17" data-scroll="meet-botoes">Os botões da chamada</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3491,7 +3576,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-18" data-scroll="forms-responder">Como responder</a>
         <a class="btn alt" href="#pagina-18" data-scroll="forms-criar">Como criar um formulário</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3622,7 +3709,7 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-17">← Google Meet</a><a href="#pagina-19">Inteligência artificial →</a></div>
+  <div class="pager"><a class="back" href="#pagina-17">← Google Meet</a><a href="#pagina-27">Gmail →</a></div>
 
 </main>
 </div>
@@ -3639,7 +3726,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-19" data-scroll="ia-oque">O que é IA</a>
         <a class="btn alt" href="#pagina-19" data-scroll="ia-cuidados">Como usar bem</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -3836,7 +3925,7 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-18">← Google Forms</a><a href="#pagina-20">Prompt →</a></div>
+  <div class="pager"><a class="back" href="#pagina-32">← Google Tradutor</a><a href="#pagina-20">Prompt →</a></div>
 
 </main>
 </div>
@@ -3853,7 +3942,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-20" data-scroll="prompt-partes">As partes de um bom prompt</a>
         <a class="btn alt" href="#pagina-20" data-scroll="prompt-modelos">Modelos prontos</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4045,7 +4136,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-21" data-scroll="gpt-usar">Como usar</a>
         <a class="btn alt" href="#pagina-21" data-scroll="gpt-faz">O que ele faz</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4229,7 +4322,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-22" data-scroll="gem-usar">Como usar</a>
         <a class="btn alt" href="#pagina-22" data-scroll="gem-compara">ChatGPT ou Gemini?</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4415,7 +4510,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-23" data-scroll="nb-usar">Como usar</a>
         <a class="btn alt" href="#pagina-23" data-scroll="nb-estudio">O que ele cria</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4565,7 +4662,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-24" data-scroll="gamma-usar">Como criar uma apresentação</a>
         <a class="btn alt" href="#pagina-24" data-scroll="gamma-gratis">O plano gratuito</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4742,7 +4841,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-25" data-scroll="img-descrever">Como descrever a imagem</a>
         <a class="btn alt" href="#pagina-25" data-scroll="img-cuidados">Cuidados e direitos</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -4946,7 +5047,9 @@
       <div class="go">
         <a class="btn main" href="#pagina-26" data-scroll="etica-pode">O que pode e o que não pode</a>
         <a class="btn alt" href="#pagina-26" data-scroll="etica-declarar">Como avisar que usou IA</a>
-      </div>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
     </div>
   </div>
 </div>
@@ -5094,13 +5197,1050 @@
 </div>
 </div>
 
+<!-- ================= PÁGINA 27 ================= -->
+<div class="view" id="view-pagina-27" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Gmail</h1>
+      <p>Aprenda a ler, escrever e responder e-mails, e a se proteger de mensagens perigosas.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-27" data-scroll="gmail-enviar">Como enviar um e-mail</a>
+        <a class="btn alt" href="#pagina-27" data-scroll="gmail-cuidados">Cuidados importantes</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="gmail-oque">
+    <div class="sec-head">
+      <h2>O que é o Gmail?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Gmail</strong> é o serviço de <strong>e-mail do Google</strong>. Com ele você envia e recebe mensagens, arquivos e fotos.</p>
+      <p>Cada pessoa tem um <strong>endereço de e-mail</strong>, como nome.sobrenome@santamariaensino.com.br. Ele funciona como o endereço da sua casa: é para lá que as mensagens chegam.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg></span>
+        <h3>Mensagens</h3>
+        <p>Você escreve e envia textos para uma ou várias pessoas ao mesmo tempo.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M43.246 466.142c-58.43-60.289-57.341-157.511 1.386-217.581L254.392 34c44.316-45.332 116.351-45.336 160.671 0 43.89 44.894 43.943 117.329 0 162.276L232.214 383.128c-29.855 30.537-78.633 30.111-107.982-.998-28.275-29.97-27.368-77.473 1.452-106.953l143.743-146.835c6.182-6.314 16.312-6.422 22.626-.241l22.861 22.379c6.315 6.182 6.422 16.312.241 22.626L171.427 319.927c-4.932 5.045-5.236 13.428-.648 18.292 4.372 4.634 11.245 4.711 15.688.165l182.849-186.851c19.613-20.062 19.613-52.725-.011-72.798-19.189-19.627-49.957-19.637-69.154 0L90.39 293.295c-34.763 35.56-35.299 93.12-1.191 128.313 34.01 35.093 88.985 35.137 123.058.286l172.06-175.999c6.177-6.319 16.307-6.433 22.626-.256l22.877 22.364c6.319 6.177 6.434 16.307.256 22.626l-172.06 175.998c-59.576 60.938-155.943 60.216-214.77-.485z"></path></svg></span>
+        <h3>Anexos</h3>
+        <p>Dá para <strong>enviar arquivos junto</strong>: trabalhos, fotos e PDFs.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z"></path></svg></span>
+        <h3>Na nuvem</h3>
+        <p>Os e-mails ficam guardados. Você lê em qualquer aparelho com a sua conta.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="gmail-partes">
+    <div class="sec-head">
+      <h2>As pastas do Gmail</h2>
+      <p>Elas ficam no menu do lado esquerdo da tela.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M567.938 243.908L462.25 85.374A48.003 48.003 0 0 0 422.311 64H153.689a48 48 0 0 0-39.938 21.374L8.062 243.908A47.994 47.994 0 0 0 0 270.533V400c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V270.533a47.994 47.994 0 0 0-8.062-26.625zM162.252 128h251.497l85.333 128H376l-32 64H232l-32-64H76.918l85.334-128z"></path></svg></span>
+        <h3>Caixa de entrada</h3>
+        <p>Onde <strong>chegam</strong> as mensagens novas. As não lidas aparecem em negrito.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"></path></svg></span>
+        <h3>Enviados</h3>
+        <p>Uma cópia de tudo o que <strong>você já enviou</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg></span>
+        <h3>Rascunhos</h3>
+        <p>Mensagens que você <strong>começou e não enviou</strong>. O Gmail guarda sozinho.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        <h3>Com estrela</h3>
+        <p>Mensagens que você marcou como <strong>importantes</strong>, para achar depois.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"></path></svg></span>
+        <h3>Spam</h3>
+        <p>Mensagens <strong>suspeitas</strong> ou propagandas. Desconfie do que estiver aqui.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Lixeira</h3>
+        <p>Mensagens apagadas. Elas ficam por um tempo e depois somem de vez.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="gmail-enviar">
+    <div class="sec-head">
+      <h2>Como enviar um e-mail</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra o Gmail.</b><span>Digite gmail.com na barra de endereço e entre com a sua conta do colégio.</span></div></li>
+      <li><div><b>Clique em Escrever.</b><span>Uma janelinha de mensagem nova abre no canto da tela.</span></div></li>
+      <li><div><b>Escreva o e-mail da pessoa no campo Para.</b><span>Confira cada letra. Um erro faz a mensagem ir para outra pessoa.</span></div></li>
+      <li><div><b>Escreva o assunto.</b><span>É o título da mensagem. Seja claro, por exemplo: "Trabalho de Tecnologia".</span></div></li>
+      <li><div><b>Escreva a mensagem.</b><span>Cumprimente, explique o que você precisa e se despeça.</span></div></li>
+      <li><div><b>Se precisar, anexe um arquivo.</b><span>Clique no ícone de clipe e escolha o arquivo.</span></div></li>
+      <li><div><b>Clique em Enviar.</b><span>A mensagem vai para a pessoa e uma cópia fica em Enviados.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="gmail-campos">
+    <div class="sec-head">
+      <h2>Para, Cc e Cco</h2>
+      <p>Usar o campo certo evita confusão e protege os endereços dos colegas.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Campo</th><th>Para que serve</th><th>Quem vê</th></tr></thead>
+        <tbody>
+          <tr><th>Para</th><td>Quem vai receber e deve responder</td><td>Todos veem o destinatário</td></tr>
+          <tr><th>Cc</th><td>Quem precisa só de uma cópia, para saber</td><td>Todos veem quem está em Cc</td></tr>
+          <tr><th>Cco</th><td>Cópia oculta, para não mostrar os endereços</td><td>Ninguém vê quem está em Cco</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="gmail-modelo">
+    <div class="sec-head">
+      <h2>Um bom e-mail</h2>
+    </div>
+    <figure class="fig">
+      <figcaption>Figura: exemplo de e-mail escrito com educação</figcaption>
+      <div class="note"><strong>Assunto:</strong> Trabalho de Tecnologia<br><br>Olá, professor Lucas! Tudo bem?<br>Estou enviando o trabalho sobre o Google Maps em anexo. Se faltar alguma coisa, pode me avisar.<br>Obrigado!<br>Ana Souza, 2º ano</div>
+    </figure>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M408.781 128.007C386.356 127.578 368 146.36 368 168.79V256h-8V79.79c0-22.43-18.356-41.212-40.781-40.783C297.488 39.423 280 57.169 280 79v177h-8V40.79C272 18.36 253.644-.422 231.219.007 209.488.423 192 18.169 192 40v216h-8V80.79c0-22.43-18.356-41.212-40.781-40.783C121.488 40.423 104 58.169 104 80v235.992l-31.648-43.519c-12.993-17.866-38.009-21.817-55.877-8.823-17.865 12.994-21.815 38.01-8.822 55.877l125.601 172.705A48 48 0 0 0 172.073 512h197.59c22.274 0 41.622-15.324 46.724-37.006l26.508-112.66a192.011 192.011 0 0 0 5.104-43.975V168c.001-21.831-17.487-39.577-39.218-39.993z"></path></svg></span>
+        <h3>Cumprimente</h3>
+        <p>Comece com "Olá" ou "Bom dia". É educado e simpático.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 432c-101.69 0-184-82.29-184-184 0-101.69 82.29-184 184-184 101.69 0 184 82.29 184 184 0 101.69-82.29 184-184 184zm0-312c-70.69 0-128 57.31-128 128s57.31 128 128 128 128-57.31 128-128-57.31-128-128-128zm0 192c-35.29 0-64-28.71-64-64s28.71-64 64-64 64 28.71 64 64-28.71 64-64 64z"></path></svg></span>
+        <h3>Seja direto</h3>
+        <p>Diga <strong>logo no começo</strong> o motivo da mensagem.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M623.2 192c-51.8 3.5-125.7 54.7-163.1 71.5-29.1 13.1-54.2 24.4-76.1 24.4-22.6 0-26-16.2-21.3-51.9 1.1-8 11.7-79.2-42.7-76.1-25.1 1.5-64.3 24.8-169.5 126L192 182.2c30.4-75.9-53.2-151.5-129.7-102.8L7.4 116.3C0 121-2.2 130.9 2.5 138.4l17.2 27c4.7 7.5 14.6 9.7 22.1 4.9l58-38.9c18.4-11.7 40.7 7.2 32.7 27.1L34.3 404.1C27.5 421 37 448 64 448c8.3 0 16.5-3.2 22.6-9.4 42.2-42.2 154.7-150.7 211.2-195.8-2.2 28.5-2.1 58.9 20.6 83.8 15.3 16.8 37.3 25.3 65.5 25.3 35.6 0 68-14.6 102.3-30 33-14.8 99-62.6 138.4-65.8 8.5-.7 15.2-7.3 15.2-15.8v-32.1c.2-9.1-7.5-16.8-16.6-16.2z"></path></svg></span>
+        <h3>Assine</h3>
+        <p>Coloque o seu <strong>nome e a sua turma</strong> no fim.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="gmail-cuidados">
+    <div class="sec-head">
+      <h2>Cuidados importantes</h2>
+      <p>Em caso de dúvida, mostre a mensagem ao professor antes de abrir.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M383.9 308.3l23.9-62.6c4-10.5-3.7-21.7-15-21.7h-58.5c11-18.9 17.8-40.6 17.8-64v-.3c39.2-7.8 64-19.1 64-31.7 0-13.3-27.3-25.1-70.1-33-9.2-32.8-27-65.8-40.6-82.8-9.5-11.9-25.9-15.6-39.5-8.8l-27.6 13.8c-9 4.5-19.6 4.5-28.6 0L182.1 3.4c-13.6-6.8-30-3.1-39.5 8.8-13.5 17-31.4 50-40.6 82.8-42.7 7.9-70 19.7-70 33 0 12.6 24.8 23.9 64 31.7v.3c0 23.4 6.8 45.1 17.8 64H56.3c-11.5 0-19.2 11.7-14.7 22.3l25.8 60.2C27.3 329.8 0 372.7 0 422.4v44.8C0 491.9 20.1 512 44.8 512h358.4c24.7 0 44.8-20.1 44.8-44.8v-44.8c0-48.4-25.8-90.4-64.1-114.1zM176 480l-41.6-192 49.6 32 24 40-32 120zm96 0l-32-120 24-40 49.6-32L272 480zm41.7-298.5c-3.9 11.9-7 24.6-16.5 33.4-10.1 9.3-48 22.4-64-25-2.8-8.4-15.4-8.4-18.3 0-17 50.2-56 32.4-64 25-9.5-8.8-12.7-21.5-16.5-33.4-.8-2.5-6.3-5.7-6.3-5.8v-10.8c28.3 3.6 61 5.8 96 5.8s67.7-2.1 96-5.8v10.8c-.1.1-5.6 3.2-6.4 5.8z"></path></svg></span>
+        <h3>Golpes por e-mail</h3>
+        <p>Mensagens que prometem prêmios ou pedem dados são <strong>golpe</strong>. Não responda.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"></path></svg></span>
+        <h3>Links e anexos</h3>
+        <p>Não clique em <strong>links ou arquivos de quem você não conhece</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z"></path></svg></span>
+        <h3>Senha é secreta</h3>
+        <p>Nenhum site sério pede a sua senha por e-mail. Nunca envie a sua.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8.309 189.836L184.313 37.851C199.719 24.546 224 35.347 224 56.015v80.053c160.629 1.839 288 34.032 288 186.258 0 61.441-39.581 122.309-83.333 154.132-13.653 9.931-33.111-2.533-28.077-18.631 45.344-145.012-21.507-183.51-176.59-185.742V360c0 20.7-24.3 31.453-39.687 18.164l-176.004-152c-11.071-9.562-11.086-26.753 0-36.328z"></path></svg></span>
+        <h3>Responder a todos</h3>
+        <p>Esse botão manda sua resposta para <strong>todos</strong> da conversa. Use só se precisar.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="summary" id="resumo-27">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Gmail</strong> é o e-mail do Google e usa a sua conta do colégio.</li>
+      <li>Para enviar: Escrever, Para, Assunto, Mensagem e Enviar.</li>
+      <li>O <strong>Cco</strong> esconde os endereços dos outros destinatários.</li>
+      <li>Escreva com educação: cumprimento, assunto claro e assinatura.</li>
+      <li>Desconfie de links, anexos e pedidos de senha.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-18">← Google Forms</a><a href="#pagina-28">Google Drive →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 28 ================= -->
+<div class="view" id="view-pagina-28" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Google Drive</h1>
+      <p>Aprenda a guardar, organizar e compartilhar arquivos na nuvem do Google.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-28" data-scroll="drive-enviar">Como enviar um arquivo</a>
+        <a class="btn alt" href="#pagina-28" data-scroll="drive-compartilhar">Como compartilhar</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="drive-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Drive?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Drive</strong> é um <strong>armário na internet</strong> onde você guarda arquivos: textos, fotos, vídeos, PDFs e planilhas.</p>
+      <p>Como ele fica na nuvem, você abre os arquivos em <strong>qualquer aparelho</strong> usando a sua conta. Se o Chromebook estragar, os arquivos continuam lá.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M537.6 226.6c4.1-10.7 6.4-22.4 6.4-34.6 0-53-43-96-96-96-19.7 0-38.1 6-53.3 16.2C367 64.2 315.3 32 256 32c-88.4 0-160 71.6-160 160 0 2.7.1 5.4.2 8.1C40.2 219.8 0 273.2 0 336c0 79.5 64.5 144 144 144h368c70.7 0 128-57.3 128-128 0-61.9-44-113.6-102.4-125.4z"></path></svg></span>
+        <h3>Nuvem</h3>
+        <p>Os arquivos ficam em <strong>computadores do Google</strong>, e não só no seu aparelho.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M370.72 133.28C339.458 104.008 298.888 87.962 255.848 88c-77.458.068-144.328 53.178-162.791 126.85-1.344 5.363-6.122 9.15-11.651 9.15H24.103c-7.498 0-13.194-6.807-11.807-14.176C33.933 94.924 134.813 8 256 8c66.448 0 126.791 26.136 171.315 68.685L463.03 40.97C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.749zM32 296h134.059c21.382 0 32.09 25.851 16.971 40.971l-41.75 41.75c31.262 29.273 71.835 45.319 114.876 45.28 77.418-.07 144.315-53.144 162.787-126.849 1.344-5.363 6.122-9.15 11.651-9.15h57.304c7.498 0 13.194 6.807 11.807 14.176C478.067 417.076 377.187 504 256 504c-66.448 0-126.791-26.136-171.315-68.685L48.97 471.03C33.851 486.149 8 475.441 8 454.059V320c0-13.255 10.745-24 24-24z"></path></svg></span>
+        <h3>Sempre atualizado</h3>
+        <p>Mudou um arquivo? A versão nova aparece em todos os aparelhos.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>
+        <h3>Docs, Planilhas e Slides</h3>
+        <p>Tudo o que você cria nos aplicativos Google <strong>fica guardado no Drive</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="drive-menu">
+    <div class="sec-head">
+      <h2>O menu do Drive</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 128H272l-64-64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V176c0-26.51-21.49-48-48-48z"></path></svg></span>
+        <h3>Meu Drive</h3>
+        <p>Os arquivos e pastas que <strong>são seus</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M192 256c61.9 0 112-50.1 112-112S253.9 32 192 32 80 82.1 80 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C51.6 288 0 339.6 0 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zM480 256c53 0 96-43 96-96s-43-96-96-96-96 43-96 96 43 96 96 96zm48 32h-3.8c-13.9 4.8-28.6 8-44.2 8s-30.3-3.2-44.2-8H432c-20.4 0-39.2 5.9-55.7 15.4 24.4 26.3 39.7 61.2 39.7 99.8v38.4c0 2.2-.5 4.3-.6 6.4H592c26.5 0 48-21.5 48-48 0-61.9-50.1-112-112-112z"></path></svg></span>
+        <h3>Compartilhados comigo</h3>
+        <p>O que <strong>outras pessoas</strong> compartilharam com você.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256,8C119,8,8,119,8,256S119,504,256,504,504,393,504,256,393,8,256,8Zm92.49,313h0l-20,25a16,16,0,0,1-22.49,2.5h0l-67-49.72a40,40,0,0,1-15-31.23V112a16,16,0,0,1,16-16h32a16,16,0,0,1,16,16V256l58,42.5A16,16,0,0,1,348.49,321Z"></path></svg></span>
+        <h3>Recentes</h3>
+        <p>Os últimos arquivos que você <strong>abriu</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        <h3>Com estrela</h3>
+        <p>Arquivos que você marcou para <strong>achar rápido</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32 464a48 48 0 0 0 48 48h288a48 48 0 0 0 48-48V128H32zm272-256a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zm-96 0a16 16 0 0 1 32 0v224a16 16 0 0 1-32 0zM432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Lixeira</h3>
+        <p>Onde ficam os arquivos apagados. Dá para <strong>restaurar</strong> por um tempo.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 73.143v45.714C448 159.143 347.667 192 224 192S0 159.143 0 118.857V73.143C0 32.857 100.333 0 224 0s224 32.857 224 73.143zM448 176v102.857C448 319.143 347.667 352 224 352S0 319.143 0 278.857V176c48.125 33.143 136.208 48.572 224 48.572S399.874 209.143 448 176zm0 160v102.857C448 479.143 347.667 512 224 512S0 479.143 0 438.857V336c48.125 33.143 136.208 48.572 224 48.572S399.874 369.143 448 336z"></path></svg></span>
+        <h3>Armazenamento</h3>
+        <p>Mostra <strong>quanto espaço</strong> você já usou. O espaço é limitado.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="drive-enviar">
+    <div class="sec-head">
+      <h2>Como enviar um arquivo</h2>
+      <p>Você também pode <strong>arrastar o arquivo</strong> para a janela do Drive. Isso é um upload, como na página "Download e upload".</p>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra o Drive.</b><span>Digite drive.google.com na barra de endereço.</span></div></li>
+      <li><div><b>Clique no botão Novo.</b><span>Ele fica no canto de cima, do lado esquerdo.</span></div></li>
+      <li><div><b>Escolha Upload de arquivo.</b><span>Se for uma pasta inteira, escolha Upload de pasta.</span></div></li>
+      <li><div><b>Selecione o arquivo no Chromebook.</b><span>Ele fica na pasta Downloads, se foi baixado da internet.</span></div></li>
+      <li><div><b>Espere terminar.</b><span>Uma janelinha embaixo mostra o envio. Quando termina, o arquivo aparece no Meu Drive.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="drive-organizar">
+    <div class="sec-head">
+      <h2>Como organizar</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464,128H272L208,64H48A48,48,0,0,0,0,112V400a48,48,0,0,0,48,48H464a48,48,0,0,0,48-48V176A48,48,0,0,0,464,128ZM359.5,296a16,16,0,0,1-16,16h-64v64a16,16,0,0,1-16,16h-16a16,16,0,0,1-16-16V312h-64a16,16,0,0,1-16-16V280a16,16,0,0,1,16-16h64V200a16,16,0,0,1,16-16h16a16,16,0,0,1,16,16v64h64a16,16,0,0,1,16,16Z"></path></svg></span>
+        <h3>Crie pastas</h3>
+        <p>Use uma pasta por matéria, como <strong>Tecnologia</strong> e <strong>Matemática</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M352.201 425.775l-79.196 79.196c-9.373 9.373-24.568 9.373-33.941 0l-79.196-79.196c-15.119-15.119-4.411-40.971 16.971-40.97h51.162L228 284H127.196v51.162c0 21.382-25.851 32.09-40.971 16.971L7.029 272.937c-9.373-9.373-9.373-24.569 0-33.941L86.225 159.8c15.119-15.119 40.971-4.411 40.971 16.971V228H228V127.196h-51.23c-21.382 0-32.09-25.851-16.971-40.971l79.196-79.196c9.373-9.373 24.568-9.373 33.941 0l79.196 79.196c15.119 15.119 4.411 40.971-16.971 40.971h-51.162V228h100.804v-51.162c0-21.382 25.851-32.09 40.97-16.971l79.196 79.196c9.373 9.373 9.373 24.569 0 33.941L425.773 352.2c-15.119 15.119-40.971 4.411-40.97-16.971V284H284v100.804h51.23c21.382 0 32.09 25.851 16.971 40.971z"></path></svg></span>
+        <h3>Mova arquivos</h3>
+        <p>Arraste o arquivo para a pasta ou clique com o botão direito e escolha <strong>Organizar &gt; Mover</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg></span>
+        <h3>Nomes claros</h3>
+        <p>Prefira "Trabalho Maps 2º ano" a "Documento sem título".</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span>
+        <h3>Pesquise</h3>
+        <p>A <strong>barra de busca</strong> acha arquivos pelo nome ou por palavras que estão dentro deles.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="drive-compartilhar">
+    <div class="sec-head">
+      <h2>Como compartilhar</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Clique com o botão direito no arquivo.</b><span>Ou selecione o arquivo e clique no ícone de compartilhar.</span></div></li>
+      <li><div><b>Escolha Compartilhar.</b><span>Uma janela abre.</span></div></li>
+      <li><div><b>Escreva o e-mail da pessoa.</b><span>Para um professor ou colega, é o jeito mais seguro.</span></div></li>
+      <li><div><b>Escolha a permissão.</b><span>Leitor, Comentarista ou Editor.</span></div></li>
+      <li><div><b>Clique em Enviar.</b><span>A pessoa recebe um aviso por e-mail.</span></div></li>
+    </ol>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Opção de acesso</th><th>Quem abre</th><th>Cuidado</th></tr></thead>
+        <tbody>
+          <tr><th>Restrito</th><td>Só quem você adicionou</td><td>É o mais seguro</td></tr>
+          <tr><th>Qualquer pessoa com o link</th><td>Quem tiver o link, mesmo que você não conheça</td><td>Use só quando for necessário</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="summary" id="resumo-28">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Drive</strong> guarda os arquivos na nuvem.</li>
+      <li>Todo documento criado nos aplicativos Google fica no Drive.</li>
+      <li>Para enviar um arquivo: Novo, Upload de arquivo.</li>
+      <li>Use <strong>pastas</strong> e nomes claros para organizar.</li>
+      <li>Prefira compartilhar com o e-mail da pessoa, e não com qualquer um que tenha o link.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-27">← Gmail</a><a href="#pagina-29">Google Apresentações →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 29 ================= -->
+<div class="view" id="view-pagina-29" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Google Apresentações</h1>
+      <p>Aprenda a criar slides, deixar o trabalho bonito e apresentar para a turma.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-29" data-scroll="slides-criar">Como criar</a>
+        <a class="btn alt" href="#pagina-29" data-scroll="slides-dicas">Dicas de apresentação</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="slides-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Apresentações?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Apresentações</strong>, também chamado de <strong>Google Slides</strong>, é um programa on-line para <strong>criar apresentações com slides</strong>.</p>
+      <p>Cada slide é uma tela com texto, imagens, vídeos ou gráficos. Você mostra os slides na ordem, enquanto fala sobre o assunto.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M433.941 129.941l-83.882-83.882A48 48 0 0 0 316.118 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h352c26.51 0 48-21.49 48-48V163.882a48 48 0 0 0-14.059-33.941zM224 416c-35.346 0-64-28.654-64-64 0-35.346 28.654-64 64-64s64 28.654 64 64c0 35.346-28.654 64-64 64zm96-304.52V212c0 6.627-5.373 12-12 12H76c-6.627 0-12-5.373-12-12V108c0-6.627 5.373-12 12-12h228.52c3.183 0 6.235 1.264 8.485 3.515l3.48 3.48A11.996 11.996 0 0 1 320 111.48z"></path></svg></span>
+        <h3>Salva sozinho</h3>
+        <p>Como no Docs, não existe botão de salvar.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path></svg></span>
+        <h3>Trabalho em grupo</h3>
+        <p>Os colegas podem <strong>editar juntos</strong>, cada um no seu Chromebook.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M193.7 271.2c8.8 0 15.5 2.7 20.3 8.1 9.6 10.9 9.8 32.7-.2 44.1-4.9 5.6-11.9 8.5-21.1 8.5h-26.9v-60.7h27.9zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-153 31V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm53 165.2c0 90.3-88.8 77.6-111.1 77.6V436c0 6.6-5.4 12-12 12h-30.8c-6.6 0-12-5.4-12-12V236.2c0-6.6 5.4-12 12-12h81c44.5 0 72.9 32.8 72.9 77z"></path></svg></span>
+        <h3>Compatível</h3>
+        <p>Abre e salva arquivos do <strong>PowerPoint</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="slides-criar">
+    <div class="sec-head">
+      <h2>Como criar uma apresentação</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra slides.google.com.</b><span>Entre com a sua conta do colégio.</span></div></li>
+      <li><div><b>Clique em Apresentação em branco.</b><span>Ou escolha um modelo pronto.</span></div></li>
+      <li><div><b>Escreva o título no primeiro slide.</b><span>Clique nas caixas de texto e digite.</span></div></li>
+      <li><div><b>Adicione slides.</b><span>Clique no sinal de + na barra de cima. Cada slide deve tratar de uma ideia.</span></div></li>
+      <li><div><b>Escolha um tema.</b><span>No menu Slide, escolha Alterar tema para mudar cores e letras de tudo de uma vez.</span></div></li>
+      <li><div><b>Coloque imagens.</b><span>Use o menu Inserir e escolha Imagem.</span></div></li>
+      <li><div><b>Dê um nome ao arquivo.</b><span>Clique em "Apresentação sem título" no alto da tela.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="slides-recursos">
+    <div class="sec-head">
+      <h2>O que dá para fazer</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M296 32h192c13.255 0 24 10.745 24 24v160c0 13.255-10.745 24-24 24H296c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24zm-80 0H24C10.745 32 0 42.745 0 56v160c0 13.255 10.745 24 24 24h192c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24zM0 296v160c0 13.255 10.745 24 24 24h192c13.255 0 24-10.745 24-24V296c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm296 184h192c13.255 0 24-10.745 24-24V296c0-13.255-10.745-24-24-24H296c-13.255 0-24 10.745-24 24v160c0 13.255 10.745 24 24 24z"></path></svg></span>
+        <h3>Layouts</h3>
+        <p>Cada slide tem um <strong>modelo de organização</strong>: título, título e texto, duas colunas.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"></path></svg></span>
+        <h3>Imagens e vídeos</h3>
+        <p>Coloque fotos, <strong>vídeos do YouTube</strong> e formas no slide.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+        <h3>Tabelas e gráficos</h3>
+        <p>Mostre dados de um jeito fácil de entender.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"></path></svg></span>
+        <h3>Transições</h3>
+        <p>Efeitos <strong>entre um slide e outro</strong>. Use poucos, para não distrair.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"></path></svg></span>
+        <h3>Animações</h3>
+        <p>Fazem um item aparecer aos poucos dentro do slide.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 0H64C28.7 0 0 28.7 0 64v288c0 35.3 28.7 64 64 64h96v84c0 9.8 11.2 15.5 19.1 9.7L304 416h144c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64z"></path></svg></span>
+        <h3>Notas do orador</h3>
+        <p>Texto que <strong>só você vê</strong> enquanto apresenta, para lembrar o que falar.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="slides-dicas">
+    <div class="sec-head">
+      <h2>Dicas para uma boa apresentação</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Pouco texto</h3>
+        <p>Use <strong>poucas palavras</strong>. O slide apoia a sua fala, não a substitui.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M304 32H16A16 16 0 0 0 0 48v96a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16v-32h56v304H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h160a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-40V112h56v32a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zm256 336h-48V144h48c14.31 0 21.33-17.31 11.31-27.31l-80-80a16 16 0 0 0-22.62 0l-80 80C379.36 126 384.36 144 400 144h48v224h-48c-14.31 0-21.32 17.31-11.31 27.31l80 80a16 16 0 0 0 22.62 0l80-80C580.64 386 575.64 368 560 368z"></path></svg></span>
+        <h3>Letra grande</h3>
+        <p>Que dê para ler do <strong>fundo da sala</strong>. Evite letra pequena.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"></path></svg></span>
+        <h3>Bom contraste</h3>
+        <p>Letra escura em fundo claro, ou o contrário. Cores parecidas cansam a vista.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M480 416v16c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V176c0-26.51 21.49-48 48-48h16v208c0 44.112 35.888 80 80 80h336zm96-80V80c0-26.51-21.49-48-48-48H144c-26.51 0-48 21.49-48 48v256c0 26.51 21.49 48 48 48h384c26.51 0 48-21.49 48-48zM256 128c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-96 144l55.515-55.515c4.686-4.686 12.284-4.686 16.971 0L272 256l135.515-135.515c4.686-4.686 12.284-4.686 16.971 0L512 208v112H160v-48z"></path></svg></span>
+        <h3>Imagens de qualidade</h3>
+        <p>Use imagens <strong>nítidas</strong> e que combinem com o assunto.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm117.134 346.753c-1.592 1.867-39.776 45.731-109.851 45.731-84.692 0-144.484-63.26-144.484-145.567 0-81.303 62.004-143.401 143.762-143.401 66.957 0 101.965 37.315 103.422 38.904a12 12 0 0 1 1.238 14.623l-22.38 34.655c-4.049 6.267-12.774 7.351-18.234 2.295-.233-.214-26.529-23.88-61.88-23.88-46.116 0-73.916 33.575-73.916 76.082 0 39.602 25.514 79.692 74.277 79.692 38.697 0 65.28-28.338 65.544-28.625 5.132-5.565 14.059-5.033 18.508 1.053l24.547 33.572a12.001 12.001 0 0 1-.553 14.866z"></path></svg></span>
+        <h3>Cite as fontes</h3>
+        <p>Escreva de onde vieram as imagens e as informações.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"></path></svg></span>
+        <h3>Ensaie</h3>
+        <p>Treine em voz alta antes. Assim você sabe quanto tempo leva.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="slides-apresentar">
+    <div class="sec-head">
+      <h2>Apresentar e entregar</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Clique em Apresentar.</b><span>Ele fica no canto de cima, do lado direito.</span></div></li>
+      <li><div><b>Passe os slides com as setas do teclado.</b><span>Seta para a direita avança. Seta para a esquerda volta.</span></div></li>
+      <li><div><b>Saia com a tecla Esc.</b><span>Ela fecha a apresentação e volta para a edição.</span></div></li>
+      <li><div><b>Para entregar ao professor, compartilhe.</b><span>Clique em Compartilhar ou anexe o arquivo na Sala de Aula.</span></div></li>
+      <li><div><b>Para baixar, use o menu Arquivo.</b><span>Escolha Fazer download e depois PDF ou PowerPoint.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="slides-canva">
+    <div class="sec-head">
+      <h2>Google Apresentações ou Canva?</h2>
+      <p>As duas ferramentas servem. Veja o que o professor pediu.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>Google Apresentações</th><th>Canva</th></tr></thead>
+        <tbody>
+          <tr><th>Melhor para</th><td>Trabalhos escolares simples e em grupo</td><td>Artes mais enfeitadas, cartazes e posts</td></tr>
+          <tr><th>Modelos</th><td>Alguns, mais simples</td><td>Muitos modelos prontos</td></tr>
+          <tr><th>Trabalho em grupo</th><td>Muito fácil, dentro da conta Google</td><td>Também dá, mas precisa convidar</td></tr>
+          <tr><th>Precisa de conta</th><td>Conta Google do colégio</td><td>Conta no Canva</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="summary" id="resumo-29">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Apresentações</strong> cria slides on-line.</li>
+      <li>Cada slide deve ter <strong>uma ideia</strong> e pouco texto.</li>
+      <li>Use letra grande, bom contraste e imagens nítidas.</li>
+      <li>Apresente com o botão Apresentar e saia com Esc.</li>
+      <li>Você pode baixar o arquivo em PDF ou PowerPoint.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-28">← Google Drive</a><a href="#pagina-30">Google Agenda →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 30 ================= -->
+<div class="view" id="view-pagina-30" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Google Agenda</h1>
+      <p>Aprenda a organizar provas, entregas de trabalhos e compromissos em um calendário.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-30" data-scroll="agenda-criar">Como criar um evento</a>
+        <a class="btn alt" href="#pagina-30" data-scroll="agenda-dicas">Dicas de organização</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="agenda-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Agenda?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Agenda</strong>, ou Google Calendar, é um <strong>calendário digital</strong>. Nele você marca provas, entregas e compromissos.</p>
+      <p>Ele <strong>avisa você</strong> antes da hora e funciona no Chromebook e no celular, sempre com a mesma conta.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path></svg></span>
+        <h3>Eventos</h3>
+        <p>Compromissos com <strong>data, hora e lugar</strong>, como uma prova ou uma aula.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M139.61 35.5a12 12 0 0 0-17 0L58.93 98.81l-22.7-22.12a12 12 0 0 0-17 0L3.53 92.41a12 12 0 0 0 0 17l47.59 47.4a12.78 12.78 0 0 0 17.61 0l15.59-15.62L156.52 69a12.09 12.09 0 0 0 .09-17zm0 159.19a12 12 0 0 0-17 0l-63.68 63.72-22.7-22.1a12 12 0 0 0-17 0L3.53 252a12 12 0 0 0 0 17L51 316.5a12.77 12.77 0 0 0 17.6 0l15.7-15.69 72.2-72.22a12 12 0 0 0 .09-16.9zM64 368c-26.49 0-48.59 21.5-48.59 48S37.53 464 64 464a48 48 0 0 0 0-96zm432 16H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H208a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Tarefas</h3>
+        <p>Coisas para fazer, com <strong>prazo</strong>, que você marca como concluídas.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"></path></svg></span>
+        <h3>Avisos</h3>
+        <p>Uma notificação <strong>antes</strong> do evento, para você não esquecer.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="agenda-criar">
+    <div class="sec-head">
+      <h2>Como criar um evento</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra calendar.google.com.</b><span>Entre com a sua conta.</span></div></li>
+      <li><div><b>Clique no dia do evento.</b><span>Ou clique em Criar, no canto de cima.</span></div></li>
+      <li><div><b>Escreva o título.</b><span>Por exemplo: "Prova de Tecnologia".</span></div></li>
+      <li><div><b>Escolha a data e o horário.</b><span>Se durar o dia todo, marque a opção Dia inteiro.</span></div></li>
+      <li><div><b>Se quiser, adicione uma descrição ou um lugar.</b><span>Ajuda a lembrar do que precisa levar.</span></div></li>
+      <li><div><b>Clique em Salvar.</b><span>O evento aparece no calendário.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="agenda-recursos">
+    <div class="sec-head">
+      <h2>O que mais a Agenda faz</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M204.3 5C104.9 24.4 24.8 104.3 5.2 203.4c-37 187 131.7 326.4 258.8 306.7 41.2-6.4 61.4-54.6 42.5-91.7-23.1-45.4 9.9-98.4 60.9-98.4h79.7c35.8 0 64.8-29.6 64.9-65.3C511.5 97.1 368.1-26.9 204.3 5zM96 320c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm32-128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128-64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"></path></svg></span>
+        <h3>Cores</h3>
+        <p>Use uma cor para cada tipo de evento: <strong>provas</strong> em vermelho, <strong>trabalhos</strong> em azul.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"></path></svg></span>
+        <h3>Repetir</h3>
+        <p>Um evento pode se repetir <strong>toda semana</strong>, como o horário de uma aula.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"></path></svg></span>
+        <h3>Lembrete</h3>
+        <p>Escolha <strong>quanto tempo antes</strong> receber o aviso: 10 minutos, 1 dia.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.2 64H47.8C21.4 64 0 85.4 0 111.8v288.4C0 426.6 21.4 448 47.8 448h288.4c26.4 0 47.8-21.4 47.8-47.8V111.8c0-26.4-21.4-47.8-47.8-47.8zm189.4 37.7L416 177.3v157.4l109.6 75.5c21.2 14.6 50.4-.3 50.4-25.8V127.5c0-25.4-29.1-40.4-50.4-25.8z"></path></svg></span>
+        <h3>Chamada de vídeo</h3>
+        <p>Dá para colocar um <strong>link do Meet</strong> no evento.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M624 208h-64v-64c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v64h-64c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h64v64c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16v-64h64c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-400 48c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg></span>
+        <h3>Convidados</h3>
+        <p>Convide <strong>colegas</strong> pelo e-mail. Eles recebem o evento no calendário deles.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"></path></svg></span>
+        <h3>Sala de Aula</h3>
+        <p>Atividades com <strong>data de entrega</strong> da Sala de Aula podem aparecer na Agenda.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="agenda-visoes">
+    <div class="sec-head">
+      <h2>Jeitos de ver o calendário</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Visão</th><th>O que mostra</th><th>Quando usar</th></tr></thead>
+        <tbody>
+          <tr><th>Dia</th><td>Um dia, hora por hora</td><td>Ver a rotina de hoje</td></tr>
+          <tr><th>Semana</th><td>Sete dias lado a lado</td><td>Planejar os estudos da semana</td></tr>
+          <tr><th>Mês</th><td>O mês inteiro de uma vez</td><td>Ver as provas e as entregas que vêm aí</td></tr>
+          <tr><th>Agenda</th><td>Lista dos próximos eventos</td><td>Conferir o que vem por aí</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="agenda-dicas">
+    <div class="sec-head">
+      <h2>Dicas de organização</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg></span>
+        <h3>Anote na hora</h3>
+        <p>Assim que o professor avisar uma prova, <strong>crie o evento</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"></path></svg></span>
+        <h3>Marque estudos</h3>
+        <p>Coloque horários de <strong>estudo antes</strong> da prova, e não só a prova.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg></span>
+        <h3>Olhe todo dia</h3>
+        <p>Dê uma olhada na Agenda <strong>de manhã</strong>. Leva um minuto.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M622.3 271.1l-115.2-45c-4.1-1.6-12.6-3.7-22.2 0l-115.2 45c-10.7 4.2-17.7 14-17.7 24.9 0 111.6 68.7 188.8 132.9 213.9 9.6 3.7 18 1.6 22.2 0C558.4 489.9 640 420.5 640 296c0-10.9-7-20.7-17.7-24.9zM496 462.4V273.3l95.5 37.3c-5.6 87.1-60.9 135.4-95.5 151.8zM224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm96 40c0-2.5.8-4.8 1.1-7.2-2.5-.1-4.9-.8-7.5-.8h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c6.8 0 13.3-1.5 19.2-4-54-42.9-99.2-116.7-99.2-212z"></path></svg></span>
+        <h3>Privacidade</h3>
+        <p>Não coloque <strong>dados pessoais</strong>, como endereço e senha, em eventos.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="summary" id="resumo-30">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Agenda</strong> é um calendário digital com avisos.</li>
+      <li>Para criar um evento: clique no dia, escreva o título, escolha data e hora e salve.</li>
+      <li>Cores e repetição ajudam a organizar a rotina.</li>
+      <li>Marque horários de estudo antes das provas.</li>
+      <li>Crie o evento assim que o professor avisar.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-29">← Google Apresentações</a><a href="#pagina-31">Google Keep →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 31 ================= -->
+<div class="view" id="view-pagina-31" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Google Keep</h1>
+      <p>Aprenda a guardar ideias, listas e lembretes em notas coloridas, como post-its digitais.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-31" data-scroll="keep-criar">Como criar uma nota</a>
+        <a class="btn alt" href="#pagina-31" data-scroll="keep-estudos">Usando nos estudos</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="keep-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Keep?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Keep</strong> é um aplicativo de <strong>notas rápidas</strong>. Funciona como um mural com <strong>post-its</strong> na tela.</p>
+      <p>Cada nota pode ter texto, lista, imagem ou desenho. Elas ficam sincronizadas entre o Chromebook e o celular.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"></path></svg></span>
+        <h3>Notas</h3>
+        <p>Escreva uma ideia em <strong>poucos segundos</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M400 480H48c-26.51 0-48-21.49-48-48V80c0-26.51 21.49-48 48-48h352c26.51 0 48 21.49 48 48v352c0 26.51-21.49 48-48 48zm-204.686-98.059l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.248-16.379-6.249-22.628 0L184 302.745l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.25 16.379 6.25 22.628.001z"></path></svg></span>
+        <h3>Listas</h3>
+        <p>Marque cada item que você <strong>já fez</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"></path></svg></span>
+        <h3>Lembretes</h3>
+        <p>A nota <strong>avisa</strong> você em um dia e hora combinados.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="keep-criar">
+    <div class="sec-head">
+      <h2>Como criar uma nota</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra keep.google.com.</b><span>Entre com a sua conta do colégio.</span></div></li>
+      <li><div><b>Clique em "Criar uma nota".</b><span>O campo fica na parte de cima da tela.</span></div></li>
+      <li><div><b>Escreva o título e o texto.</b><span>O título ajuda a achar a nota depois.</span></div></li>
+      <li><div><b>Para uma lista, clique no ícone de nova lista.</b><span>Cada item ganha uma caixinha para marcar.</span></div></li>
+      <li><div><b>Escolha a cor da nota.</b><span>Clique no ícone da paleta de cores.</span></div></li>
+      <li><div><b>Clique em Fechar.</b><span>A nota é salva sozinha e aparece no mural.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="keep-recursos">
+    <div class="sec-head">
+      <h2>Recursos do Keep</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M204.3 5C104.9 24.4 24.8 104.3 5.2 203.4c-37 187 131.7 326.4 258.8 306.7 41.2-6.4 61.4-54.6 42.5-91.7-23.1-45.4 9.9-98.4 60.9-98.4h79.7c35.8 0 64.8-29.6 64.9-65.3C511.5 97.1 368.1-26.9 204.3 5zM96 320c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm32-128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128-64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm128 64c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"></path></svg></span>
+        <h3>Cores</h3>
+        <p>Cada <strong>assunto</strong> pode ter uma cor diferente.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 252.118V48C0 21.49 21.49 0 48 0h204.118a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882L293.823 497.941c-18.745 18.745-49.137 18.745-67.882 0L14.059 286.059A48 48 0 0 1 0 252.118zM112 64c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"></path></svg></span>
+        <h3>Etiquetas</h3>
+        <p>Marcadores como <strong>Tecnologia</strong> ou <strong>Prova</strong> para agrupar as notas.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M298.028 214.267L285.793 96H328c13.255 0 24-10.745 24-24V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v48c0 13.255 10.745 24 24 24h42.207L85.972 214.267C37.465 236.82 0 277.261 0 328c0 13.255 10.745 24 24 24h136v104.007c0 1.242.289 2.467.845 3.578l24 48c2.941 5.882 11.364 5.893 14.311 0l24-48a8.008 8.008 0 0 0 .845-3.578V352h136c13.255 0 24-10.745 24-24-.001-51.183-37.983-91.42-85.973-113.733z"></path></svg></span>
+        <h3>Fixar</h3>
+        <p>Notas fixadas ficam <strong>no topo</strong> do mural.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 448H48c-26.51 0-48-21.49-48-48V112c0-26.51 21.49-48 48-48h416c26.51 0 48 21.49 48 48v288c0 26.51-21.49 48-48 48zM112 120c-30.928 0-56 25.072-56 56s25.072 56 56 56 56-25.072 56-56-25.072-56-56-56zM64 384h384V272l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L208 320l-55.515-55.515c-4.686-4.686-12.284-4.686-16.971 0L64 336v48z"></path></svg></span>
+        <h3>Imagens e desenhos</h3>
+        <p>Coloque uma <strong>foto</strong> na nota ou faça um desenho com o mouse ou o dedo.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M176 352c53.02 0 96-42.98 96-96V96c0-53.02-42.98-96-96-96S80 42.98 80 96v160c0 53.02 42.98 96 96 96zm160-160h-16c-8.84 0-16 7.16-16 16v48c0 74.8-64.49 134.82-140.79 127.38C96.71 376.89 48 317.11 48 250.3V208c0-8.84-7.16-16-16-16H16c-8.84 0-16 7.16-16 16v40.16c0 89.64 63.97 169.55 152 181.69V464H96c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-56v-33.77C285.71 418.47 352 344.9 352 256v-48c0-8.84-7.16-16-16-16z"></path></svg></span>
+        <h3>Voz</h3>
+        <p>No <strong>celular</strong> dá para gravar a nota falando.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M32 448c0 17.7 14.3 32 32 32h384c17.7 0 32-14.3 32-32V160H32v288zm160-212c0-6.6 5.4-12 12-12h104c6.6 0 12 5.4 12 12v8c0 6.6-5.4 12-12 12H204c-6.6 0-12-5.4-12-12v-8zM480 32H32C14.3 32 0 46.3 0 64v48c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V64c0-17.7-14.3-32-32-32z"></path></svg></span>
+        <h3>Arquivar</h3>
+        <p>Guarda a nota <strong>sem apagar</strong>, para limpar o mural.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="keep-estudos">
+    <div class="sec-head">
+      <h2>Usando o Keep nos estudos</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 48a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm448 16H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Lista de tarefas</h3>
+        <p>Anote os <strong>trabalhos para entregar</strong> e marque quando terminar.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"></path></svg></span>
+        <h3>Banco de ideias</h3>
+        <p>Anote ideias para trabalhos <strong>na hora em que elas aparecem</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"></path></svg></span>
+        <h3>Resumos curtos</h3>
+        <p>Escreva as <strong>palavras-chave</strong> de cada aula para revisar antes da prova.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>
+        <h3>Levar para o Docs</h3>
+        <p>Uma nota pode virar um documento: use <strong>Copiar para o Google Docs</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="keep-cuidado">
+    <div class="sec-head">
+      <h2>Cuidado com o que você guarda</h2>
+    </div>
+    <div class="note"><strong>Não guarde senhas no Keep.</strong> As notas são para ideias, listas e lembretes. Senhas, números de documentos e dados de cartão ficam de fora.</div>
+  </section>
+
+  <section class="summary" id="resumo-31">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Keep</strong> guarda notas, listas e lembretes.</li>
+      <li>Dá para usar cores, etiquetas, imagens e desenhos.</li>
+      <li>As notas ficam iguais no Chromebook e no celular.</li>
+      <li>Use para listas de tarefas, ideias e resumos curtos.</li>
+      <li>Nunca guarde senhas no Keep.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-30">← Google Agenda</a><a href="#pagina-32">Google Tradutor →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 32 ================= -->
+<div class="view" id="view-pagina-32" data-ano="2º ano" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · 2º ANO</span>
+      <h1>Google Tradutor</h1>
+      <p>Aprenda a traduzir palavras, frases e sites, e a conferir se a tradução faz sentido.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-32" data-scroll="trad-usar">Como usar</a>
+        <a class="btn alt" href="#pagina-32" data-scroll="trad-cuidados">Cuidados com a tradução</a>
+      
+        <button type="button" class="btn alt pdf-btn" data-pdf title="Salvar esta página em PDF">Baixar em PDF</button>
+</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="trad-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Tradutor?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Tradutor</strong> é uma ferramenta que <strong>traduz textos</strong> de um idioma para outro. Ele conhece mais de cem idiomas.</p>
+      <p>Ele usa <strong>inteligência artificial</strong> para entender a frase e escolher as palavras no outro idioma.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M432 416h-23.41L277.88 53.69A32 32 0 0 0 247.58 32h-47.16a32 32 0 0 0-30.3 21.69L39.41 416H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-19.58l23.3-64h152.56l23.3 64H304a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM176.85 272L224 142.51 271.15 272z"></path></svg></span>
+        <h3>Texto</h3>
+        <p>Digite ou cole uma <strong>palavra ou frase</strong> e veja a tradução na hora.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg></span>
+        <h3>Documentos</h3>
+        <p>Envie um arquivo, como um PDF ou um Word, para <strong>traduzir inteiro</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"></path></svg></span>
+        <h3>Sites</h3>
+        <p>Cole o endereço de um site para ver a <strong>página traduzida</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="trad-usar">
+    <div class="sec-head">
+      <h2>Como traduzir um texto</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra translate.google.com.</b><span>Não precisa de conta para traduzir.</span></div></li>
+      <li><div><b>Escolha o idioma de origem.</b><span>É o idioma em que o texto está escrito. Também dá para deixar em "Detectar idioma".</span></div></li>
+      <li><div><b>Escolha o idioma de destino.</b><span>É o idioma para o qual você quer traduzir.</span></div></li>
+      <li><div><b>Digite ou cole o texto.</b><span>A tradução aparece ao lado.</span></div></li>
+      <li><div><b>Use os ícones.</b><span>O alto-falante lê o texto em voz alta. O ícone de copiar guarda a tradução.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="trad-recursos">
+    <div class="sec-head">
+      <h2>Outros recursos</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M215.03 71.05L126.06 160H24c-13.26 0-24 10.74-24 24v144c0 13.25 10.74 24 24 24h102.06l88.97 88.95c15.03 15.03 40.97 4.47 40.97-16.97V88.02c0-21.46-25.96-31.98-40.97-16.97zm233.32-51.08c-11.17-7.33-26.18-4.24-33.51 6.95-7.34 11.17-4.22 26.18 6.95 33.51 66.27 43.49 105.82 116.6 105.82 195.58 0 78.98-39.55 152.09-105.82 195.58-11.17 7.32-14.29 22.34-6.95 33.5 7.04 10.71 21.93 14.56 33.51 6.95C528.27 439.58 576 351.33 576 256S528.27 72.43 448.35 19.97zM480 256c0-63.53-32.06-121.94-85.77-156.24-11.19-7.14-26.03-3.82-33.12 7.46s-3.78 26.21 7.41 33.36C408.27 165.97 432 209.11 432 256s-23.73 90.03-63.48 115.42c-11.19 7.14-14.5 22.07-7.41 33.36 6.51 10.36 21.12 15.14 33.12 7.46C447.94 377.94 480 319.54 480 256zm-141.77-76.87c-11.58-6.33-26.19-2.16-32.61 9.45-6.39 11.61-2.16 26.2 9.45 32.61C327.98 228.28 336 241.63 336 256c0 14.38-8.02 27.72-20.92 34.81-11.61 6.41-15.84 21-9.45 32.61 6.43 11.66 21.05 15.8 32.61 9.45 28.23-15.55 45.77-45 45.77-76.88s-17.54-61.32-45.78-76.86z"></path></svg></span>
+        <h3>Ouvir a pronúncia</h3>
+        <p>O alto-falante <strong>fala a palavra</strong>. Bom para treinar inglês.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z"></path></svg></span>
+        <h3>Trocar os idiomas</h3>
+        <p>O botão de setas <strong>inverte</strong> origem e destino.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg></span>
+        <h3>Câmera</h3>
+        <p>No aplicativo do <strong>celular</strong>, você aponta a câmera para um texto e vê a tradução.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 352 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M176 352c53.02 0 96-42.98 96-96V96c0-53.02-42.98-96-96-96S80 42.98 80 96v160c0 53.02 42.98 96 96 96zm160-160h-16c-8.84 0-16 7.16-16 16v48c0 74.8-64.49 134.82-140.79 127.38C96.71 376.89 48 317.11 48 250.3V208c0-8.84-7.16-16-16-16H16c-8.84 0-16 7.16-16 16v40.16c0 89.64 63.97 169.55 152 181.69V464H96c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h160c8.84 0 16-7.16 16-16v-16c0-8.84-7.16-16-16-16h-56v-33.77C285.71 418.47 352 344.9 352 256v-48c0-8.84-7.16-16-16-16z"></path></svg></span>
+        <h3>Conversa</h3>
+        <p>No celular, duas pessoas <strong>falam em idiomas diferentes</strong> e o aplicativo traduz.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M634.91 154.88C457.74-8.99 182.19-8.93 5.09 154.88c-6.66 6.16-6.79 16.59-.35 22.98l34.24 33.97c6.14 6.1 16.02 6.23 22.4.38 145.92-133.68 371.3-133.71 517.25 0 6.38 5.85 16.26 5.71 22.4-.38l34.24-33.97c6.43-6.39 6.3-16.82-.36-22.98zM320 352c-35.35 0-64 28.65-64 64s28.65 64 64 64 64-28.65 64-64-28.65-64-64-64zm202.67-83.59c-115.26-101.93-290.21-101.82-405.34 0-6.9 6.1-7.12 16.69-.57 23.15l34.44 33.99c6 5.92 15.66 6.32 22.05.8 83.95-72.57 209.74-72.41 293.49 0 6.39 5.52 16.05 5.13 22.05-.8l34.44-33.99c6.56-6.46 6.33-17.06-.56-23.15z"></path></svg></span>
+        <h3>Sem internet</h3>
+        <p>No celular dá para <strong>baixar idiomas</strong> e traduzir sem conexão.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></span>
+        <h3>Salvar</h3>
+        <p>A estrelinha guarda a tradução para <strong>ver depois</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="trad-cuidados">
+    <div class="sec-head">
+      <h2>Cuidados com a tradução</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"></path></svg></span>
+        <h3>A tradução pode errar</h3>
+        <p>Principalmente em <strong>frases longas</strong> ou de sentido duplo.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg></span>
+        <h3>Expressões</h3>
+        <p>Ditados e gírias <strong>não se traduzem palavra por palavra</strong>. Veja o exemplo abaixo.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg></span>
+        <h3>Releia</h3>
+        <p>Leia a frase final e veja se ela <strong>faz sentido</strong> em português.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 336h-.02c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0C-2.06 328.75.02 320.33.02 336H0c0 44.18 57.31 80 128 80s128-35.82 128-80zM128 176l72 144H56l72-144zm511.98 160c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0-87.12 174.26-85.04 165.84-85.04 181.51H384c0 44.18 57.31 80 128 80s128-35.82 128-80h-.02zM440 320l72-144 72 144H440zm88 128H352V153.25c23.51-10.29 41.16-31.48 46.39-57.25H528c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16H383.64C369.04 12.68 346.09 0 320 0s-49.04 12.68-63.64 32H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h129.61c5.23 25.76 22.87 46.96 46.39 57.25V448H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+        <h3>Honestidade</h3>
+        <p>Traduzir uma palavra para estudar é ótimo. <strong>Traduzir o trabalho inteiro</strong> e entregar como seu não é.</p>
+      </article>
+    </div>
+  </section>
+
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Frase original</th><th>Tradução palavra por palavra</th><th>O que realmente significa</th></tr></thead>
+        <tbody>
+          <tr><th>It is raining cats and dogs</th><td>Está chovendo gatos e cachorros</td><td>Está chovendo muito forte</td></tr>
+          <tr><th>Break a leg!</th><td>Quebre uma perna!</td><td>Boa sorte!</td></tr>
+          <tr><th>Piece of cake</th><td>Pedaço de bolo</td><td>Algo muito fácil</td></tr>
+        </tbody>
+      </table>
+    </div>
+  <section id="trad-dicas">
+    <div class="sec-head">
+      <h2>Dicas para aprender um idioma</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M352 96c0-53.02-42.98-96-96-96s-96 42.98-96 96 42.98 96 96 96 96-42.98 96-96zM233.59 241.1c-59.33-36.32-155.43-46.3-203.79-49.05C13.55 191.13 0 203.51 0 219.14v222.8c0 14.33 11.59 26.28 26.49 27.05 43.66 2.29 131.99 10.68 193.04 41.43 9.37 4.72 20.48-1.71 20.48-11.87V252.56c-.01-4.67-2.32-8.95-6.42-11.46zm248.61-49.05c-48.35 2.74-144.46 12.73-203.78 49.05-4.1 2.51-6.41 6.96-6.41 11.63v245.79c0 10.19 11.14 16.63 20.54 11.9 61.04-30.72 149.32-39.11 192.97-41.4 14.9-.78 26.49-12.73 26.49-27.06V219.14c-.01-15.63-13.56-28.01-29.81-27.09z"></path></svg></span>
+        <h3>Leia em voz alta</h3>
+        <p>Compare o que você leu com a pronúncia do <strong>alto-falante</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg></span>
+        <h3>Tente primeiro</h3>
+        <p>Escreva a frase em inglês <strong>sozinho</strong> e depois confira no Tradutor.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M48 48a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm0 160a48 48 0 1 0 48 48 48 48 0 0 0-48-48zm448 16H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg></span>
+        <h3>Guarde as palavras novas</h3>
+        <p>Anote no <strong>Keep</strong> as palavras que você aprendeu.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="summary" id="resumo-32">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Tradutor</strong> traduz palavras, frases, documentos e sites.</li>
+      <li>Escolha o idioma de origem e o de destino e digite o texto.</li>
+      <li>O alto-falante mostra a pronúncia.</li>
+      <li>Expressões não se traduzem palavra por palavra.</li>
+      <li>Releia a tradução e não entregue o trabalho todo traduzido como seu.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-31">← Google Keep</a><a href="#pagina-19">Inteligência artificial →</a></div>
+
+</main>
+</div>
+</div>
+
 <footer>
   <div class="wrap">Professor Lucas Vinicius · Aulas de Tecnologia · Ícones: Font Awesome (CC BY 4.0)</div>
 </footer>
 
 <script>
   (function () {
-    var views = { 'capa': document.getElementById('view-capa'), 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16'), 'pagina-17': document.getElementById('view-pagina-17'), 'pagina-18': document.getElementById('view-pagina-18'), 'pagina-19': document.getElementById('view-pagina-19'), 'pagina-20': document.getElementById('view-pagina-20'), 'pagina-21': document.getElementById('view-pagina-21'), 'pagina-22': document.getElementById('view-pagina-22'), 'pagina-23': document.getElementById('view-pagina-23'), 'pagina-24': document.getElementById('view-pagina-24'), 'pagina-25': document.getElementById('view-pagina-25'), 'pagina-26': document.getElementById('view-pagina-26') };
+    var views = { 'capa': document.getElementById('view-capa'), 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16'), 'pagina-17': document.getElementById('view-pagina-17'), 'pagina-18': document.getElementById('view-pagina-18'), 'pagina-19': document.getElementById('view-pagina-19'), 'pagina-20': document.getElementById('view-pagina-20'), 'pagina-21': document.getElementById('view-pagina-21'), 'pagina-22': document.getElementById('view-pagina-22'), 'pagina-23': document.getElementById('view-pagina-23'), 'pagina-24': document.getElementById('view-pagina-24'), 'pagina-25': document.getElementById('view-pagina-25'), 'pagina-26': document.getElementById('view-pagina-26'), 'pagina-27': document.getElementById('view-pagina-27'), 'pagina-28': document.getElementById('view-pagina-28'), 'pagina-29': document.getElementById('view-pagina-29'), 'pagina-30': document.getElementById('view-pagina-30'), 'pagina-31': document.getElementById('view-pagina-31'), 'pagina-32': document.getElementById('view-pagina-32') };
     var tabs = document.querySelectorAll('[data-page]');
     var menuBtns = Array.prototype.slice.call(document.querySelectorAll('.menu-btn'));
     var pendingScroll = null;
@@ -5552,7 +6692,8 @@
     canvas.setAttribute('aria-hidden', 'true');
     var ctx = canvas.getContext('2d');
     if (!ctx) return;
-    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var slow = reduced ? 0.35 : 1, userPaused = false, toggle = null;
     var W = 0, H = 0, nodes = [], pulses = [], pointer = null, running = false, last = 0, host = null;
     var LINK = 150;
 
@@ -5579,9 +6720,26 @@
       var view = document.querySelector('.view:not([hidden])');
       var band = view ? view.querySelector('.band') : null;
       if (!band) return;
-      if (band !== host) { host = band; band.insertBefore(canvas, band.firstChild); pointer = null; }
+      if (band !== host) {
+        host = band; band.insertBefore(canvas, band.firstChild); pointer = null;
+        if (!toggle) {
+          toggle = document.createElement('button');
+          toggle.type = 'button'; toggle.className = 'fx-toggle';
+          toggle.addEventListener('click', function () {
+            userPaused = !userPaused;
+            if (userPaused) stop(); else start();
+            label();
+          });
+          label();
+        }
+        band.appendChild(toggle);
+      }
       resize();
       start();
+    }
+    function label() {
+      toggle.textContent = userPaused ? 'Ativar animação' : 'Pausar animação';
+      toggle.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
     }
     function neighbours(a) {
       var out = [];
@@ -5633,7 +6791,7 @@
         }
       }
       // sinais amarelos que viajam pelas linhas
-      if (!still && pulses.length < Math.max(3, nodes.length / 6) && Math.random() < dt * 2.5 && nodes.length > 1) {
+      if (!reduced && pulses.length < Math.max(3, nodes.length / 6) && Math.random() < dt * 2.5 && nodes.length > 1) {
         a = nodes[Math.floor(Math.random() * nodes.length)];
         var nb = neighbours(a);
         if (nb.length) pulses.push({ from: a, to: nb[Math.floor(Math.random() * nb.length)], t: 0, hops: 3 + Math.floor(Math.random() * 4) });
@@ -5654,11 +6812,11 @@
     function frame(now) {
       if (!running) return;
       var dt = Math.min(0.05, (now - last) / 1000); last = now;
-      draw(dt);
+      draw(dt * slow);
       requestAnimationFrame(frame);
     }
     function start() {
-      if (still || running || document.hidden) return;
+      if (userPaused || running || document.hidden) return;
       running = true; last = performance.now(); requestAnimationFrame(frame);
     }
     function stop() { running = false; }
@@ -5676,6 +6834,23 @@
     document.addEventListener('pointerleave', function () { pointer = null; });
     place();
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+  })();
+</script>
+<div class="pdf-toast" id="pdf-toast" role="status" aria-live="polite" hidden>Na janela que abrir, em <strong>Destino</strong>, escolha <strong>Salvar como PDF</strong>.</div>
+<script>
+  /* Baixar a página aberta em PDF, usando a impressão do navegador */
+  (function () {
+    var toast = document.getElementById('pdf-toast'), oldTitle = document.title, t = null;
+    function restore() { document.title = oldTitle; }
+    window.addEventListener('afterprint', restore);
+    document.addEventListener('click', function (ev) {
+      var b = ev.target.closest && ev.target.closest('[data-pdf]');
+      if (!b) return;
+      var view = b.closest('.view'), h1 = view && view.querySelector('h1');
+      document.title = (h1 ? h1.textContent.trim() : 'Aula') + ' - Professor Lucas Vinicius';
+      toast.hidden = false; clearTimeout(t); t = setTimeout(function () { toast.hidden = true; }, 7000);
+      setTimeout(function () { window.print(); }, 80);
+    });
   })();
 </script>
 </body>
