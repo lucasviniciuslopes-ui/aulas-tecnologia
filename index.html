@@ -315,6 +315,13 @@
   .medal.prata { border-color: var(--muted); color: var(--muted); }
   .medal.ouro { border-color: var(--sun); background: var(--sun); color: var(--sun-ink); }
 
+  /* Planilha */
+  table.sheet { border-collapse: collapse; width: 100%; min-width: 440px; background: var(--surface); font-size: 1rem; }
+  table.sheet th, table.sheet td { border: 1.5px solid var(--line); padding: 8px 12px; text-align: left; }
+  table.sheet thead th, table.sheet tbody th { background: var(--accent-soft); color: var(--muted); font-weight: 700; text-align: center; }
+  table.sheet tbody th { width: 44px; }
+  table.sheet td.sel { outline: 3px solid var(--accent); outline-offset: -3px; background: var(--warm-soft); font-weight: 700; }
+
   footer { border-top: 4px solid var(--sun); background: var(--band); color: var(--band-muted); }
 
   footer { border-top: 6px solid var(--sun); background: var(--band); color: var(--band-muted); }
@@ -342,10 +349,11 @@
           <li><a href="#pagina-10" data-page="pagina-10">10. Chromebook</a></li>
           <li><a href="#pagina-11" data-page="pagina-11">11. Sala de Aula</a></li>
           <li><a href="#pagina-12" data-page="pagina-12">12. Docs</a></li>
-          <li><a href="#pagina-13" data-page="pagina-13">13. Maps</a></li>
-          <li><a href="#pagina-14" data-page="pagina-14">14. Earth</a></li>
-          <li><a href="#pagina-15" data-page="pagina-15">15. Meet</a></li>
-          <li><a href="#pagina-16" data-page="pagina-16">16. Forms</a></li>
+          <li><a href="#pagina-13" data-page="pagina-13">13. Planilhas</a></li>
+          <li><a href="#pagina-14" data-page="pagina-14">14. Maps</a></li>
+          <li><a href="#pagina-15" data-page="pagina-15">15. Earth</a></li>
+          <li><a href="#pagina-16" data-page="pagina-16">16. Meet</a></li>
+          <li><a href="#pagina-17" data-page="pagina-17">17. Forms</a></li>
         </ul>
       </nav>
     </div>
@@ -2209,7 +2217,7 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-11">← Página 11: Google Sala de Aula</a><a href="#pagina-13">Página 13: Google Maps →</a></div>
+  <div class="pager"><a class="back" href="#pagina-11">← Página 11: Google Sala de Aula</a><a href="#pagina-13">Página 13: Google Planilhas →</a></div>
 
 </main>
 </div>
@@ -2221,11 +2229,247 @@
   <div class="wrap">
     <div class="hero">
       <span class="label">AULAS DE TECNOLOGIA · PÁGINA 13</span>
+      <h1>Google Planilhas</h1>
+      <p>Aprenda a organizar informações em tabelas, fazer contas com fórmulas e criar gráficos.</p>
+      <div class="go">
+        <a class="btn main" href="#pagina-13" data-scroll="plan-formulas">Como fazer contas</a>
+        <a class="btn alt" href="#pagina-13" data-scroll="plan-partes">As partes da planilha</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+<main>
+
+  <section id="plan-oque">
+    <div class="sec-head">
+      <h2>O que é o Google Planilhas?</h2>
+    </div>
+    <div class="define">
+      <p class="lead">O <strong>Google Planilhas</strong> é um <strong>editor de planilhas on-line</strong>. Uma planilha é uma tabela que organiza informações e faz contas sozinha.</p>
+      <p>Ele funciona dentro do navegador, salva tudo automaticamente e guarda os arquivos no Google Drive. Em inglês, o nome é Google Sheets.</p>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M461.2 128H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h384c8.84 0 16-7.16 16-16 0-26.51-21.49-48-48-48H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h397.2c28.02 0 50.8-21.53 50.8-48V176c0-26.47-22.78-48-50.8-48zM416 336c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"></path></svg></span>
+        <h3>Controlar gastos</h3>
+        <p>Anotar o que entra e o que sai do <strong>dinheiro do mês</strong>.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M528.12 301.319l47.273-208C578.806 78.301 567.391 64 551.99 64H159.208l-9.166-44.81C147.758 8.021 137.93 0 126.529 0H24C10.745 0 0 10.745 0 24v16c0 13.255 10.745 24 24 24h69.883l70.248 343.435C147.325 417.1 136 435.222 136 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-15.674-6.447-29.835-16.824-40h209.647C430.447 426.165 424 440.326 424 456c0 30.928 25.072 56 56 56s56-25.072 56-56c0-22.172-12.888-41.332-31.579-50.405l5.517-24.276c3.413-15.018-8.002-29.319-23.403-29.319H218.117l-6.545-32h293.145c11.206 0 20.92-7.754 23.403-18.681z"></path></svg></span>
+        <h3>Fazer listas</h3>
+        <p>Lista de compras com <strong>preço e quantidade</strong> de cada item.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path></svg></span>
+        <h3>Organizar notas</h3>
+        <p>Guardar as <strong>notas</strong> e calcular a média.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg></span>
+        <h3>Criar gráficos</h3>
+        <p>Transformar os números em <strong>gráficos</strong> fáceis de entender.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="plan-partes">
+    <div class="sec-head">
+      <h2>As partes da planilha</h2>
+      <p>Toda planilha é formada por colunas, linhas e células.</p>
+    </div>
+    <figure class="fig">
+      <figcaption>Figura: uma planilha de compras. A célula B2 está em destaque.</figcaption>
+      <div class="table-wrap">
+        <table class="sheet">
+          <thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+          <tbody>
+            <tr><th>1</th><td><b>Produto</b></td><td><b>Preço</b></td><td><b>Quantidade</b></td><td><b>Total</b></td></tr>
+            <tr><th>2</th><td>Arroz</td><td class="sel">6</td><td>2</td><td>12</td></tr>
+            <tr><th>3</th><td>Feijão</td><td>8</td><td>1</td><td>8</td></tr>
+            <tr><th>4</th><td>Leite</td><td>5</td><td>3</td><td>15</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64V160h160v256zm224 0H288V160h160v256z"></path></svg></span>
+        <h3>Coluna</h3>
+        <p>Vai de <strong>cima para baixo</strong>. Cada coluna tem uma <strong>letra</strong>: A, B, C.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M496 288H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-128H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16z"></path></svg></span>
+        <h3>Linha</h3>
+        <p>Vai de <strong>um lado para o outro</strong>. Cada linha tem um <strong>número</strong>: 1, 2, 3.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H32A32 32 0 0 0 0 64v384a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zm-32 64v128H256V96zm-192 0v128H64V96zM64 416V288h128v128zm192 0V288h128v128z"></path></svg></span>
+        <h3>Célula</h3>
+        <p>É cada <strong>quadradinho</strong> da planilha, onde você digita.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg></span>
+        <h3>Endereço da célula</h3>
+        <p>É a <strong>letra da coluna com o número da linha</strong>. Exemplo: B2.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 304H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32zm0-192H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg></span>
+        <h3>Barra de fórmulas</h3>
+        <p>Fica acima da tabela e mostra <strong>o que está escrito</strong> na célula escolhida.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12.41 148.02l232.94 105.67c6.8 3.09 14.49 3.09 21.29 0l232.94-105.67c16.55-7.51 16.55-32.52 0-40.03L266.65 2.31a25.607 25.607 0 0 0-21.29 0L12.41 107.98c-16.55 7.51-16.55 32.53 0 40.04zm487.18 88.28l-58.09-26.33-161.64 73.27c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.51 209.97l-58.1 26.33c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 276.3c16.55-7.5 16.55-32.5 0-40zm0 127.8l-57.87-26.23-161.86 73.37c-7.56 3.43-15.59 5.17-23.86 5.17s-16.29-1.74-23.86-5.17L70.29 337.87 12.41 364.1c-16.55 7.5-16.55 32.5 0 40l232.94 105.59c6.8 3.08 14.49 3.08 21.29 0L499.59 404.1c16.55-7.5 16.55-32.5 0-40z"></path></svg></span>
+        <h3>Páginas</h3>
+        <p>As abas na parte de baixo separam <strong>várias tabelas</strong> no mesmo arquivo.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="plan-criar">
+    <div class="sec-head">
+      <h2>Como criar uma planilha</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Abra o navegador Chrome.</b><span>Digite sheets.google.com na barra de endereço e aperte Enter.</span></div></li>
+      <li><div><b>Clique em Planilha em branco.</b><span>Uma tabela vazia aparece na tela.</span></div></li>
+      <li><div><b>Dê um nome à planilha.</b><span>Clique em "Planilha sem título", no alto da tela, e escreva o nome.</span></div></li>
+      <li><div><b>Clique em uma célula e digite.</b><span>A célula escolhida fica com a borda azul.</span></div></li>
+      <li><div><b>Aperte Enter ou Tab.</b><span>Enter desce para a célula de baixo. Tab vai para a célula ao lado.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="plan-formulas">
+    <div class="sec-head">
+      <h2>Como fazer contas</h2>
+    </div>
+    <div class="define">
+      <p class="lead">Uma <strong>fórmula</strong> é uma conta escrita dentro da célula. Toda fórmula começa com o sinal de <strong>igual (=)</strong>.</p>
+      <p>Na fórmula, você usa o <strong>endereço das células</strong> no lugar dos números. Assim, quando um número muda, o resultado muda sozinho.</p>
+    </div>
+    <figure class="fig">
+      <figcaption>Figura: fórmula que multiplica o preço pela quantidade</figcaption>
+      <div class="keycap"><kbd>=B2*C2</kbd></div>
+    </figure>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Conta</th><th>Sinal</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><th>Somar</th><td>+</td><td>=B2+B3</td></tr>
+          <tr><th>Subtrair</th><td>-</td><td>=B2-B3</td></tr>
+          <tr><th>Multiplicar</th><td>*</td><td>=B2*C2</td></tr>
+          <tr><th>Dividir</th><td>/</td><td>=B2/C2</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ol class="steps">
+      <li><div><b>Clique na célula onde o resultado vai aparecer.</b><span>Exemplo: a célula D2.</span></div></li>
+      <li><div><b>Digite o sinal de igual.</b><span>Ele avisa a planilha que vem uma conta.</span></div></li>
+      <li><div><b>Escreva a conta com os endereços das células.</b><span>Exemplo: B2*C2.</span></div></li>
+      <li><div><b>Aperte Enter.</b><span>O resultado aparece na célula.</span></div></li>
+    </ol>
+  </section>
+
+  <section id="plan-funcoes">
+    <div class="sec-head">
+      <h2>Funções prontas</h2>
+      <p>As funções são fórmulas que já vêm prontas. Elas fazem contas com muitas células de uma vez.</p>
+    </div>
+    <div class="table-wrap">
+      <table class="cmp">
+        <thead><tr><th>Função</th><th>O que faz</th><th>Exemplo</th></tr></thead>
+        <tbody>
+          <tr><th>SOMA</th><td>Soma todos os números</td><td>=SOMA(D2:D4)</td></tr>
+          <tr><th>MÉDIA</th><td>Calcula a média dos números</td><td>=MÉDIA(B2:B4)</td></tr>
+          <tr><th>MÁXIMO</th><td>Mostra o maior número</td><td>=MÁXIMO(B2:B4)</td></tr>
+          <tr><th>MÍNIMO</th><td>Mostra o menor número</td><td>=MÍNIMO(B2:B4)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M214.059 377.941H168V134.059h46.059c21.382 0 32.09-25.851 16.971-40.971L144.971 7.029c-9.373-9.373-24.568-9.373-33.941 0L24.971 93.088c-15.119 15.119-4.411 40.971 16.971 40.971H88v243.882H41.941c-21.382 0-32.09 25.851-16.971 40.971l86.059 86.059c9.373 9.373 24.568 9.373 33.941 0l86.059-86.059c15.12-15.119 4.412-40.971-16.97-40.971z"></path></svg></span>
+        <h3>O que significam os dois pontos</h3>
+        <p><strong>D2:D4</strong> quer dizer "da célula D2 até a célula D4".</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="plan-formatar">
+    <div class="sec-head">
+      <h2>Como deixar a planilha organizada</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M333.49 238a122 122 0 0 0 27-65.21C367.87 96.49 308 32 233.42 32H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h31.87v288H34a16 16 0 0 0-16 16v48a16 16 0 0 0 16 16h209.32c70.8 0 134.14-51.75 141-122.4 4.74-48.45-16.39-92.06-50.83-119.6zM145.66 112h87.76a48 48 0 0 1 0 96h-87.76zm87.76 288h-87.76V288h87.76a56 56 0 0 1 0 112z"></path></svg></span>
+        <h3>Negrito no título</h3>
+        <p>Destaque a <strong>primeira linha</strong>, que tem os nomes das colunas.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M512 320s-64 92.65-64 128c0 35.35 28.66 64 64 64s64-28.65 64-64-64-128-64-128zm-9.37-102.94L294.94 9.37C288.69 3.12 280.5 0 272.31 0s-16.38 3.12-22.62 9.37l-81.58 81.58L81.93 4.76c-6.25-6.25-16.38-6.25-22.62 0L36.69 27.38c-6.24 6.25-6.24 16.38 0 22.62l86.19 86.18-94.76 94.76c-37.49 37.48-37.49 98.26 0 135.75l117.19 117.19c18.74 18.74 43.31 28.12 67.87 28.12 24.57 0 49.13-9.37 67.87-28.12l221.57-221.57c12.5-12.5 12.5-32.75.01-45.25zm-116.22 70.97H65.93c1.36-3.84 3.57-7.98 7.43-11.83l13.15-13.15 81.61-81.61 58.6 58.6c12.49 12.49 32.75 12.49 45.24 0s12.49-32.75 0-45.24l-58.6-58.6 58.95-58.95 162.44 162.44-48.34 48.34z"></path></svg></span>
+        <h3>Cor de preenchimento</h3>
+        <p>Pinta o <strong>fundo da célula</strong> para separar as partes.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H32A32 32 0 0 0 0 64v384a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32zm-32 64v128H256V96zm-192 0v128H64V96zM64 416V288h128v128zm192 0V288h128v128z"></path></svg></span>
+        <h3>Bordas</h3>
+        <p>Desenha as <strong>linhas da tabela</strong> para ela aparecer ao imprimir.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M621.16 54.46C582.37 38.19 543.55 32 504.75 32c-123.17-.01-246.33 62.34-369.5 62.34-30.89 0-61.76-3.92-92.65-13.72-3.47-1.1-6.95-1.62-10.35-1.62C15.04 79 0 92.32 0 110.81v317.26c0 12.63 7.23 24.6 18.84 29.46C57.63 473.81 96.45 480 135.25 480c123.17 0 246.34-62.35 369.51-62.35 30.89 0 61.76 3.92 92.65 13.72 3.47 1.1 6.95 1.62 10.35 1.62 17.21 0 32.25-13.32 32.25-31.81V83.93c-.01-12.64-7.24-24.6-18.85-29.47zM48 132.22c20.12 5.04 41.12 7.57 62.72 8.93C104.84 170.54 79 192.69 48 192.69v-60.47zm0 285v-47.78c34.37 0 62.18 27.27 63.71 61.4-22.53-1.81-43.59-6.31-63.71-13.62zM320 352c-44.19 0-80-42.99-80-96 0-53.02 35.82-96 80-96s80 42.98 80 96c0 53.03-35.83 96-80 96zm272 27.78c-17.52-4.39-35.71-6.85-54.32-8.44 5.87-26.08 27.5-45.88 54.32-49.28v57.72zm0-236.11c-30.89-3.91-54.86-29.7-55.81-61.55 19.54 2.17 38.09 6.23 55.81 12.66v48.89z"></path></svg></span>
+        <h3>Formato de moeda</h3>
+        <p>Mostra o número como <strong>dinheiro</strong>, com R$ e centavos.</p>
+      </article>
+      <article class="card">
+        <span class="ic"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" aria-hidden="true" focusable="false" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M377.941 169.941V216H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.568 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296h243.882v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.568 0-33.941l-86.059-86.059c-15.119-15.12-40.971-4.412-40.971 16.97z"></path></svg></span>
+        <h3>Largura da coluna</h3>
+        <p>Arraste a divisa entre as letras para a coluna ficar <strong>mais larga</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="plan-graficos">
+    <div class="sec-head">
+      <h2>Como criar um gráfico</h2>
+    </div>
+    <ol class="steps">
+      <li><div><b>Selecione os dados.</b><span>Clique na primeira célula e arraste até a última.</span></div></li>
+      <li><div><b>Clique no menu Inserir.</b><span>Ele fica no alto da tela.</span></div></li>
+      <li><div><b>Clique em Gráfico.</b><span>A planilha cria um gráfico com os dados escolhidos.</span></div></li>
+      <li><div><b>Escolha o tipo de gráfico.</b><span>Os mais usados são o de colunas, o de linhas e o de pizza.</span></div></li>
+    </ol>
+  </section>
+
+  <section class="summary" id="resumo-planilhas">
+    <h2>Resumo da página</h2>
+    <ul>
+      <li>O <strong>Google Planilhas</strong> organiza informações em tabelas e faz contas.</li>
+      <li>A planilha tem <strong>colunas</strong> (letras), <strong>linhas</strong> (números) e <strong>células</strong>.</li>
+      <li>O endereço da célula junta a letra e o número, como <strong>B2</strong>.</li>
+      <li>Toda fórmula começa com o sinal de <strong>igual (=)</strong>.</li>
+      <li>As funções <strong>SOMA</strong> e <strong>MÉDIA</strong> fazem contas com várias células.</li>
+      <li>O menu Inserir cria gráficos com os dados da planilha.</li>
+    </ul>
+  </section>
+
+  <div class="pager"><a class="back" href="#pagina-12">← Página 12: Google Docs</a><a href="#pagina-14">Página 14: Google Maps →</a></div>
+
+</main>
+</div>
+</div>
+
+<!-- ================= PÁGINA 14 ================= -->
+<div class="view" id="view-pagina-14" hidden>
+<div class="band">
+  <div class="wrap">
+    <div class="hero">
+      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 14</span>
       <h1>Google Maps</h1>
       <p>Aprenda a encontrar lugares, traçar caminhos e ver as ruas pelo mapa digital do Google.</p>
       <div class="go">
-        <a class="btn main" href="#pagina-13" data-scroll="maps-rota">Como traçar uma rota</a>
-        <a class="btn alt" href="#pagina-13" data-scroll="maps-oque">O que é o Google Maps</a>
+        <a class="btn main" href="#pagina-14" data-scroll="maps-rota">Como traçar uma rota</a>
+        <a class="btn alt" href="#pagina-14" data-scroll="maps-oque">O que é o Google Maps</a>
       </div>
     </div>
   </div>
@@ -2354,23 +2598,23 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-12">← Página 12: Google Docs</a><a href="#pagina-14">Página 14: Google Earth →</a></div>
+  <div class="pager"><a class="back" href="#pagina-13">← Página 13: Google Planilhas</a><a href="#pagina-15">Página 15: Google Earth →</a></div>
 
 </main>
 </div>
 </div>
 
-<!-- ================= PÁGINA 14 ================= -->
-<div class="view" id="view-pagina-14" hidden>
+<!-- ================= PÁGINA 15 ================= -->
+<div class="view" id="view-pagina-15" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 14</span>
+      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 15</span>
       <h1>Google Earth</h1>
       <p>Conheça o globo terrestre digital do Google e viaje pelo planeta sem sair da sala de aula.</p>
       <div class="go">
-        <a class="btn main" href="#pagina-14" data-scroll="earth-usar">Como usar</a>
-        <a class="btn alt" href="#pagina-14" data-scroll="earth-diferenca">Maps ou Earth?</a>
+        <a class="btn main" href="#pagina-15" data-scroll="earth-usar">Como usar</a>
+        <a class="btn alt" href="#pagina-15" data-scroll="earth-diferenca">Maps ou Earth?</a>
       </div>
     </div>
   </div>
@@ -2491,23 +2735,23 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-13">← Página 13: Google Maps</a><a href="#pagina-15">Página 15: Google Meet →</a></div>
+  <div class="pager"><a class="back" href="#pagina-14">← Página 14: Google Maps</a><a href="#pagina-16">Página 16: Google Meet →</a></div>
 
 </main>
 </div>
 </div>
 
-<!-- ================= PÁGINA 15 ================= -->
-<div class="view" id="view-pagina-15" hidden>
+<!-- ================= PÁGINA 16 ================= -->
+<div class="view" id="view-pagina-16" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 15</span>
+      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 16</span>
       <h1>Google Meet</h1>
       <p>Aprenda a entrar em uma chamada de vídeo e a usar os botões do Google Meet.</p>
       <div class="go">
-        <a class="btn main" href="#pagina-15" data-scroll="meet-entrar">Como entrar na chamada</a>
-        <a class="btn alt" href="#pagina-15" data-scroll="meet-botoes">Os botões da chamada</a>
+        <a class="btn main" href="#pagina-16" data-scroll="meet-entrar">Como entrar na chamada</a>
+        <a class="btn alt" href="#pagina-16" data-scroll="meet-botoes">Os botões da chamada</a>
       </div>
     </div>
   </div>
@@ -2633,7 +2877,7 @@
     </div>
   </section>
 
-  <section class="summary" id="resumo-15">
+  <section class="summary" id="resumo-16">
     <h2>Resumo da página</h2>
     <ul>
       <li>O <strong>Google Meet</strong> faz chamadas de vídeo pela internet.</li>
@@ -2644,23 +2888,23 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-14">← Página 14: Google Earth</a><a href="#pagina-16">Página 16: Google Forms →</a></div>
+  <div class="pager"><a class="back" href="#pagina-15">← Página 15: Google Earth</a><a href="#pagina-17">Página 17: Google Forms →</a></div>
 
 </main>
 </div>
 </div>
 
-<!-- ================= PÁGINA 16 ================= -->
-<div class="view" id="view-pagina-16" hidden>
+<!-- ================= PÁGINA 17 ================= -->
+<div class="view" id="view-pagina-17" hidden>
 <div class="band">
   <div class="wrap">
     <div class="hero">
-      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 16</span>
+      <span class="label">AULAS DE TECNOLOGIA · PÁGINA 17</span>
       <h1>Google Forms</h1>
       <p>Aprenda a responder e a criar formulários on-line, usados em pesquisas, inscrições e provas.</p>
       <div class="go">
-        <a class="btn main" href="#pagina-16" data-scroll="forms-responder">Como responder</a>
-        <a class="btn alt" href="#pagina-16" data-scroll="forms-criar">Como criar um formulário</a>
+        <a class="btn main" href="#pagina-17" data-scroll="forms-responder">Como responder</a>
+        <a class="btn alt" href="#pagina-17" data-scroll="forms-criar">Como criar um formulário</a>
       </div>
     </div>
   </div>
@@ -2781,7 +3025,7 @@
     </div>
   </section>
 
-  <section class="summary" id="resumo-16">
+  <section class="summary" id="resumo-17">
     <h2>Resumo da página</h2>
     <ul>
       <li>O <strong>Google Forms</strong> cria formulários on-line.</li>
@@ -2792,7 +3036,7 @@
     </ul>
   </section>
 
-  <div class="pager"><a class="back" href="#pagina-15">← Página 15: Google Meet</a><span></span></div>
+  <div class="pager"><a class="back" href="#pagina-16">← Página 16: Google Meet</a><span></span></div>
 
 </main>
 </div>
@@ -2804,7 +3048,7 @@
 
 <script>
   (function () {
-    var views = { 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16') };
+    var views = { 'inicio': document.getElementById('view-inicio'), 'pagina-2': document.getElementById('view-pagina-2'), 'pagina-3': document.getElementById('view-pagina-3'), 'pagina-4': document.getElementById('view-pagina-4'), 'pagina-5': document.getElementById('view-pagina-5'), 'pagina-6': document.getElementById('view-pagina-6'), 'pagina-7': document.getElementById('view-pagina-7'), 'pagina-8': document.getElementById('view-pagina-8'), 'pagina-9': document.getElementById('view-pagina-9'), 'pagina-10': document.getElementById('view-pagina-10'), 'pagina-11': document.getElementById('view-pagina-11'), 'pagina-12': document.getElementById('view-pagina-12'), 'pagina-13': document.getElementById('view-pagina-13'), 'pagina-14': document.getElementById('view-pagina-14'), 'pagina-15': document.getElementById('view-pagina-15'), 'pagina-16': document.getElementById('view-pagina-16'), 'pagina-17': document.getElementById('view-pagina-17') };
     var tabs = document.querySelectorAll('[data-page]');
     function current() { var h = location.hash.slice(1); return views[h] ? h : 'inicio'; }
     function route(scrollTop) {
