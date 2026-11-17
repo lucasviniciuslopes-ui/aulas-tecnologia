@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tecnologia com o Professor Lucas Vinicius</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%20120%22%3E%3Crect%20x%3D%226%22%20y%3D%2214%22%20width%3D%22108%22%20height%3D%22100%22%20rx%3D%2226%22%20fill%3D%22%230f3182%22/%3E%3Crect%20x%3D%226%22%20y%3D%224%22%20width%3D%22108%22%20height%3D%2298%22%20rx%3D%2226%22%20fill%3D%22%231a56c4%22/%3E%3Ctext%20x%3D%2252%22%20y%3D%2272%22%20text-anchor%3D%22middle%22%20font-family%3D%22Arial%20Black%2C%20Arial%2C%20sans-serif%22%20font-weight%3D%22800%22%20font-size%3D%2250%22%20fill%3D%22%23ffc629%22%20letter-spacing%3D%22-2%22%3ELV%3C/text%3E%3Crect%20x%3D%2288%22%20y%3D%2234%22%20width%3D%227%22%20height%3D%2244%22%20rx%3D%222%22%20fill%3D%22%23ffffff%22/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap" rel="stylesheet">
@@ -643,6 +644,18 @@
   .card, .photo-fig, .gl-item, .year-card { transition: box-shadow 0.25s ease, translate 0.25s ease; }
   .card:hover, .photo-fig:hover, .gl-item:hover { translate: 0 -4px; box-shadow: 0 14px 30px rgba(15, 35, 71, 0.14); }
   @media print { .scroll-bar { display: none; } .rv { opacity: 1 !important; transform: none !important; filter: none !important; } .hero { transform: none !important; opacity: 1 !important; } }
+
+  /* Logotipo no topo */
+  .brand { display: inline-flex; align-items: center; gap: 10px; color: var(--band-ink); }
+  .brand-mark { width: 42px; height: 42px; flex: none; transition: transform 0.25s ease; }
+  .brand:hover .brand-mark { transform: translateY(-2px) rotate(-4deg); }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
+  .brand-text small { font-family: var(--font-body); font-weight: 700; font-size: 0.62em; letter-spacing: 0.2em; text-transform: uppercase; color: var(--band-accent); }
+  .brand-text b { font-weight: 800; color: #ffffff; }
+  .brand span.brand-text { color: inherit; }
+  @media (max-width: 420px) { .brand-mark { width: 36px; height: 36px; } }
+  .foot-brand { display: inline-flex; align-items: center; gap: 10px; }
+  .foot-brand svg { width: 30px; height: 30px; }
 </style>
 </head>
 <body>
@@ -650,7 +663,7 @@
 <header class="band">
   <div class="wrap">
     <div class="topbar">
-      <a class="brand" href="#capa">Professor <span>Lucas Vinicius</span></a>
+      <a class="brand" href="#capa" aria-label="Professor Lucas Vinicius, página inicial"><svg class="brand-mark" viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="14" width="108" height="100" rx="26" fill="#c79400"/><rect x="6" y="4" width="108" height="98" rx="26" fill="#ffc629"/><text x="52" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="50" fill="#0f3182" letter-spacing="-2">LV</text><rect x="88" y="34" width="7" height="44" rx="2" fill="#0f3182"/></svg><span class="brand-text"><small>Professor</small><b>Lucas Vinicius</b></span></a>
       <nav aria-label="Menu do site">
         <ul class="menu">
           <li><a href="#capa" data-page="capa">Início</a></li>
@@ -6925,7 +6938,7 @@
 </div>
 
 <footer>
-  <div class="wrap">Professor Lucas Vinicius · Aulas de Tecnologia · Ícones: Font Awesome (CC BY 4.0)</div>
+  <div class="wrap"><span class="foot-brand"><svg viewBox="0 0 120 120" aria-hidden="true"><rect x="6" y="14" width="108" height="100" rx="26" fill="#c79400"/><rect x="6" y="4" width="108" height="98" rx="26" fill="#ffc629"/><text x="52" y="72" text-anchor="middle" font-family="Bricolage Grotesque, Arial Black, sans-serif" font-weight="800" font-size="50" fill="#0f3182" letter-spacing="-2">LV</text><rect x="88" y="34" width="7" height="44" rx="2" fill="#0f3182"/></svg>Professor Lucas Vinicius</span> · Aulas de Tecnologia · Ícones: Font Awesome (CC BY 4.0)</div>
 </footer>
 
 <script>
